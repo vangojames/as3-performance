@@ -70,6 +70,17 @@
       <dep id="Boolean" />
       <dep id="org.hamcrest:assertThatMatcher" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\meta\configurations\BaseMethodConfiguration.as" mod="1337622868912" size="3012" optimizedsize="1358">
+      <def id="com.vango.testing.performance.meta.configurations:BaseMethodConfiguration" />
+      <pre id="com.vango.testing.performance.meta.configurations:IMethodConfiguration" />
+      <pre id="Object" />
+      <dep id="org.as3commons.reflect:MetadataArgument" />
+      <dep id="org.as3commons.reflect:Method" />
+      <dep id="AS3" />
+      <dep id="org.as3commons.reflect:Metadata" />
+      <dep id="com.vango.testing.performance.meta.tags:PerformanceTestMetaAttribute" />
+      <dep id="Error" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.preloaders:Preloader)" mod="1265215575263" size="6766" optimizedsize="4160">
       <def id="mx.preloaders:Preloader" />
       <pre id="flash.display:Sprite" />
@@ -123,6 +134,12 @@
       <dep id="mx.effects:EffectTargetFilter" />
       <dep id="Object" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\meta\configurations\IMethodConfiguration.as" mod="1337622868926" size="1459" optimizedsize="371">
+      <def id="com.vango.testing.performance.meta.configurations:IMethodConfiguration" />
+      <pre id="Object" />
+      <dep id="org.as3commons.reflect:Method" />
+      <dep id="AS3" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\org\as3commons\as3commons-reflect\1.6.0\as3commons-reflect-1.6.0.swc(org.as3commons.reflect:Parameter)" mod="1332407293019" size="849" optimizedsize="367">
       <def id="org.as3commons.reflect:Parameter" />
       <pre id="Object" />
@@ -157,6 +174,15 @@
       <dep id="AS3" />
       <dep id="mx.core:mx_internal" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\capture\PerformanceRegistry.as" mod="1337622868898" size="1980" optimizedsize="877">
+      <def id="com.vango.testing.performance.capture:PerformanceRegistry" />
+      <pre id="Object" />
+      <dep id="com.vango.testing.performance.capture:SingletonLock" />
+      <dep id="flash.errors:IllegalOperationError" />
+      <dep id="AS3" />
+      <dep id="flash.utils:Dictionary" />
+      <dep id="com.vango.testing.performance.capture:PerformanceRepository" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.controls:Text)" mod="1265215586435" size="4182" optimizedsize="2411">
       <def id="mx.controls:Text" />
       <pre id="mx.controls:Label" />
@@ -166,14 +192,6 @@
       <dep id="mx.core:mx_internal" />
       <dep id="mx.events:FlexEvent" />
       <dep id="mx.core:UITextField" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\reporting\csv\reportPerformanceCSV.as" mod="1337530941256" size="764" optimizedsize="285">
-      <def id="com.playfish.games.marlin.testing.performance.reporting.csv:reportPerformanceCSV" />
-      <dep id="String" />
-      <dep id="AS3" />
-      <dep id="Boolean" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:retrieveTestSet" />
-      <dep id="Object" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.controls:Label)" mod="1265215585763" size="10889" optimizedsize="5057">
       <def id="mx.controls:Label" />
@@ -256,12 +274,6 @@
       <dep id="flash.filters:BlurFilter" />
       <dep id="mx.core:mx_internal" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\meta\configurations\SnapshotMethodConfiguration.as" mod="1337513491467" size="1153" optimizedsize="432">
-      <def id="com.playfish.games.marlin.testing.performance.meta.configurations:SnapshotMethodConfiguration" />
-      <pre id="com.playfish.games.marlin.testing.performance.meta.configurations:BaseMethodConfiguration" />
-      <dep id="org.as3commons.reflect:Method" />
-      <dep id="AS3" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\flash-integration\4.1.0.16248\flash-integration-4.1.0.16248.swc(mx.events:ModuleEvent)" mod="1265215589982" size="1341" optimizedsize="729">
       <def id="mx.events:ModuleEvent" />
       <pre id="flash.events:ProgressEvent" />
@@ -316,11 +328,6 @@
       <dep id="flash.system:ApplicationDomain" />
       <dep id="org.as3commons.reflect:AccessorAccess" />
       <dep id="flash.utils:Dictionary" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\meta\helpers\FakeTestWithMultipleTagsOnSameMethod.as" mod="1337442883841" size="1344" optimizedsize="413">
-      <def id="com.playfish.games.marlin.testing.performance.meta.helpers:FakeTestWithMultipleTagsOnSameMethod" />
-      <pre id="Object" />
-      <dep id="AS3" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.core:UITextField)" mod="1269456750794" size="22687" optimizedsize="10873">
       <def id="mx.core:UITextField" />
@@ -412,11 +419,6 @@
       <dep id="mx.events:FlexEvent" />
       <dep id="mx.managers:SystemManagerGlobals" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\meta\tags\PerformanceTestMetaTag.as" mod="1337441160039" size="867" optimizedsize="360">
-      <def id="com.playfish.games.marlin.testing.performance.meta.tags:PerformanceTestMetaTag" />
-      <pre id="Object" />
-      <dep id="AS3" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.graphics.shaderClasses:LuminosityMaskShader_ShaderClass)" mod="1265215576341" size="971" optimizedsize="297">
       <def id="mx.graphics.shaderClasses:LuminosityMaskShader_ShaderClass" />
       <pre id="mx.core:ByteArrayAsset" />
@@ -491,19 +493,6 @@
       <dep id="mx.styles:CSSStyleDeclaration" />
       <dep id="AS3" />
       <dep id="mx.core:mx_internal" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\capture\TestPerformanceRegistry.as" mod="1337360989146" size="3960" optimizedsize="1569">
-      <def id="com.playfish.games.marlin.testing.performance.capture:TestPerformanceRegistry" />
-      <pre id="Object" />
-      <dep id="org.flexunit.asserts:assertFalse" />
-      <dep id="org.flexunit.asserts:assertTrue" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceRegistry" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:SingletonLock" />
-      <dep id="org.flexunit.asserts:assertStrictlyEquals" />
-      <dep id="org.flexunit.asserts:assertNotNull" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceRepository" />
-      <dep id="flash.display:Sprite" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.internals.builders:NullBuilder)" mod="1260324873140" size="637" optimizedsize="258">
       <def id="org.flexunit.internals.builders:NullBuilder" />
@@ -581,10 +570,6 @@
       <dep id="mx.events:PropertyChangeEvent" />
       <dep id="flash.geom:Point" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\meta\performance_meta.as" mod="1337441160049" size="322" optimizedsize="182">
-      <def id="com.playfish.games.marlin.testing.performance.meta:performance_meta" />
-      <dep id="AS3" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.async:AsyncHandler)" mod="1280852341860" size="1870" optimizedsize="952">
       <def id="org.flexunit.async:AsyncHandler" />
       <pre id="flash.events:EventDispatcher" />
@@ -593,6 +578,22 @@
       <dep id="org.flexunit.events:AsyncEvent" />
       <dep id="flash.utils:Timer" />
       <dep id="flash.events:TimerEvent" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\runner\method\TestAsyncStandardMethodRunner.as" mod="1337622873111" size="2459" optimizedsize="1407">
+      <def id="com.vango.testing.performance.runner.method:TestAsyncStandardMethodRunner" />
+      <pre id="Object" />
+      <dep id="com.vango.testing.performance.runner.helpers:FakeAsyncTestClass" />
+      <dep id="org.osflash.signals.utils:registerFailureSignal" />
+      <dep id="com.vango.testing.performance.runner.async:AsyncToken" />
+      <dep id="org.as3commons.reflect:Method" />
+      <dep id="com.vango.testing.performance.meta.configurations:IMethodConfiguration" />
+      <dep id="org.osflash.signals:Signal" />
+      <dep id="AS3" />
+      <dep id="org.as3commons.reflect:Type" />
+      <dep id="com.vango.testing.performance.runner.method:AsyncMethodRunner" />
+      <dep id="com.vango.testing.performance.meta.configurations:MethodConfiguration" />
+      <dep id="com.vango.testing.performance.meta.tags:PerformanceTestMetaTag" />
+      <dep id="org.osflash.signals.utils:proceedOnSignal" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\sparkskins\4.1.0.16248\sparkskins-4.1.0.16248.swc(mx.skins.spark:ScrollBarDownButtonSkin)" mod="1265215524497" size="8072" optimizedsize="4711">
       <def id="mx.skins.spark:ScrollBarDownButtonSkin" />
@@ -626,6 +627,35 @@
       <dep id="AS3" />
       <dep id="org.hamcrest:assertThat" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\runner\test\TestTestingThread.as" mod="1337622873091" size="3527" optimizedsize="2104">
+      <def id="com.vango.testing.performance.runner.test:TestTestingThread" />
+      <pre id="Object" />
+      <dep id="org.osflash.signals.utils:registerFailureSignal" />
+      <dep id="com.vango.testing.performance.meta.parse:PerformanceTestParser" />
+      <dep id="org.osflash.signals.utils:handleSignal" />
+      <dep id="com.vango.testing.performance.runner.method:MethodRunnerMap" />
+      <dep id="com.vango.testing.performance.meta.configurations:SnapshotMethodConfiguration" />
+      <dep id="com.vango.testing.performance.runner.method:SnapshotMethodRunner" />
+      <dep id="AS3" />
+      <dep id="__AS3__.vec:Vector" />
+      <dep id="org.hamcrest.collection:everyItem" />
+      <dep id="org.hamcrest.object:hasProperty" />
+      <dep id="com.vango.testing.performance.reporting.csv:reportPerformanceCSV" />
+      <dep id="com.vango.testing.performance.runner.test:ThreadContext" />
+      <dep id="org.osflash.signals:Signal" />
+      <dep id="com.vango.testing.performance.runner.helpers:FakeTestClass" />
+      <dep id="com.vango.testing.performance.runner.method:MethodRunner" />
+      <dep id="com.vango.testing.performance.runner:RunConfiguration" />
+      <dep id="com.vango.testing.performance.capture:clearTestSet" />
+      <dep id="org.hamcrest.object:equalTo" />
+      <dep id="org.hamcrest:assertThat" />
+      <dep id="com.vango.testing.performance.meta.configurations:MethodConfiguration" />
+      <dep id="org.hamcrest.core:allOf" />
+      <dep id="org.osflash.signals.utils:SignalAsyncEvent" />
+      <dep id="org.hamcrest.collection:arrayWithSize" />
+      <dep id="org.hamcrest.collection:array" />
+      <dep id="com.vango.testing.performance.runner.test:TestingThread" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.events:IndexChangedEvent)" mod="1265215589482" size="1247" optimizedsize="673">
       <def id="mx.events:IndexChangedEvent" />
       <pre id="flash.events:Event" />
@@ -648,15 +678,6 @@
       <dep id="AS3" />
       <dep id="org.hamcrest:Matcher" />
       <dep id="XML" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\runner\method\AsyncMethodRunner.as" mod="1337529837808" size="1576" optimizedsize="911">
-      <def id="com.playfish.games.marlin.testing.performance.runner.method:AsyncMethodRunner" />
-      <pre id="com.playfish.games.marlin.testing.performance.runner.method:IMethodRunner" />
-      <pre id="Object" />
-      <dep id="flash.utils:getQualifiedClassName" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.async:AsyncToken" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:IMethodConfiguration" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.asserts:assertFalse)" mod="1260324873080" size="476" optimizedsize="183">
       <def id="org.flexunit.asserts:assertFalse" />
@@ -880,7 +901,7 @@
       <dep id="AS3" />
       <dep id="mx.core:mx_internal" />
     </script>
-    <script name="_performance_api_jvango____FlexUnitLauncher_FlexInit-generated.as" mod="1337542252752" size="3353" optimizedsize="2850">
+    <script name="_performance_api_jvango____FlexUnitLauncher_FlexInit-generated.as" mod="1337622874820" size="3353" optimizedsize="2850">
       <def id="_performance_api_jvango____FlexUnitLauncher_FlexInit" />
       <pre id="Object" />
       <dep id="mx.core:IFlexModuleFactory" />
@@ -1005,6 +1026,14 @@
       <pre id="Object" />
       <dep id="AS3" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\reporting\csv\reportPerformanceCSV.as" mod="1337622868964" size="684" optimizedsize="253">
+      <def id="com.vango.testing.performance.reporting.csv:reportPerformanceCSV" />
+      <dep id="com.vango.testing.performance.capture:retrieveTestSet" />
+      <dep id="String" />
+      <dep id="AS3" />
+      <dep id="Boolean" />
+      <dep id="Object" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\org\hamcrest\hamcrest-as3-only\1.1.3\hamcrest-as3-only-1.1.3.swc(org.hamcrest.object:hasProperty)" mod="1289443446000" size="739" optimizedsize="388">
       <def id="org.hamcrest.object:hasProperty" />
       <dep id="org.hamcrest.object:HasPropertyMatcher" />
@@ -1040,12 +1069,6 @@
       <pre id="Object" />
       <dep id="flexunit.framework:TestCase" />
       <dep id="AS3" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\runner\RunPhase.as" mod="1337506235815" size="1219" optimizedsize="587">
-      <def id="com.playfish.games.marlin.testing.performance.runner:RunPhase" />
-      <pre id="Object" />
-      <dep id="AS3" />
-      <dep id="Error" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.internals.runners.statements:ExpectAsync)" mod="1283142293988" size="8356" optimizedsize="4286">
       <def id="org.flexunit.internals.runners.statements:ExpectAsync" />
@@ -1100,6 +1123,21 @@
       <dep id="AS3" />
       <dep id="flash.display:DisplayObject" />
       <dep id="mx.core:mx_internal" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\reporting\csv\TestCSV.as" mod="1337622873099" size="5346" optimizedsize="2567">
+      <def id="com.vango.testing.performance.reporting.csv:TestCSV" />
+      <pre id="Object" />
+      <dep id="org.hamcrest.collection:hasItems" />
+      <dep id="org.flexunit.asserts:assertTrue" />
+      <dep id="AS3" />
+      <dep id="org.flexunit.asserts:assertEquals" />
+      <dep id="org.hamcrest.text:containsString" />
+      <dep id="org.hamcrest.text:emptyString" />
+      <dep id="org.hamcrest:assertThat" />
+      <dep id="org.flexunit.asserts:assertStrictlyEquals" />
+      <dep id="flash.utils:Dictionary" />
+      <dep id="org.hamcrest.core:not" />
+      <dep id="com.vango.testing.performance.reporting.csv:CSV" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.internals.namespaces:classInternal)" mod="1260324873140" size="258" optimizedsize="143">
       <def id="org.flexunit.internals.namespaces:classInternal" />
@@ -1279,6 +1317,11 @@
       <dep id="mx.core:mx_internal" />
       <dep id="flash.filters:DropShadowFilter" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\meta\tags\PerformanceTestMetaAttribute.as" mod="1337622798211" size="779" optimizedsize="313">
+      <def id="com.vango.testing.performance.meta.tags:PerformanceTestMetaAttribute" />
+      <pre id="Object" />
+      <dep id="AS3" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\flash-integration\4.1.0.16248\flash-integration-4.1.0.16248.swc(mx.events:DragEvent)" mod="1265215589466" size="1526" optimizedsize="873">
       <def id="mx.events:DragEvent" />
       <pre id="flash.events:MouseEvent" />
@@ -1294,17 +1337,6 @@
       <dep id="mx.core:IVisualElement" />
       <dep id="AS3" />
       <dep id="mx.core:mx_internal" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\runner\method\MethodRunnerMap.as" mod="1337508951662" size="2019" optimizedsize="1063">
-      <def id="com.playfish.games.marlin.testing.performance.runner.method:MethodRunnerMap" />
-      <pre id="Object" />
-      <dep id="flash.utils:getQualifiedClassName" />
-      <dep id="ArgumentError" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:IMethodRunner" />
-      <dep id="AS3" />
-      <dep id="org.as3commons.reflect:Type" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:IMethodConfiguration" />
-      <dep id="flash.utils:Dictionary" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\flash-integration\4.1.0.16248\flash-integration-4.1.0.16248.swc(mx.core:IToolTip)" mod="1265215569185" size="606" optimizedsize="222">
       <def id="mx.core:IToolTip" />
@@ -1368,6 +1400,29 @@
       <dep id="mx.events:PropertyChangeEvent" />
       <dep id="flash.geom:Point" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\runner\method\TestSnapshotMethodRunner.as" mod="1337622873124" size="2783" optimizedsize="1574">
+      <def id="com.vango.testing.performance.runner.method:TestSnapshotMethodRunner" />
+      <pre id="Object" />
+      <dep id="com.vango.testing.performance.runner.async:AsyncToken" />
+      <dep id="com.vango.testing.performance.capture:PerformanceDataEntry" />
+      <dep id="com.vango.testing.performance.meta.configurations:IMethodConfiguration" />
+      <dep id="org.as3commons.reflect:Type" />
+      <dep id="com.vango.testing.performance.runner.helpers:FakeTestClass" />
+      <dep id="com.vango.testing.performance.capture:clearTestSet" />
+      <dep id="org.hamcrest:assertThat" />
+      <dep id="org.hamcrest.object:instanceOf" />
+      <dep id="org.hamcrest.core:allOf" />
+      <dep id="org.hamcrest.collection:arrayWithSize" />
+      <dep id="com.vango.testing.performance.capture:retrieveTestSet" />
+      <dep id="com.vango.testing.performance.meta.configurations:SnapshotMethodConfiguration" />
+      <dep id="org.as3commons.reflect:Method" />
+      <dep id="com.vango.testing.performance.runner.method:SnapshotMethodRunner" />
+      <dep id="AS3" />
+      <dep id="org.hamcrest.collection:array" />
+      <dep id="com.vango.testing.performance.capture:PerformanceTestSet" />
+      <dep id="org.hamcrest.object:hasProperty" />
+      <dep id="com.vango.testing.performance.meta.tags:PerformanceTestMetaTag" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.internals.builders:MetaDataBuilder)" mod="1277144322216" size="3766" optimizedsize="2256">
       <def id="org.flexunit.internals.builders:MetaDataBuilder" />
       <pre id="org.flexunit.runners.model:RunnerBuilderBase" />
@@ -1383,6 +1438,16 @@
       <dep id="org.flexunit.constants:AnnotationConstants" />
       <dep id="org.flexunit.runners.model:IRunnerBuilder" />
       <dep id="Error" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\runner\helpers\FakeTestClass.as" mod="1337622829707" size="1559" optimizedsize="678">
+      <def id="com.vango.testing.performance.runner.helpers:FakeTestClass" />
+      <pre id="Object" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\meta\helpers\FakeTestWithNoMetaData.as" mod="1337622823161" size="1058" optimizedsize="353">
+      <def id="com.vango.testing.performance.meta.helpers:FakeTestWithNoMetaData" />
+      <pre id="Object" />
+      <dep id="AS3" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\spark\4.1.0.16248\spark-4.1.0.16248.swc(spark.skins.spark:ErrorSkin)" mod="1265215432747" size="1696" optimizedsize="1061">
       <def id="spark.skins.spark:ErrorSkin" />
@@ -1405,6 +1470,22 @@
       <def id="org.flexunit.constants:AnnotationArgumentConstants" />
       <pre id="Object" />
       <dep id="AS3" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\runner\method\TestMethodRunner.as" mod="1337622873076" size="2338" optimizedsize="1320">
+      <def id="com.vango.testing.performance.runner.method:TestMethodRunner" />
+      <pre id="Object" />
+      <dep id="com.vango.testing.performance.capture:retrieveTestSet" />
+      <dep id="org.hamcrest.collection:emptyArray" />
+      <dep id="com.vango.testing.performance.runner.async:AsyncToken" />
+      <dep id="org.as3commons.reflect:Method" />
+      <dep id="com.vango.testing.performance.meta.configurations:IMethodConfiguration" />
+      <dep id="AS3" />
+      <dep id="org.as3commons.reflect:Type" />
+      <dep id="com.vango.testing.performance.runner.helpers:FakeTestClass" />
+      <dep id="com.vango.testing.performance.runner.method:MethodRunner" />
+      <dep id="org.hamcrest:assertThat" />
+      <dep id="com.vango.testing.performance.meta.configurations:MethodConfiguration" />
+      <dep id="com.vango.testing.performance.meta.tags:PerformanceTestMetaTag" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(flexunit.framework:ProtectedMiddleTestCase)" mod="1240181186346" size="823" optimizedsize="310">
       <def id="flexunit.framework:ProtectedMiddleTestCase" />
@@ -1470,17 +1551,23 @@
       <pre id="Error" />
       <dep id="AS3" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\capture\TestPerformanceRegistry.as" mod="1337622873103" size="3696" optimizedsize="1537">
+      <def id="com.vango.testing.performance.capture:TestPerformanceRegistry" />
+      <pre id="Object" />
+      <dep id="org.flexunit.asserts:assertFalse" />
+      <dep id="com.vango.testing.performance.capture:SingletonLock" />
+      <dep id="com.vango.testing.performance.capture:PerformanceRegistry" />
+      <dep id="org.flexunit.asserts:assertTrue" />
+      <dep id="AS3" />
+      <dep id="org.flexunit.asserts:assertStrictlyEquals" />
+      <dep id="org.flexunit.asserts:assertNotNull" />
+      <dep id="com.vango.testing.performance.capture:PerformanceRepository" />
+      <dep id="flash.display:Sprite" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.managers:IFocusManagerGroup)" mod="1265215573357" size="856" optimizedsize="234">
       <def id="mx.managers:IFocusManagerGroup" />
       <pre id="Object" />
       <dep id="AS3" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\runner\method\IMethodRunner.as" mod="1337510755407" size="1100" optimizedsize="460">
-      <def id="com.playfish.games.marlin.testing.performance.runner.method:IMethodRunner" />
-      <pre id="Object" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.async:AsyncToken" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:IMethodConfiguration" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.managers:IFocusManager)" mod="1265215573216" size="2328" optimizedsize="669">
       <def id="mx.managers:IFocusManager" />
@@ -1664,6 +1751,19 @@
       <dep id="org.flexunit.runner.external:IExternalDependencyData" />
       <dep id="org.flexunit.constants:AnnotationConstants" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\reporting\analysis\TestFieldSummary.as" mod="1337622868938" size="2757" optimizedsize="1587">
+      <def id="com.vango.testing.performance.reporting.analysis:TestFieldSummary" />
+      <pre id="Object" />
+      <dep id="com.vango.testing.performance.capture:PerformanceDataEntry" />
+      <dep id="AS3" />
+      <dep id="trace" />
+      <dep id="Math" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\meta\helpers\FakeTestWithPropertyTags.as" mod="1337622823150" size="1212" optimizedsize="425">
+      <def id="com.vango.testing.performance.meta.helpers:FakeTestWithPropertyTags" />
+      <pre id="Object" />
+      <dep id="AS3" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.events:AsyncResponseEvent)" mod="1274048996288" size="1046" optimizedsize="493">
       <def id="org.flexunit.events:AsyncResponseEvent" />
       <pre id="flash.events:Event" />
@@ -1674,6 +1774,13 @@
       <pre id="Object" />
       <dep id="AS3" />
       <dep id="mx.core:mx_internal" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\runner\method\IMethodRunner.as" mod="1337622868961" size="953" optimizedsize="396">
+      <def id="com.vango.testing.performance.runner.method:IMethodRunner" />
+      <pre id="Object" />
+      <dep id="com.vango.testing.performance.runner.async:AsyncToken" />
+      <dep id="com.vango.testing.performance.meta.configurations:IMethodConfiguration" />
+      <dep id="AS3" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.internals.builders:FlexUnit4QualifiedBuilder)" mod="1277144322216" size="1359" optimizedsize="745">
       <def id="org.flexunit.internals.builders:FlexUnit4QualifiedBuilder" />
@@ -1750,17 +1857,6 @@
       <dep id="org.as3commons.lang:HashArray" />
       <dep id="flash.system:ApplicationDomain" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\capture\TestPerformanceRepository.as" mod="1337360826636" size="4257" optimizedsize="1784">
-      <def id="com.playfish.games.marlin.testing.performance.capture:TestPerformanceRepository" />
-      <pre id="Object" />
-      <dep id="org.flexunit.asserts:assertFalse" />
-      <dep id="org.flexunit.asserts:assertTrue" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceTestSet" />
-      <dep id="org.flexunit.asserts:assertEquals" />
-      <dep id="org.flexunit.asserts:assertStrictlyEquals" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceRepository" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.async:ITestResponder)" mod="1260324873090" size="707" optimizedsize="209">
       <def id="org.flexunit.async:ITestResponder" />
       <pre id="Object" />
@@ -1798,6 +1894,17 @@
       <dep id="flash.display:DisplayObject" />
       <dep id="mx.events:StyleEvent" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\runner\RunConfiguration.as" mod="1337622868874" size="2600" optimizedsize="1201">
+      <def id="com.vango.testing.performance.runner:RunConfiguration" />
+      <pre id="Object" />
+      <dep id="com.vango.testing.performance.meta:performance_meta" />
+      <dep id="com.vango.testing.performance.meta.configurations:IMethodConfiguration" />
+      <dep id="AS3" />
+      <dep id="__AS3__.vec:Vector" />
+      <dep id="com.vango.testing.performance.runner:RunPhase" />
+      <dep id="flash.utils:Dictionary" />
+      <dep id="Error" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.containers:BoxDirection)" mod="1265215592544" size="636" optimizedsize="330">
       <def id="mx.containers:BoxDirection" />
       <pre id="Object" />
@@ -1821,6 +1928,11 @@
       <dep id="AS3" />
       <dep id="flash.geom:Rectangle" />
       <dep id="flash.display:DisplayObject" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\meta\tags\PerformanceTestMetaTag.as" mod="1337622798234" size="787" optimizedsize="328">
+      <def id="com.vango.testing.performance.meta.tags:PerformanceTestMetaTag" />
+      <pre id="Object" />
+      <dep id="AS3" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\org\osflash\signals\as3-signals\0.8\as3-signals-0.8.swc(org.osflash.signals:IDispatcher)" mod="1286423712922" size="514" optimizedsize="176">
       <def id="org.osflash.signals:IDispatcher" />
@@ -1895,11 +2007,6 @@
       <dep id="flexunit.utils:ArrayList" />
       <dep id="flexunit.utils:Iterator" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\meta\helpers\FakeTestWithMethodTags.as" mod="1337513836147" size="2154" optimizedsize="593">
-      <def id="com.playfish.games.marlin.testing.performance.meta.helpers:FakeTestWithMethodTags" />
-      <pre id="Object" />
-      <dep id="AS3" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\spark\4.1.0.16248\spark-4.1.0.16248.swc(spark.layouts.supportClasses:LayoutBase)" mod="1265215423185" size="15416" optimizedsize="7948">
       <def id="spark.layouts.supportClasses:LayoutBase" />
       <pre id="flash.events:IEventDispatcher" />
@@ -1922,35 +2029,6 @@
       <dep id="mx.core:UIComponentGlobals" />
       <dep id="mx.events:PropertyChangeEvent" />
       <dep id="mx.events:DragEvent" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\runner\test\TestTestingThread.as" mod="1337530941263" size="3835" optimizedsize="2249">
-      <def id="com.playfish.games.marlin.testing.performance.runner.test:TestTestingThread" />
-      <pre id="Object" />
-      <dep id="org.osflash.signals.utils:registerFailureSignal" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:SnapshotMethodRunner" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:SnapshotMethodConfiguration" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:clearTestSet" />
-      <dep id="org.osflash.signals.utils:handleSignal" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.parse:PerformanceTestParser" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:MethodRunner" />
-      <dep id="AS3" />
-      <dep id="__AS3__.vec:Vector" />
-      <dep id="org.hamcrest.collection:everyItem" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.test:ThreadContext" />
-      <dep id="org.hamcrest.object:hasProperty" />
-      <dep id="org.osflash.signals:Signal" />
-      <dep id="org.hamcrest.object:equalTo" />
-      <dep id="org.hamcrest:assertThat" />
-      <dep id="org.hamcrest.core:allOf" />
-      <dep id="org.osflash.signals.utils:SignalAsyncEvent" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.test:TestingThread" />
-      <dep id="org.hamcrest.collection:arrayWithSize" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.helpers:FakeTestClass" />
-      <dep id="com.playfish.games.marlin.testing.performance.reporting.csv:reportPerformanceCSV" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:MethodRunnerMap" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner:RunConfiguration" />
-      <dep id="org.hamcrest.collection:array" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:MethodConfiguration" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.states:IOverride)" mod="1265215588122" size="625" optimizedsize="216">
       <def id="mx.states:IOverride" />
@@ -1998,12 +2076,6 @@
       <dep id="flash.events:IEventDispatcher" />
       <dep id="AS3" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\meta\configurations\MethodConfiguration.as" mod="1337530129330" size="1097" optimizedsize="416">
-      <def id="com.playfish.games.marlin.testing.performance.meta.configurations:MethodConfiguration" />
-      <pre id="com.playfish.games.marlin.testing.performance.meta.configurations:BaseMethodConfiguration" />
-      <dep id="org.as3commons.reflect:Method" />
-      <dep id="AS3" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.skins:ProgrammaticSkin)" mod="1265215564919" size="7054" optimizedsize="3304">
       <def id="mx.skins:ProgrammaticSkin" />
       <pre id="mx.styles:ISimpleStyleClient" />
@@ -2029,26 +2101,6 @@
       <pre id="Object" />
       <dep id="AS3" />
       <dep id="mx.core:mx_internal" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\runner\test\PerformanceTestRunner.as" mod="1337542225811" size="3000" optimizedsize="1600">
-      <def id="com.playfish.games.marlin.testing.performance.runner.test:PerformanceTestRunner" />
-      <pre id="Object" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:SnapshotMethodRunner" />
-      <dep id="org.osflash.signals:Signal" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:SnapshotMethodConfiguration" />
-      <dep id="trace" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceTestSet" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.parse:PerformanceTestParser" />
-      <dep id="flash.system:ApplicationDomain" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.test:TestingThread" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:MethodRunner" />
-      <dep id="flash.utils:getQualifiedClassName" />
-      <dep id="com.playfish.games.marlin.testing.performance.reporting.analysis:TestSetSummary" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:MethodRunnerMap" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner:RunConfiguration" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:MethodConfiguration" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.test:ThreadContext" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.managers:ILayoutManagerClient)" mod="1265215573466" size="1832" optimizedsize="452">
       <def id="mx.managers:ILayoutManagerClient" />
@@ -2139,10 +2191,10 @@
       <dep id="AS3" />
       <dep id="flash.system:ApplicationDomain" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\runner\test\ThreadContext.as" mod="1337530651022" size="2540" optimizedsize="817">
-      <def id="com.playfish.games.marlin.testing.performance.runner.test:ThreadContext" />
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\runner\helpers\FakeAsyncTestClass.as" mod="1337622873095" size="1435" optimizedsize="581">
+      <def id="com.vango.testing.performance.runner.helpers:FakeAsyncTestClass" />
       <pre id="Object" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:MethodRunnerMap" />
+      <dep id="flash.utils:setTimeout" />
       <dep id="AS3" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\sparkskins\4.1.0.16248\sparkskins-4.1.0.16248.swc(mx.skins.spark:ScrollBarTrackSkin)" mod="1265215524747" size="3869" optimizedsize="2392">
@@ -2157,15 +2209,6 @@
       <dep id="mx.states:State" />
       <dep id="mx.graphics:SolidColorStroke" />
       <dep id="mx.binding:BindingManager" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\capture\PerformanceRegistry.as" mod="1337360879975" size="2158" optimizedsize="909">
-      <def id="com.playfish.games.marlin.testing.performance.capture:PerformanceRegistry" />
-      <pre id="Object" />
-      <dep id="flash.errors:IllegalOperationError" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:SingletonLock" />
-      <dep id="flash.utils:Dictionary" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceRepository" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.binding:BindabilityInfo)" mod="1265215594716" size="3422" optimizedsize="2174">
       <def id="mx.binding:BindabilityInfo" />
@@ -2188,11 +2231,6 @@
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(flexunit.framework:AssertStringFormats)" mod="1240181186190" size="1654" optimizedsize="1020">
       <def id="flexunit.framework:AssertStringFormats" />
-      <pre id="Object" />
-      <dep id="AS3" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\capture\PerformanceDataEntry.as" mod="1337360935295" size="838" optimizedsize="311">
-      <def id="com.playfish.games.marlin.testing.performance.capture:PerformanceDataEntry" />
       <pre id="Object" />
       <dep id="AS3" />
     </script>
@@ -2236,6 +2274,24 @@
       <dep id="mx.graphics.shaderClasses:ColorBurnShader" />
       <dep id="spark.core:IGraphicElement" />
       <dep id="mx.graphics.shaderClasses:ExclusionShader" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\capture\TestPerformanceTestSet.as" mod="1337622873107" size="4034" optimizedsize="1953">
+      <def id="com.vango.testing.performance.capture:TestPerformanceTestSet" />
+      <pre id="Object" />
+      <dep id="com.vango.testing.performance.capture:PerformanceDataEntry" />
+      <dep id="org.flexunit.asserts:assertTrue" />
+      <dep id="org.hamcrest.collection:hasItems" />
+      <dep id="org.flexunit.asserts:assertEquals" />
+      <dep id="org.hamcrest:assertThat" />
+      <dep id="org.flexunit.asserts:assertNotNull" />
+      <dep id="org.hamcrest.core:not" />
+      <dep id="org.hamcrest.object:hasProperties" />
+      <dep id="org.hamcrest.collection:arrayWithSize" />
+      <dep id="org.hamcrest.object:strictlyEqualTo" />
+      <dep id="org.flexunit.asserts:assertFalse" />
+      <dep id="AS3" />
+      <dep id="com.vango.testing.performance.capture:PerformanceTestSet" />
+      <dep id="org.flexunit.asserts:assertNull" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.token:AsyncTestToken)" mod="1280852341860" size="1886" optimizedsize="813">
       <def id="org.flexunit.token:AsyncTestToken" />
@@ -2324,6 +2380,11 @@
       <dep id="flash.display:Graphics" />
       <dep id="AS3" />
       <dep id="mx.core:mx_internal" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\runner\async\AsyncToken.as" mod="1337622683383" size="1155" optimizedsize="469">
+      <def id="com.vango.testing.performance.runner.async:AsyncToken" />
+      <pre id="Object" />
+      <dep id="AS3" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(flexunit.framework:TestSuite)" mod="1240181186283" size="3716" optimizedsize="1884">
       <def id="flexunit.framework:TestSuite" />
@@ -2449,12 +2510,6 @@
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\spark\4.1.0.16248\spark-4.1.0.16248.swc(spark.components:ResizeMode)" mod="1265215428279" size="524" optimizedsize="241">
       <def id="spark.components:ResizeMode" />
       <pre id="Object" />
-      <dep id="AS3" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\meta\configurations\IMethodConfiguration.as" mod="1337513725475" size="1667" optimizedsize="403">
-      <def id="com.playfish.games.marlin.testing.performance.meta.configurations:IMethodConfiguration" />
-      <pre id="Object" />
-      <dep id="org.as3commons.reflect:Method" />
       <dep id="AS3" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.runner.notification:IAsyncCompletionRunListener)" mod="1277144322279" size="795" optimizedsize="259">
@@ -2651,14 +2706,6 @@
       <dep id="flash.events:EventDispatcher" />
       <dep id="AS3" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\reporting\analysis\TestFieldSummary.as" mod="1337542174362" size="2885" optimizedsize="1635">
-      <def id="com.playfish.games.marlin.testing.performance.reporting.analysis:TestFieldSummary" />
-      <pre id="Object" />
-      <dep id="AS3" />
-      <dep id="trace" />
-      <dep id="Math" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceDataEntry" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\org\as3commons\as3commons-lang\0.3.6\as3commons-lang-0.3.6.swc(org.as3commons.lang:HashArray)" mod="1332358561730" size="3715" optimizedsize="1867">
       <def id="org.as3commons.lang:HashArray" />
       <pre id="Object" />
@@ -2685,6 +2732,14 @@
       <pre id="flash.display:Shader" />
       <dep id="AS3" />
       <dep id="mx.graphics.shaderClasses:ExclusionShader_ShaderClass" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\capture\clearTestSet.as" mod="1337622854646" size="591" optimizedsize="222">
+      <def id="com.vango.testing.performance.capture:clearTestSet" />
+      <dep id="com.vango.testing.performance.capture:PerformanceRegistry" />
+      <dep id="String" />
+      <dep id="AS3" />
+      <dep id="Boolean" />
+      <dep id="Object" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.runners.model:FrameworkMethod)" mod="1275718964394" size="3709" optimizedsize="1698">
       <def id="org.flexunit.runners.model:FrameworkMethod" />
@@ -2772,12 +2827,6 @@
       <dep id="org.hamcrest:Description" />
       <dep id="AS3" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\runner\helpers\FakeAsyncTestClass.as" mod="1337529304515" size="1563" optimizedsize="613">
-      <def id="com.playfish.games.marlin.testing.performance.runner.helpers:FakeAsyncTestClass" />
-      <pre id="Object" />
-      <dep id="flash.utils:setTimeout" />
-      <dep id="AS3" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.graphics:RadialGradient)" mod="1265215577232" size="2928" optimizedsize="1571">
       <def id="mx.graphics:RadialGradient" />
       <pre id="mx.graphics:IFill" />
@@ -2854,7 +2903,7 @@
       <dep id="org.as3commons.reflect:BaseParameter" />
       <dep id="org.as3commons.reflect:AccessorAccess" />
     </script>
-    <script name="_performance_api_jvango____FlexUnitLauncher_Styles.as" mod="1337542252752" size="12754" optimizedsize="11691">
+    <script name="_performance_api_jvango____FlexUnitLauncher_Styles.as" mod="1337622874818" size="12754" optimizedsize="11691">
       <def id="_performance_api_jvango____FlexUnitLauncher_Styles" />
       <pre id="Object" />
       <dep id="mx.core:UIComponent" />
@@ -2924,16 +2973,6 @@
       <dep id="org.flexunit.token:AsyncTestToken" />
       <dep id="Error" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\capture\PerformanceTestSet.as" mod="1337530941235" size="3377" optimizedsize="1416">
-      <def id="com.playfish.games.marlin.testing.performance.capture:PerformanceTestSet" />
-      <pre id="Object" />
-      <dep id="flash.system:System" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.reporting.csv:CSV" />
-      <dep id="flash.utils:getTimer" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceDataEntry" />
-      <dep id="flash.utils:Dictionary" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\org\as3commons\as3commons-reflect\1.6.0\as3commons-reflect-1.6.0.swc(org.as3commons.reflect:IMetadataContainer)" mod="1332407293069" size="1135" optimizedsize="339">
       <def id="org.as3commons.reflect:IMetadataContainer" />
       <pre id="Object" />
@@ -2951,6 +2990,31 @@
       <dep id="org.flexunit.runner:IDescription" />
       <dep id="org.flexunit.runner.manipulation:ISortable" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\runner\test\TestingThread.as" mod="1337622868917" size="3845" optimizedsize="2263">
+      <def id="com.vango.testing.performance.runner.test:TestingThread" />
+      <pre id="Object" />
+      <dep id="flash.utils:setInterval" />
+      <dep id="com.vango.testing.performance.runner.async:AsyncToken" />
+      <dep id="com.vango.testing.performance.runner.test:ThreadContext" />
+      <dep id="com.vango.testing.performance.meta.configurations:IMethodConfiguration" />
+      <dep id="org.osflash.signals:Signal" />
+      <dep id="com.vango.testing.performance.runner:RunConfiguration" />
+      <dep id="com.vango.testing.performance.runner.method:IMethodRunner" />
+      <dep id="flash.utils:getTimer" />
+      <dep id="Error" />
+      <dep id="flash.utils:clearInterval" />
+      <dep id="com.vango.testing.performance.capture:retrieveTestSet" />
+      <dep id="AS3" />
+      <dep id="__AS3__.vec:Vector" />
+      <dep id="com.vango.testing.performance.runner:RunPhase" />
+      <dep id="flash.utils:Dictionary" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\meta\configurations\MethodConfiguration.as" mod="1337622868934" size="1001" optimizedsize="384">
+      <def id="com.vango.testing.performance.meta.configurations:MethodConfiguration" />
+      <pre id="com.vango.testing.performance.meta.configurations:BaseMethodConfiguration" />
+      <dep id="org.as3commons.reflect:Method" />
+      <dep id="AS3" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\flash-integration\4.1.0.16248\flash-integration-4.1.0.16248.swc(mx.resources:ResourceBundle)" mod="1265215595279" size="1760" optimizedsize="855">
       <def id="mx.resources:ResourceBundle" />
       <pre id="mx.resources:IResourceBundle" />
@@ -2959,14 +3023,6 @@
       <dep id="mx.core:mx_internal" />
       <dep id="flash.system:ApplicationDomain" />
       <dep id="Error" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\reporting\analysis\TestSetSummary.as" mod="1337538995114" size="1314" optimizedsize="642">
-      <def id="com.playfish.games.marlin.testing.performance.reporting.analysis:TestSetSummary" />
-      <pre id="Object" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceTestSet" />
-      <dep id="com.playfish.games.marlin.testing.performance.reporting.analysis:TestFieldSummary" />
-      <dep id="flash.utils:Dictionary" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.experimental.theories.internals:ParameterizedAssertionError)" mod="1277144322216" size="1415" optimizedsize="611">
       <def id="org.flexunit.experimental.theories.internals:ParameterizedAssertionError" />
@@ -3042,6 +3098,11 @@
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.core:IDataRenderer)" mod="1265215569950" size="538" optimizedsize="171">
       <def id="mx.core:IDataRenderer" />
+      <pre id="Object" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\meta\helpers\FakeTestWithMethodTags.as" mod="1337622823157" size="1929" optimizedsize="561">
+      <def id="com.vango.testing.performance.meta.helpers:FakeTestWithMethodTags" />
       <pre id="Object" />
       <dep id="AS3" />
     </script>
@@ -3234,14 +3295,6 @@
       <dep id="RegExp" />
       <dep id="org.as3commons.lang:IllegalArgumentError" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\capture\takeSnapshot.as" mod="1337459096650" size="728" optimizedsize="268">
-      <def id="com.playfish.games.marlin.testing.performance.capture:takeSnapshot" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceRegistry" />
-      <dep id="int" />
-      <dep id="String" />
-      <dep id="AS3" />
-      <dep id="Object" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(flex.lang.reflect.utils:MetadataTools)" mod="1269836333395" size="6376" optimizedsize="3773">
       <def id="flex.lang.reflect.utils:MetadataTools" />
       <pre id="Object" />
@@ -3269,17 +3322,6 @@
       <pre id="Object" />
       <dep id="flash.events:IEventDispatcher" />
       <dep id="AS3" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\runner\RunConfiguration.as" mod="1337506013907" size="2859" optimizedsize="1282">
-      <def id="com.playfish.games.marlin.testing.performance.runner:RunConfiguration" />
-      <pre id="Object" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta:performance_meta" />
-      <dep id="AS3" />
-      <dep id="__AS3__.vec:Vector" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:IMethodConfiguration" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner:RunPhase" />
-      <dep id="flash.utils:Dictionary" />
-      <dep id="Error" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\flash-integration\4.1.0.16248\flash-integration-4.1.0.16248.swc(mx.resources:IResourceBundle)" mod="1265215595325" size="724" optimizedsize="221">
       <def id="mx.resources:IResourceBundle" />
@@ -3320,6 +3362,10 @@
       <dep id="mx.core:mx_internal" />
       <dep id="mx.events:PropertyChangeEvent" />
       <dep id="mx.core:EventPriority" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\meta\performance_meta.as" mod="1337622798149" size="273" optimizedsize="150">
+      <def id="com.vango.testing.performance.meta:performance_meta" />
+      <dep id="AS3" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.managers:PopUpManagerImpl)" mod="1269372235069" size="16312" optimizedsize="10152">
       <def id="mx.managers:PopUpManagerImpl" />
@@ -3437,6 +3483,14 @@
       <dep id="mx.core:UIComponentGlobals" />
       <dep id="uint" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\reporting\analysis\TestSetSummary.as" mod="1337622868850" size="1202" optimizedsize="594">
+      <def id="com.vango.testing.performance.reporting.analysis:TestSetSummary" />
+      <pre id="Object" />
+      <dep id="AS3" />
+      <dep id="com.vango.testing.performance.capture:PerformanceTestSet" />
+      <dep id="com.vango.testing.performance.reporting.analysis:TestFieldSummary" />
+      <dep id="flash.utils:Dictionary" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.managers:LayoutManager)" mod="1265215573404" size="7496" optimizedsize="4502">
       <def id="mx.managers:LayoutManager" />
       <pre id="flash.events:EventDispatcher" />
@@ -3506,6 +3560,19 @@
       <dep id="org.flexunit.internals.dependency:ExternalDependencyResolver" />
       <dep id="org.flexunit.internals.dependency:IExternalDependencyResolver" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\runner\method\TestMethodRunnerMap.as" mod="1337622873117" size="2102" optimizedsize="984">
+      <def id="com.vango.testing.performance.runner.method:TestMethodRunnerMap" />
+      <pre id="Object" />
+      <dep id="org.flexunit:assertThat" />
+      <dep id="AS3" />
+      <dep id="com.vango.testing.performance.runner.method:MethodRunner" />
+      <dep id="com.vango.testing.performance.runner.method:IMethodRunner" />
+      <dep id="org.hamcrest.object:instanceOf" />
+      <dep id="com.vango.testing.performance.runner.method:MethodRunnerMap" />
+      <dep id="com.vango.testing.performance.meta.configurations:MethodConfiguration" />
+      <dep id="Error" />
+      <dep id="flash.display:Sprite" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\flash-integration\4.1.0.16248\flash-integration-4.1.0.16248.swc(mx.events:PropertyChangeEvent)" mod="1265215590029" size="1369" optimizedsize="688">
       <def id="mx.events:PropertyChangeEvent" />
       <pre id="flash.events:Event" />
@@ -3521,14 +3588,6 @@
       <dep id="AS3" />
       <dep id="mx.core:mx_internal" />
       <dep id="mx.core:UIComponentGlobals" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\runner\method\MethodRunner.as" mod="1337530129299" size="1336" optimizedsize="710">
-      <def id="com.playfish.games.marlin.testing.performance.runner.method:MethodRunner" />
-      <pre id="com.playfish.games.marlin.testing.performance.runner.method:IMethodRunner" />
-      <pre id="Object" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.async:AsyncToken" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:IMethodConfiguration" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(flexunit.utils:CollectionIterator)" mod="1240181184037" size="1023" optimizedsize="469">
       <def id="flexunit.utils:CollectionIterator" />
@@ -3546,7 +3605,7 @@
       <dep id="XML" />
       <dep id="flash.utils:flash_proxy" />
     </script>
-    <script name="_performance_api_jvango____FlexUnitLauncher_mx_managers_SystemManager.as" mod="1337542252752" size="3052" optimizedsize="2002">
+    <script name="_performance_api_jvango____FlexUnitLauncher_mx_managers_SystemManager.as" mod="1337622874820" size="3052" optimizedsize="2002">
       <def id="_performance_api_jvango____FlexUnitLauncher_mx_managers_SystemManager" />
       <pre id="mx.core:IFlexModuleFactory" />
       <pre id="mx.managers:SystemManager" />
@@ -3621,25 +3680,6 @@
       <dep id="org.flexunit.runners.model:FrameworkMethod" />
       <dep id="org.flexunit.constants:AnnotationConstants" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\runner\test\TestingThread.as" mod="1337530714107" size="4152" optimizedsize="2392">
-      <def id="com.playfish.games.marlin.testing.performance.runner.test:TestingThread" />
-      <pre id="Object" />
-      <dep id="flash.utils:setInterval" />
-      <dep id="org.osflash.signals:Signal" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:IMethodRunner" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:IMethodConfiguration" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner:RunPhase" />
-      <dep id="flash.utils:getTimer" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:retrieveTestSet" />
-      <dep id="Error" />
-      <dep id="flash.utils:clearInterval" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.async:AsyncToken" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner:RunConfiguration" />
-      <dep id="__AS3__.vec:Vector" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.test:ThreadContext" />
-      <dep id="flash.utils:Dictionary" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.graphics:GradientBase)" mod="1265215577138" size="5030" optimizedsize="2382">
       <def id="mx.graphics:GradientBase" />
       <pre id="flash.events:EventDispatcher" />
@@ -3668,6 +3708,15 @@
       <def id="org.osflash.signals.utils:SignalAsyncEvent" />
       <pre id="flash.events:Event" />
       <dep id="AS3" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\runner\test\TestPerformanceTestRunner.as" mod="1337622873088" size="1411" optimizedsize="638">
+      <def id="com.vango.testing.performance.runner.test:TestPerformanceTestRunner" />
+      <pre id="Object" />
+      <dep id="AS3" />
+      <dep id="com.vango.testing.performance.runner.test:PerformanceTestRunner" />
+      <dep id="com.vango.testing.performance.runner.helpers:FakeTestClass" />
+      <dep id="com.vango.testing.performance.capture:clearTestSet" />
+      <dep id="org.osflash.signals.utils:proceedOnSignal" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.managers:SystemChildrenList)" mod="1265215573263" size="3022" optimizedsize="1612">
       <def id="mx.managers:SystemChildrenList" />
@@ -3702,6 +3751,17 @@
       <def id="org.hamcrest:AssertionError" />
       <pre id="Error" />
       <dep id="AS3" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\runner\method\SnapshotMethodRunner.as" mod="1337622868839" size="1546" optimizedsize="881">
+      <def id="com.vango.testing.performance.runner.method:SnapshotMethodRunner" />
+      <pre id="com.vango.testing.performance.runner.method:IMethodRunner" />
+      <pre id="Object" />
+      <dep id="com.vango.testing.performance.runner.async:AsyncToken" />
+      <dep id="flash.system:System" />
+      <dep id="com.vango.testing.performance.meta.configurations:IMethodConfiguration" />
+      <dep id="AS3" />
+      <dep id="flash.utils:getTimer" />
+      <dep id="com.vango.testing.performance.capture:takeSnapshot" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\org\as3commons\as3commons-reflect\1.6.0\as3commons-reflect-1.6.0.swc(org.as3commons.reflect:TypeCache)" mod="1332407293084" size="1873" optimizedsize="1000">
       <def id="org.as3commons.reflect:TypeCache" />
@@ -3749,13 +3809,6 @@
       <dep id="mx.core:IUIComponent" />
       <dep id="mx.containers:BoxDirection" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\capture\PerformanceRepository.as" mod="1337455577449" size="1933" optimizedsize="772">
-      <def id="com.playfish.games.marlin.testing.performance.capture:PerformanceRepository" />
-      <pre id="Object" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceTestSet" />
-      <dep id="flash.utils:Dictionary" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.effects.effectClasses:ZoomInstance)" mod="1265215556013" size="5661" optimizedsize="3487">
       <def id="mx.effects.effectClasses:ZoomInstance" />
       <pre id="mx.effects.effectClasses:TweenEffectInstance" />
@@ -3779,22 +3832,6 @@
       <dep id="mx.core:AdvancedLayoutFeatures" />
       <dep id="Math" />
       <dep id="flash.geom:Matrix3D" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\runner\method\TestAsyncStandardMethodRunner.as" mod="1337530129377" size="2669" optimizedsize="1519">
-      <def id="com.playfish.games.marlin.testing.performance.runner.method:TestAsyncStandardMethodRunner" />
-      <pre id="Object" />
-      <dep id="org.osflash.signals.utils:registerFailureSignal" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.tags:PerformanceTestMetaTag" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:AsyncMethodRunner" />
-      <dep id="org.as3commons.reflect:Method" />
-      <dep id="org.osflash.signals:Signal" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.async:AsyncToken" />
-      <dep id="AS3" />
-      <dep id="org.as3commons.reflect:Type" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:IMethodConfiguration" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:MethodConfiguration" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.helpers:FakeAsyncTestClass" />
-      <dep id="org.osflash.signals.utils:proceedOnSignal" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.runner.manipulation.filters:DynamicFilter)" mod="1277144322279" size="1247" optimizedsize="560">
       <def id="org.flexunit.runner.manipulation.filters:DynamicFilter" />
@@ -3830,14 +3867,6 @@
       <def id="org.flexunit.asserts:assertNotNull" />
       <dep id="org.flexunit:Assert" />
       <dep id="AS3" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\capture\clearTestSet.as" mod="1337360879960" size="657" optimizedsize="238">
-      <def id="com.playfish.games.marlin.testing.performance.capture:clearTestSet" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceRegistry" />
-      <dep id="String" />
-      <dep id="AS3" />
-      <dep id="Boolean" />
-      <dep id="Object" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.managers.systemClasses:ChildManager)" mod="1265215572919" size="6152" optimizedsize="3520">
       <def id="mx.managers.systemClasses:ChildManager" />
@@ -3916,6 +3945,13 @@
       <dep id="Object" />
       <dep id="uint" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\capture\PerformanceRepository.as" mod="1337622868891" size="1771" optimizedsize="740">
+      <def id="com.vango.testing.performance.capture:PerformanceRepository" />
+      <pre id="Object" />
+      <dep id="AS3" />
+      <dep id="com.vango.testing.performance.capture:PerformanceTestSet" />
+      <dep id="flash.utils:Dictionary" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\spark\4.1.0.16248\spark-4.1.0.16248.swc(spark.primitives:Path)" mod="1265215435232" size="23203" optimizedsize="12673">
       <def id="spark.primitives:Path" />
       <pre id="spark.primitives.supportClasses:FilledElement" />
@@ -3989,6 +4025,17 @@
       <dep id="AS3" />
       <dep id="flash.display:DisplayObjectContainer" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\runner\method\AsyncSnapshotMethodRunner.as" mod="1337622868942" size="2243" optimizedsize="1241">
+      <def id="com.vango.testing.performance.runner.method:AsyncSnapshotMethodRunner" />
+      <pre id="Object" />
+      <dep id="com.vango.testing.performance.runner.async:AsyncToken" />
+      <dep id="flash.system:System" />
+      <dep id="flash.utils:getQualifiedClassName" />
+      <dep id="com.vango.testing.performance.meta.configurations:IMethodConfiguration" />
+      <dep id="AS3" />
+      <dep id="flash.utils:getTimer" />
+      <dep id="com.vango.testing.performance.capture:takeSnapshot" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.core:EmbeddedFontRegistry)" mod="1265215569950" size="5566" optimizedsize="3299">
       <def id="mx.core:EmbeddedFontRegistry" />
       <pre id="mx.core:IEmbeddedFontRegistry" />
@@ -4052,17 +4099,6 @@
       <dep id="flash.geom:Point" />
       <dep id="flash.geom:Transform" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\runner\method\AsyncSnapshotMethodRunner.as" mod="1337530199054" size="2435" optimizedsize="1337">
-      <def id="com.playfish.games.marlin.testing.performance.runner.method:AsyncSnapshotMethodRunner" />
-      <pre id="Object" />
-      <dep id="flash.system:System" />
-      <dep id="flash.utils:getQualifiedClassName" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.async:AsyncToken" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:IMethodConfiguration" />
-      <dep id="flash.utils:getTimer" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:takeSnapshot" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.utils:DescribeTypeCache)" mod="1265215574997" size="1740" optimizedsize="942">
       <def id="mx.utils:DescribeTypeCache" />
       <pre id="Object" />
@@ -4100,21 +4136,6 @@
       <def id="mx.managers:SystemManagerGlobals" />
       <pre id="Object" />
       <dep id="AS3" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\meta\parse\PerformanceTestParser.as" mod="1337530129361" size="2647" optimizedsize="1452">
-      <def id="com.playfish.games.marlin.testing.performance.meta.parse:PerformanceTestParser" />
-      <pre id="Object" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.tags:PerformanceTestMetaTag" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta:performance_meta" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:SnapshotMethodConfiguration" />
-      <dep id="org.as3commons.reflect:Method" />
-      <dep id="AS3" />
-      <dep id="org.as3commons.reflect:Type" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner:RunConfiguration" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:IMethodConfiguration" />
-      <dep id="__AS3__.vec:Vector" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:MethodConfiguration" />
-      <dep id="flash.system:ApplicationDomain" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\spark\4.1.0.16248\spark-4.1.0.16248.swc(spark.components.supportClasses:OverlayDepth)" mod="1265215427685" size="735" optimizedsize="346">
       <def id="spark.components.supportClasses:OverlayDepth" />
@@ -4270,14 +4291,6 @@
       <pre id="mx.core:ByteArrayAsset" />
       <dep id="AS3" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\capture\retrieveTestSet.as" mod="1337360961358" size="666" optimizedsize="238">
-      <def id="com.playfish.games.marlin.testing.performance.capture:retrieveTestSet" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceRegistry" />
-      <dep id="String" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceTestSet" />
-      <dep id="Object" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(flexunit.framework:TestListener)" mod="1240181186205" size="1007" optimizedsize="285">
       <def id="flexunit.framework:TestListener" />
       <pre id="Object" />
@@ -4328,11 +4341,6 @@
       <def id="mx.graphics.shaderClasses:ColorShader" />
       <pre id="flash.display:Shader" />
       <dep id="mx.graphics.shaderClasses:ColorShader_ShaderClass" />
-      <dep id="AS3" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\runner\async\AsyncToken.as" mod="1337510698922" size="1270" optimizedsize="501">
-      <def id="com.playfish.games.marlin.testing.performance.runner.async:AsyncToken" />
-      <pre id="Object" />
       <dep id="AS3" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.managers:SystemRawChildrenList)" mod="1265215573575" size="2441" optimizedsize="1198">
@@ -4402,6 +4410,17 @@
       <def id="org.flexunit.internals.runners:InitializationError" />
       <pre id="Error" />
       <dep id="AS3" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\runner\method\MethodRunnerMap.as" mod="1337622868949" size="1873" optimizedsize="1015">
+      <def id="com.vango.testing.performance.runner.method:MethodRunnerMap" />
+      <pre id="Object" />
+      <dep id="flash.utils:getQualifiedClassName" />
+      <dep id="ArgumentError" />
+      <dep id="com.vango.testing.performance.meta.configurations:IMethodConfiguration" />
+      <dep id="AS3" />
+      <dep id="org.as3commons.reflect:Type" />
+      <dep id="com.vango.testing.performance.runner.method:IMethodRunner" />
+      <dep id="flash.utils:Dictionary" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.experimental.runners.statements:TheoryBlockRunner)" mod="1275862913828" size="2548" optimizedsize="1294">
       <def id="org.flexunit.experimental.runners.statements:TheoryBlockRunner" />
@@ -4560,23 +4579,20 @@
       <dep id="AS3" />
       <dep id="mx.core:mx_internal" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\capture\TestPerformanceTestSet.as" mod="1337459227546" size="4297" optimizedsize="1985">
-      <def id="com.playfish.games.marlin.testing.performance.capture:TestPerformanceTestSet" />
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\meta\parse\PerformanceTestParser.as" mod="1337622868971" size="2438" optimizedsize="1340">
+      <def id="com.vango.testing.performance.meta.parse:PerformanceTestParser" />
       <pre id="Object" />
-      <dep id="org.flexunit.asserts:assertTrue" />
-      <dep id="org.hamcrest.collection:hasItems" />
-      <dep id="org.flexunit.asserts:assertEquals" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceTestSet" />
-      <dep id="org.hamcrest:assertThat" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceDataEntry" />
-      <dep id="org.flexunit.asserts:assertNotNull" />
-      <dep id="org.hamcrest.core:not" />
-      <dep id="org.hamcrest.object:hasProperties" />
-      <dep id="org.hamcrest.collection:arrayWithSize" />
-      <dep id="org.hamcrest.object:strictlyEqualTo" />
-      <dep id="org.flexunit.asserts:assertFalse" />
+      <dep id="com.vango.testing.performance.meta:performance_meta" />
+      <dep id="com.vango.testing.performance.meta.configurations:SnapshotMethodConfiguration" />
+      <dep id="org.as3commons.reflect:Method" />
+      <dep id="com.vango.testing.performance.meta.configurations:IMethodConfiguration" />
       <dep id="AS3" />
-      <dep id="org.flexunit.asserts:assertNull" />
+      <dep id="org.as3commons.reflect:Type" />
+      <dep id="com.vango.testing.performance.runner:RunConfiguration" />
+      <dep id="__AS3__.vec:Vector" />
+      <dep id="com.vango.testing.performance.meta.configurations:MethodConfiguration" />
+      <dep id="flash.system:ApplicationDomain" />
+      <dep id="com.vango.testing.performance.meta.tags:PerformanceTestMetaTag" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.core:ISystemCursorClient)" mod="1265215569591" size="536" optimizedsize="179">
       <def id="mx.core:ISystemCursorClient" />
@@ -4636,6 +4652,14 @@
       <dep id="flexunit.framework:TestCase" />
       <dep id="AS3" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\capture\takeSnapshot.as" mod="1337622868975" size="662" optimizedsize="252">
+      <def id="com.vango.testing.performance.capture:takeSnapshot" />
+      <dep id="com.vango.testing.performance.capture:PerformanceRegistry" />
+      <dep id="int" />
+      <dep id="String" />
+      <dep id="AS3" />
+      <dep id="Object" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.runner.notification:ITemporalRunListener)" mod="1277144322279" size="798" optimizedsize="288">
       <def id="org.flexunit.runner.notification:ITemporalRunListener" />
       <pre id="org.flexunit.runner.notification:IRunListener" />
@@ -4669,50 +4693,12 @@
       <pre id="mx.core:SpriteAsset" />
       <dep id="AS3" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\runner\method\TestSnapshotMethodRunner.as" mod="1337513412643" size="3039" optimizedsize="1702">
-      <def id="com.playfish.games.marlin.testing.performance.runner.method:TestSnapshotMethodRunner" />
-      <pre id="Object" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:SnapshotMethodRunner" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:SnapshotMethodConfiguration" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:clearTestSet" />
-      <dep id="org.as3commons.reflect:Type" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceTestSet" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:IMethodConfiguration" />
-      <dep id="org.hamcrest:assertThat" />
-      <dep id="org.hamcrest.object:instanceOf" />
-      <dep id="org.hamcrest.core:allOf" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:retrieveTestSet" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceDataEntry" />
-      <dep id="org.hamcrest.collection:arrayWithSize" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.helpers:FakeTestClass" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.tags:PerformanceTestMetaTag" />
-      <dep id="org.as3commons.reflect:Method" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.async:AsyncToken" />
-      <dep id="AS3" />
-      <dep id="org.hamcrest.collection:array" />
-      <dep id="org.hamcrest.object:hasProperty" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\org\hamcrest\hamcrest-as3-only\1.1.3\hamcrest-as3-only-1.1.3.swc(org.hamcrest.core:AllOfMatcher)" mod="1289443446000" size="1258" optimizedsize="635">
       <def id="org.hamcrest.core:AllOfMatcher" />
       <pre id="org.hamcrest:DiagnosingMatcher" />
       <dep id="org.hamcrest:Description" />
       <dep id="AS3" />
       <dep id="org.hamcrest:Matcher" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\reporting\csv\TestCSV.as" mod="1337542251364" size="5706" optimizedsize="2599">
-      <def id="com.playfish.games.marlin.testing.performance.reporting.csv:TestCSV" />
-      <pre id="Object" />
-      <dep id="org.hamcrest.collection:hasItems" />
-      <dep id="org.flexunit.asserts:assertTrue" />
-      <dep id="AS3" />
-      <dep id="org.flexunit.asserts:assertEquals" />
-      <dep id="com.playfish.games.marlin.testing.performance.reporting.csv:CSV" />
-      <dep id="org.hamcrest.text:containsString" />
-      <dep id="org.hamcrest.text:emptyString" />
-      <dep id="org.hamcrest:assertThat" />
-      <dep id="org.flexunit.asserts:assertStrictlyEquals" />
-      <dep id="flash.utils:Dictionary" />
-      <dep id="org.hamcrest.core:not" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.constants:AnnotationConstants)" mod="1280852341860" size="1258" optimizedsize="675">
       <def id="org.flexunit.constants:AnnotationConstants" />
@@ -4805,15 +4791,6 @@
       <dep id="XMLList" />
       <dep id="flex.lang.reflect.utils:MetadataTools" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\runner\test\TestPerformanceTestRunner.as" mod="1337511433969" size="1571" optimizedsize="702">
-      <def id="com.playfish.games.marlin.testing.performance.runner.test:TestPerformanceTestRunner" />
-      <pre id="Object" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:clearTestSet" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.test:PerformanceTestRunner" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.helpers:FakeTestClass" />
-      <dep id="org.osflash.signals.utils:proceedOnSignal" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\spark\4.1.0.16248\spark-4.1.0.16248.swc(spark.core:ISharedDisplayObject)" mod="1265215434263" size="661" optimizedsize="203">
       <def id="spark.core:ISharedDisplayObject" />
       <pre id="Object" />
@@ -4859,18 +4836,13 @@
       <dep id="mx.core:mx_internal" />
       <dep id="mx.core:IUIComponent" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\meta\configurations\BaseMethodConfiguration.as" mod="1337529038011" size="3236" optimizedsize="1406">
-      <def id="com.playfish.games.marlin.testing.performance.meta.configurations:BaseMethodConfiguration" />
-      <pre id="com.playfish.games.marlin.testing.performance.meta.configurations:IMethodConfiguration" />
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\runner\RunPhase.as" mod="1337622683365" size="1123" optimizedsize="555">
+      <def id="com.vango.testing.performance.runner:RunPhase" />
       <pre id="Object" />
-      <dep id="org.as3commons.reflect:MetadataArgument" />
-      <dep id="org.as3commons.reflect:Method" />
       <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.tags:PerformanceTestMetaAttribute" />
-      <dep id="org.as3commons.reflect:Metadata" />
       <dep id="Error" />
     </script>
-    <script name="C:\Users\jvango\AppData\Local\Temp\IntelliJ_IDEA\performance_api_jvango____FlexUnitLauncherBase.mxml" mod="1337542251442" size="10633" optimizedsize="5920">
+    <script name="C:\Users\jvango\AppData\Local\Temp\IntelliJ_IDEA\performance_api_jvango____FlexUnitLauncherBase.mxml" mod="1337622873245" size="10633" optimizedsize="5920">
       <def id="performance_api_jvango____FlexUnitLauncherBase" />
       <pre id="flash.events:IEventDispatcher" />
       <pre id="mx.core:Application" />
@@ -4924,6 +4896,12 @@
       <dep id="org.flexunit.internals.builders:FlexUnit4QualifiedBuilder" />
       <dep id="org.flexunit.runners.model:IRunnerBuilder" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\runner\test\ThreadContext.as" mod="1337622868905" size="2282" optimizedsize="769">
+      <def id="com.vango.testing.performance.runner.test:ThreadContext" />
+      <pre id="Object" />
+      <dep id="AS3" />
+      <dep id="com.vango.testing.performance.runner.method:MethodRunnerMap" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(flexunit.framework:Protectable)" mod="1240181186361" size="611" optimizedsize="173">
       <def id="flexunit.framework:Protectable" />
       <pre id="Object" />
@@ -4958,6 +4936,34 @@
       <dep id="AS3" />
       <dep id="org.hamcrest:Matcher" />
       <dep id="org.hamcrest.core:not" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\runner\method\TestAsyncSnapshotMethodRunner.as" mod="1337622873083" size="3720" optimizedsize="2109">
+      <def id="com.vango.testing.performance.runner.method:TestAsyncSnapshotMethodRunner" />
+      <pre id="Object" />
+      <dep id="org.osflash.signals.utils:registerFailureSignal" />
+      <dep id="com.vango.testing.performance.runner.async:AsyncToken" />
+      <dep id="com.vango.testing.performance.capture:PerformanceDataEntry" />
+      <dep id="com.vango.testing.performance.meta.configurations:IMethodConfiguration" />
+      <dep id="org.osflash.signals:Signal" />
+      <dep id="org.as3commons.reflect:Type" />
+      <dep id="com.vango.testing.performance.capture:clearTestSet" />
+      <dep id="org.osflash.signals.utils:handleSignal" />
+      <dep id="org.hamcrest:assertThat" />
+      <dep id="org.hamcrest.object:instanceOf" />
+      <dep id="org.osflash.signals.utils:SignalAsyncEvent" />
+      <dep id="org.hamcrest.core:allOf" />
+      <dep id="org.hamcrest.collection:arrayWithSize" />
+      <dep id="org.osflash.signals.utils:proceedOnSignal" />
+      <dep id="com.vango.testing.performance.capture:retrieveTestSet" />
+      <dep id="com.vango.testing.performance.runner.helpers:FakeAsyncTestClass" />
+      <dep id="com.vango.testing.performance.runner.method:AsyncSnapshotMethodRunner" />
+      <dep id="com.vango.testing.performance.meta.configurations:SnapshotMethodConfiguration" />
+      <dep id="org.as3commons.reflect:Method" />
+      <dep id="AS3" />
+      <dep id="org.hamcrest.collection:array" />
+      <dep id="com.vango.testing.performance.capture:PerformanceTestSet" />
+      <dep id="org.hamcrest.object:hasProperty" />
+      <dep id="com.vango.testing.performance.meta.tags:PerformanceTestMetaTag" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\flash-integration\4.1.0.16248\flash-integration-4.1.0.16248.swc(mx.events:ToolTipEvent)" mod="1265215590044" size="1200" optimizedsize="675">
       <def id="mx.events:ToolTipEvent" />
@@ -5017,11 +5023,6 @@
       <pre id="Object" />
       <dep id="mx.core:IFlexModuleFactory" />
       <dep id="flash.text:TextField" />
-      <dep id="AS3" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\meta\tags\PerformanceTestMetaAttribute.as" mod="1337513772951" size="859" optimizedsize="345">
-      <def id="com.playfish.games.marlin.testing.performance.meta.tags:PerformanceTestMetaAttribute" />
-      <pre id="Object" />
       <dep id="AS3" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\org\as3commons\as3commons-reflect\1.6.0\as3commons-reflect-1.6.0.swc(org.as3commons.reflect:INamespaceOwner)" mod="1332407293014" size="526" optimizedsize="196">
@@ -5154,19 +5155,6 @@
       <pre id="Object" />
       <dep id="AS3" />
       <dep id="mx.core:mx_internal" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\runner\method\TestMethodRunnerMap.as" mod="1337530129361" size="2263" optimizedsize="1032">
-      <def id="com.playfish.games.marlin.testing.performance.runner.method:TestMethodRunnerMap" />
-      <pre id="Object" />
-      <dep id="org.flexunit:assertThat" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:MethodRunnerMap" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:IMethodRunner" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:MethodConfiguration" />
-      <dep id="org.hamcrest.object:instanceOf" />
-      <dep id="Error" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:MethodRunner" />
-      <dep id="flash.display:Sprite" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\org\osflash\signals\as3-signals-utilities-async\0.8\as3-signals-utilities-async-0.8.swc(org.osflash.signals.utils:proceedOnSignal)" mod="1283752150000" size="578" optimizedsize="295">
       <def id="org.osflash.signals.utils:proceedOnSignal" />
@@ -5333,17 +5321,6 @@
       <dep id="mx.graphics:IStroke" />
       <dep id="flash.display:Sprite" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\runner\method\SnapshotMethodRunner.as" mod="1337510820600" size="1706" optimizedsize="977">
-      <def id="com.playfish.games.marlin.testing.performance.runner.method:SnapshotMethodRunner" />
-      <pre id="com.playfish.games.marlin.testing.performance.runner.method:IMethodRunner" />
-      <pre id="Object" />
-      <dep id="flash.system:System" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.async:AsyncToken" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:IMethodConfiguration" />
-      <dep id="flash.utils:getTimer" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:takeSnapshot" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.experimental.runners.statements:MethodCompleteWithParamsStatement)" mod="1275718964379" size="2765" optimizedsize="1718">
       <def id="org.flexunit.experimental.runners.statements:MethodCompleteWithParamsStatement" />
       <pre id="org.flexunit.internals.runners.statements:IAsyncStatement" />
@@ -5424,6 +5401,14 @@
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.internals:flexunit_internal)" mod="1260324873140" size="238" optimizedsize="130">
       <def id="org.flexunit.internals:flexunit_internal" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\runner\method\MethodRunner.as" mod="1337622868861" size="1190" optimizedsize="630">
+      <def id="com.vango.testing.performance.runner.method:MethodRunner" />
+      <pre id="com.vango.testing.performance.runner.method:IMethodRunner" />
+      <pre id="Object" />
+      <dep id="com.vango.testing.performance.runner.async:AsyncToken" />
+      <dep id="com.vango.testing.performance.meta.configurations:IMethodConfiguration" />
       <dep id="AS3" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.core:IRectangularBorder)" mod="1265215569482" size="919" optimizedsize="300">
@@ -5658,22 +5643,6 @@
       <dep id="mx.core:mx_internal" />
       <dep id="Error" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\runner\method\TestMethodRunner.as" mod="1337530330173" size="2583" optimizedsize="1448">
-      <def id="com.playfish.games.marlin.testing.performance.runner.method:TestMethodRunner" />
-      <pre id="Object" />
-      <dep id="org.hamcrest.collection:emptyArray" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.tags:PerformanceTestMetaTag" />
-      <dep id="org.as3commons.reflect:Method" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.async:AsyncToken" />
-      <dep id="AS3" />
-      <dep id="org.as3commons.reflect:Type" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:IMethodConfiguration" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:MethodConfiguration" />
-      <dep id="org.hamcrest:assertThat" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:retrieveTestSet" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:MethodRunner" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.helpers:FakeTestClass" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.fluint.uiImpersonation:VisualTestEnvironmentBuilder)" mod="1277144322310" size="1345" optimizedsize="654">
       <def id="org.fluint.uiImpersonation:VisualTestEnvironmentBuilder" />
       <pre id="org.fluint.uiImpersonation:IVisualEnvironmentBuilder" />
@@ -5696,6 +5665,16 @@
       <dep id="mx.core:EmbeddedFont" />
       <dep id="mx.managers:ISystemManager" />
       <dep id="AS3" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\capture\PerformanceTestSet.as" mod="1337622868954" size="3087" optimizedsize="1368">
+      <def id="com.vango.testing.performance.capture:PerformanceTestSet" />
+      <pre id="Object" />
+      <dep id="flash.system:System" />
+      <dep id="com.vango.testing.performance.capture:PerformanceDataEntry" />
+      <dep id="AS3" />
+      <dep id="flash.utils:getTimer" />
+      <dep id="flash.utils:Dictionary" />
+      <dep id="com.vango.testing.performance.reporting.csv:CSV" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.filters:IBitmapFilter)" mod="1265215593138" size="485" optimizedsize="180">
       <def id="mx.filters:IBitmapFilter" />
@@ -5976,11 +5955,6 @@
       <pre id="Object" />
       <dep id="AS3" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\meta\helpers\FakeTestWithPropertyTags.as" mod="1337442570025" size="1341" optimizedsize="457">
-      <def id="com.playfish.games.marlin.testing.performance.meta.helpers:FakeTestWithPropertyTags" />
-      <pre id="Object" />
-      <dep id="AS3" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\flash-integration\4.1.0.16248\flash-integration-4.1.0.16248.swc(mx.core:IVisualElement)" mod="1268436253955" size="2418" optimizedsize="609">
       <def id="mx.core:IVisualElement" />
       <pre id="mx.core:ILayoutElement" />
@@ -5991,14 +5965,10 @@
       <dep id="flash.display:DisplayObjectContainer" />
       <dep id="mx.geom:TransformOffsets" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\reporting\csv\CSV.as" mod="1337530941220" size="2634" optimizedsize="1423">
-      <def id="com.playfish.games.marlin.testing.performance.reporting.csv:CSV" />
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\meta\helpers\FakeTestWithMultipleTagsOnSameMethod.as" mod="1337622823154" size="1214" optimizedsize="381">
+      <def id="com.vango.testing.performance.meta.helpers:FakeTestWithMultipleTagsOnSameMethod" />
       <pre id="Object" />
-      <dep id="flash.utils:getQualifiedClassName" />
-      <dep id="flash.errors:IllegalOperationError" />
       <dep id="AS3" />
-      <dep id="flash.utils:Dictionary" />
-      <dep id="Error" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.runner.manipulation:IFilterable)" mod="1260500756408" size="646" optimizedsize="212">
       <def id="org.flexunit.runner.manipulation:IFilterable" />
@@ -6010,30 +5980,6 @@
       <def id="mx.effects:IEffectTargetHost" />
       <pre id="Object" />
       <dep id="AS3" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\meta\parse\TestMetaDataParsing.as" mod="1337530129361" size="4223" optimizedsize="2454">
-      <def id="com.playfish.games.marlin.testing.performance.meta.parse:TestMetaDataParsing" />
-      <pre id="Object" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.helpers:FakeTestWithPropertyTags" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.helpers:FakeTestWithNoMetaData" />
-      <dep id="org.flexunit.asserts:assertTrue" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:SnapshotMethodConfiguration" />
-      <dep id="org.hamcrest.object:equalTo" />
-      <dep id="org.hamcrest:assertThat" />
-      <dep id="org.hamcrest.object:instanceOf" />
-      <dep id="org.hamcrest.core:allOf" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.parse:PerformanceTestParser" />
-      <dep id="org.hamcrest.collection:arrayWithSize" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.helpers:FakeTestWithMethodTags" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.helpers:FakeTestWithMultipleTagsOnSameMethod" />
-      <dep id="org.hamcrest.collection:emptyArray" />
-      <dep id="org.flexunit.asserts:assertFalse" />
-      <dep id="org.hamcrest.object:notNullValue" />
-      <dep id="AS3" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner:RunConfiguration" />
-      <dep id="org.hamcrest.collection:array" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:MethodConfiguration" />
-      <dep id="org.hamcrest.object:hasProperty" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.core:IDeferredInstance)" mod="1265215569466" size="490" optimizedsize="169">
       <def id="mx.core:IDeferredInstance" />
@@ -6086,6 +6032,11 @@
       <dep id="flexunit.framework:TestResult" />
       <dep id="flash.utils:Timer" />
       <dep id="flash.events:TimerEvent" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\capture\PerformanceDataEntry.as" mod="1337622798216" size="756" optimizedsize="279">
+      <def id="com.vango.testing.performance.capture:PerformanceDataEntry" />
+      <pre id="Object" />
+      <dep id="AS3" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\org\hamcrest\hamcrest-as3-only\1.1.3\hamcrest-as3-only-1.1.3.swc(org.hamcrest.object:HasPropertyWithValueMatcher)" mod="1289443446000" size="1758" optimizedsize="924">
       <def id="org.hamcrest.object:HasPropertyWithValueMatcher" />
@@ -6349,11 +6300,6 @@
       <dep id="Math" />
       <dep id="mx.core:mx_internal" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\meta\helpers\FakeTestWithNoMetaData.as" mod="1337442280179" size="1187" optimizedsize="385">
-      <def id="com.playfish.games.marlin.testing.performance.meta.helpers:FakeTestWithNoMetaData" />
-      <pre id="Object" />
-      <dep id="AS3" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.async:Async)" mod="1280852341860" size="2142" optimizedsize="1051">
       <def id="org.flexunit.async:Async" />
       <pre id="Object" />
@@ -6387,12 +6333,6 @@
       <dep id="mx.resources:ResourceManager" />
       <dep id="spark.events:DisplayLayerObjectExistenceEvent" />
     </script>
-    <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.containers.errors:ConstraintError)" mod="1265215592435" size="661" optimizedsize="295">
-      <def id="mx.containers.errors:ConstraintError" />
-      <pre id="Error" />
-      <dep id="AS3" />
-      <dep id="mx.core:mx_internal" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\org\osflash\signals\as3-signals-utilities-async\0.8\as3-signals-utilities-async-0.8.swc(org.osflash.signals.utils:handleSignal)" mod="1283752150000" size="618" optimizedsize="297">
       <def id="org.osflash.signals.utils:handleSignal" />
       <dep id="org.flexunit.async:Async" />
@@ -6411,6 +6351,12 @@
       <dep id="org.hamcrest:Matcher" />
       <dep id="org.hamcrest.object:equalTo" />
       <dep id="Object" />
+    </script>
+    <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.containers.errors:ConstraintError)" mod="1265215592435" size="661" optimizedsize="295">
+      <def id="mx.containers.errors:ConstraintError" />
+      <pre id="Error" />
+      <dep id="AS3" />
+      <dep id="mx.core:mx_internal" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.runner.manipulation:ISorter)" mod="1280853745606" size="795" optimizedsize="268">
       <def id="org.flexunit.runner.manipulation:ISorter" />
@@ -6432,6 +6378,12 @@
       <dep id="AS3" />
       <dep id="mx.core:mx_internal" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\meta\configurations\SnapshotMethodConfiguration.as" mod="1337622868884" size="1057" optimizedsize="400">
+      <def id="com.vango.testing.performance.meta.configurations:SnapshotMethodConfiguration" />
+      <pre id="com.vango.testing.performance.meta.configurations:BaseMethodConfiguration" />
+      <dep id="org.as3commons.reflect:Method" />
+      <dep id="AS3" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.runner.notification:StoppedByUserException)" mod="1260324873220" size="622" optimizedsize="241">
       <def id="org.flexunit.runner.notification:StoppedByUserException" />
       <pre id="Error" />
@@ -6452,6 +6404,15 @@
       <dep id="AS3" />
       <dep id="org.flexunit.runners.model:FrameworkMethod" />
       <dep id="org.flexunit.constants:AnnotationConstants" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\reporting\csv\CSV.as" mod="1337622868957" size="2487" optimizedsize="1391">
+      <def id="com.vango.testing.performance.reporting.csv:CSV" />
+      <pre id="Object" />
+      <dep id="flash.utils:getQualifiedClassName" />
+      <dep id="flash.errors:IllegalOperationError" />
+      <dep id="AS3" />
+      <dep id="flash.utils:Dictionary" />
+      <dep id="Error" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\org\as3commons\as3commons-reflect\1.6.0\as3commons-reflect-1.6.0.swc(org.as3commons.reflect:IMember)" mod="1332407293026" size="699" optimizedsize="244">
       <def id="org.as3commons.reflect:IMember" />
@@ -6535,6 +6496,30 @@
       <dep id="mx.core:mx_internal" />
       <dep id="mx.styles:IAdvancedStyleClient" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\meta\parse\TestMetaDataParsing.as" mod="1337622873121" size="3979" optimizedsize="2358">
+      <def id="com.vango.testing.performance.meta.parse:TestMetaDataParsing" />
+      <pre id="Object" />
+      <dep id="org.flexunit.asserts:assertTrue" />
+      <dep id="com.vango.testing.performance.runner:RunConfiguration" />
+      <dep id="com.vango.testing.performance.meta.parse:PerformanceTestParser" />
+      <dep id="org.hamcrest.object:equalTo" />
+      <dep id="org.hamcrest:assertThat" />
+      <dep id="org.hamcrest.object:instanceOf" />
+      <dep id="org.hamcrest.core:allOf" />
+      <dep id="com.vango.testing.performance.meta.configurations:MethodConfiguration" />
+      <dep id="org.hamcrest.collection:arrayWithSize" />
+      <dep id="org.hamcrest.collection:emptyArray" />
+      <dep id="org.hamcrest.object:notNullValue" />
+      <dep id="org.flexunit.asserts:assertFalse" />
+      <dep id="com.vango.testing.performance.meta.helpers:FakeTestWithPropertyTags" />
+      <dep id="com.vango.testing.performance.meta.configurations:SnapshotMethodConfiguration" />
+      <dep id="com.vango.testing.performance.meta.helpers:FakeTestWithMethodTags" />
+      <dep id="AS3" />
+      <dep id="com.vango.testing.performance.meta.helpers:FakeTestWithNoMetaData" />
+      <dep id="org.hamcrest.collection:array" />
+      <dep id="com.vango.testing.performance.meta.helpers:FakeTestWithMultipleTagsOnSameMethod" />
+      <dep id="org.hamcrest.object:hasProperty" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.managers.systemClasses:ActiveWindowManager)" mod="1265215572904" size="6371" optimizedsize="3685">
       <def id="mx.managers.systemClasses:ActiveWindowManager" />
       <pre id="flash.events:EventDispatcher" />
@@ -6566,6 +6551,15 @@
       <dep id="mx.binding:Binding" />
       <dep id="AS3" />
       <dep id="mx.core:mx_internal" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\runner\method\AsyncMethodRunner.as" mod="1337622868968" size="1430" optimizedsize="831">
+      <def id="com.vango.testing.performance.runner.method:AsyncMethodRunner" />
+      <pre id="com.vango.testing.performance.runner.method:IMethodRunner" />
+      <pre id="Object" />
+      <dep id="com.vango.testing.performance.runner.async:AsyncToken" />
+      <dep id="flash.utils:getQualifiedClassName" />
+      <dep id="com.vango.testing.performance.meta.configurations:IMethodConfiguration" />
+      <dep id="AS3" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.graphics.shaderClasses:LuminosityShader)" mod="1265215576325" size="746" optimizedsize="306">
       <def id="mx.graphics.shaderClasses:LuminosityShader" />
@@ -6668,34 +6662,6 @@
       <dep id="AS3" />
       <dep id="org.hamcrest:Matcher" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\runner\method\TestAsyncSnapshotMethodRunner.as" mod="1337530368537" size="4009" optimizedsize="2237">
-      <def id="com.playfish.games.marlin.testing.performance.runner.method:TestAsyncSnapshotMethodRunner" />
-      <pre id="Object" />
-      <dep id="org.osflash.signals.utils:registerFailureSignal" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:clearTestSet" />
-      <dep id="org.osflash.signals:Signal" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:SnapshotMethodConfiguration" />
-      <dep id="org.as3commons.reflect:Type" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceTestSet" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.configurations:IMethodConfiguration" />
-      <dep id="org.osflash.signals.utils:handleSignal" />
-      <dep id="org.hamcrest:assertThat" />
-      <dep id="org.hamcrest.object:instanceOf" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.helpers:FakeAsyncTestClass" />
-      <dep id="org.osflash.signals.utils:SignalAsyncEvent" />
-      <dep id="org.hamcrest.core:allOf" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:PerformanceDataEntry" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:retrieveTestSet" />
-      <dep id="org.hamcrest.collection:arrayWithSize" />
-      <dep id="org.osflash.signals.utils:proceedOnSignal" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.tags:PerformanceTestMetaTag" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:AsyncSnapshotMethodRunner" />
-      <dep id="org.as3commons.reflect:Method" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.async:AsyncToken" />
-      <dep id="AS3" />
-      <dep id="org.hamcrest.collection:array" />
-      <dep id="org.hamcrest.object:hasProperty" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\flash-integration\4.1.0.16248\flash-integration-4.1.0.16248.swc(mx.core:IVisualElementContainer)" mod="1265215569107" size="1807" optimizedsize="472">
       <def id="mx.core:IVisualElementContainer" />
       <pre id="Object" />
@@ -6708,41 +6674,46 @@
       <dep id="AS3" />
       <dep id="mx.core:mx_internal" />
     </script>
-    <script name="C:\Users\jvango\AppData\Local\Temp\IntelliJ_IDEA\performance_api_jvango____FlexUnitLauncher.mxml" mod="1337542251442" size="5409" optimizedsize="3250">
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\capture\SingletonLock.as" mod="1337622798168" size="629" optimizedsize="220">
+      <def id="com.vango.testing.performance.capture:SingletonLock" />
+      <pre id="Object" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\Users\jvango\AppData\Local\Temp\IntelliJ_IDEA\performance_api_jvango____FlexUnitLauncher.mxml" mod="1337622873251" size="5281" optimizedsize="3138">
       <def id="performance_api_jvango____FlexUnitLauncher" />
       <pre id="performance_api_jvango____FlexUnitLauncherBase" />
       <pre id="org.flexunit.runner.notification:IRunListener" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:TestAsyncSnapshotMethodRunner" />
+      <dep id="com.vango.testing.performance.runner.method:TestSnapshotMethodRunner" />
       <dep id="org.flexunit.runners:Parameterized" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:TestPerformanceRepository" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.test:TestPerformanceTestRunner" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:TestPerformanceTestSet" />
+      <dep id="com.vango.testing.performance.runner.method:TestAsyncStandardMethodRunner" />
+      <dep id="com.vango.testing.performance.runner.method:TestMethodRunnerMap" />
+      <dep id="com.vango.testing.performance.runner.method:TestMethodRunner" />
+      <dep id="com.vango.testing.performance.reporting.csv:TestCSV" />
       <dep id="org.flexunit.runner:Request" />
       <dep id="mx.core:mx_internal" />
       <dep id="org.flexunit.runner:IDescription" />
       <dep id="org.flexunit.runner:FlexUnitCore" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:TestMethodRunner" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.helpers:FakeTestWithMethodTags" />
       <dep id="mx.styles:CSSCondition" />
+      <dep id="com.vango.testing.performance.capture:TestPerformanceRegistry" />
       <dep id="flash.system:fscommand" />
       <dep id="AS3" />
       <dep id="_performance_api_jvango____FlexUnitLauncher_FlexInit" />
+      <dep id="com.vango.testing.performance.runner.method:TestAsyncSnapshotMethodRunner" />
       <dep id="_performance_api_jvango____FlexUnitLauncher_Styles" />
+      <dep id="com.vango.testing.performance.meta.helpers:FakeTestWithMultipleTagsOnSameMethod" />
       <dep id="mx.styles:CSSSelector" />
       <dep id="org.flexunit.runner.notification:Failure" />
       <dep id="mx.styles:CSSStyleDeclaration" />
       <dep id="org.flexunit.runner:Result" />
+      <dep id="com.vango.testing.performance.runner.helpers:FakeTestClass" />
       <dep id="mx.core:UIComponentDescriptor" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:TestAsyncStandardMethodRunner" />
-      <dep id="com.playfish.games.marlin.testing.performance.reporting.csv:TestCSV" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.test:TestTestingThread" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.helpers:FakeTestClass" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.helpers:FakeTestWithMultipleTagsOnSameMethod" />
-      <dep id="com.playfish.games.marlin.testing.performance.meta.parse:TestMetaDataParsing" />
+      <dep id="com.vango.testing.performance.capture:TestPerformanceRepository" />
       <dep id="mx.core:IFlexModuleFactory" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:TestMethodRunnerMap" />
-      <dep id="com.playfish.games.marlin.testing.performance.capture:TestPerformanceRegistry" />
-      <dep id="com.playfish.games.marlin.testing.performance.runner.method:TestSnapshotMethodRunner" />
+      <dep id="com.vango.testing.performance.capture:TestPerformanceTestSet" />
+      <dep id="com.vango.testing.performance.meta.helpers:FakeTestWithMethodTags" />
+      <dep id="com.vango.testing.performance.meta.parse:TestMetaDataParsing" />
+      <dep id="com.vango.testing.performance.runner.test:TestPerformanceTestRunner" />
+      <dep id="com.vango.testing.performance.runner.test:TestTestingThread" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.binding:BindingManager)" mod="1265215594700" size="2119" optimizedsize="1136">
       <def id="mx.binding:BindingManager" />
@@ -6859,6 +6830,17 @@
       <dep id="org.flexunit.runners.model:IRunnerBuilder" />
       <dep id="org.flexunit.internals.builders:MetaDataBuilder" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\vango\testing\performance\capture\TestPerformanceRepository.as" mod="1337622873114" size="3961" optimizedsize="1752">
+      <def id="com.vango.testing.performance.capture:TestPerformanceRepository" />
+      <pre id="Object" />
+      <dep id="org.flexunit.asserts:assertFalse" />
+      <dep id="org.flexunit.asserts:assertTrue" />
+      <dep id="AS3" />
+      <dep id="org.flexunit.asserts:assertEquals" />
+      <dep id="com.vango.testing.performance.capture:PerformanceTestSet" />
+      <dep id="org.flexunit.asserts:assertStrictlyEquals" />
+      <dep id="com.vango.testing.performance.capture:PerformanceRepository" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.runner:Description)" mod="1277144322248" size="3029" optimizedsize="1434">
       <def id="org.flexunit.runner:Description" />
       <pre id="org.flexunit.runner:IDescription" />
@@ -6901,11 +6883,6 @@
       <dep id="flash.display:DisplayObject" />
       <dep id="mx.core:mx_internal" />
     </script>
-    <script name="C:\projects\personal\performance\performance-api\src\test\flex\com\playfish\games\marlin\testing\performance\runner\helpers\FakeTestClass.as" mod="1337461832140" size="1706" optimizedsize="710">
-      <def id="com.playfish.games.marlin.testing.performance.runner.helpers:FakeTestClass" />
-      <pre id="Object" />
-      <dep id="AS3" />
-    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\framework\4.1.0.16248\framework-4.1.0.16248.swc(mx.effects:IEffect)" mod="1265215557591" size="3946" optimizedsize="1046">
       <def id="mx.effects:IEffect" />
       <pre id="mx.effects:IAbstractEffect" />
@@ -6920,6 +6897,14 @@
       <def id="org.as3commons.lang:IllegalStateError" />
       <pre id="Error" />
       <dep id="AS3" />
+    </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\capture\retrieveTestSet.as" mod="1337622868930" size="600" optimizedsize="222">
+      <def id="com.vango.testing.performance.capture:retrieveTestSet" />
+      <dep id="com.vango.testing.performance.capture:PerformanceRegistry" />
+      <dep id="String" />
+      <dep id="AS3" />
+      <dep id="com.vango.testing.performance.capture:PerformanceTestSet" />
+      <dep id="Object" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flexunit\flexunit\4.1.0-RC1.61\flexunit-4.1.0-RC1.61.swc(org.flexunit.internals.runners:ErrorReportingRunner)" mod="1277144322232" size="2406" optimizedsize="1235">
       <def id="org.flexunit.internals.runners:ErrorReportingRunner" />
@@ -7065,6 +7050,26 @@
       <dep id="org.flexunit.runner:IDescription" />
       <dep id="org.flexunit.runner.manipulation.sortingInheritance:ISortingInheritanceCache" />
     </script>
+    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\vango\testing\performance\runner\test\PerformanceTestRunner.as" mod="1337622868922" size="2727" optimizedsize="1472">
+      <def id="com.vango.testing.performance.runner.test:PerformanceTestRunner" />
+      <pre id="Object" />
+      <dep id="com.vango.testing.performance.runner.test:ThreadContext" />
+      <dep id="org.osflash.signals:Signal" />
+      <dep id="trace" />
+      <dep id="com.vango.testing.performance.runner:RunConfiguration" />
+      <dep id="com.vango.testing.performance.meta.parse:PerformanceTestParser" />
+      <dep id="com.vango.testing.performance.runner.method:MethodRunner" />
+      <dep id="com.vango.testing.performance.runner.method:MethodRunnerMap" />
+      <dep id="com.vango.testing.performance.meta.configurations:MethodConfiguration" />
+      <dep id="flash.system:ApplicationDomain" />
+      <dep id="com.vango.testing.performance.reporting.analysis:TestSetSummary" />
+      <dep id="flash.utils:getQualifiedClassName" />
+      <dep id="com.vango.testing.performance.meta.configurations:SnapshotMethodConfiguration" />
+      <dep id="com.vango.testing.performance.runner.method:SnapshotMethodRunner" />
+      <dep id="AS3" />
+      <dep id="com.vango.testing.performance.capture:PerformanceTestSet" />
+      <dep id="com.vango.testing.performance.runner.test:TestingThread" />
+    </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\flash-integration\4.1.0.16248\flash-integration-4.1.0.16248.swc(mx.core:AdvancedLayoutFeatures)" mod="1272058424993" size="13473" optimizedsize="6329">
       <def id="mx.core:AdvancedLayoutFeatures" />
       <pre id="mx.core:IAssetLayoutFeatures" />
@@ -7081,11 +7086,6 @@
       <dep id="flash.geom:Matrix3D" />
       <dep id="flash.geom:Point" />
       <dep id="mx.geom:TransformOffsets" />
-    </script>
-    <script name="C:\projects\personal\performance\performance-api\src\main\flex\com\playfish\games\marlin\testing\performance\capture\SingletonLock.as" mod="1337360968590" size="711" optimizedsize="252">
-      <def id="com.playfish.games.marlin.testing.performance.capture:SingletonLock" />
-      <pre id="Object" />
-      <dep id="AS3" />
     </script>
     <script name="C:\Users\jvango\.m2\repository\com\adobe\flex\framework\spark\4.1.0.16248\spark-4.1.0.16248.swc(spark.events:DisplayLayerObjectExistenceEvent)" mod="1265215424372" size="1189" optimizedsize="594">
       <def id="spark.events:DisplayLayerObjectExistenceEvent" />
