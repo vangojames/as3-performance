@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+	
+    <artifactId>performance-api</artifactId>
+    <version>0.0.0.0-SNAPSHOT</version>
+    <packaging>swc</packaging>
+
+    <parent>
+		<artifactId>performance</artifactId>
+		<groupId>com.vango</groupId>
+		<version>0.0.0.0-SNAPSHOT</version>
+	</parent>
+
+    <build>
+        <sourceDirectory>src/main/flex</sourceDirectory>
+		<testSourceDirectory>src/test/flex</testSourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.sonatype.flexmojos</groupId>
+				<artifactId>flexmojos-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+    </build>
+
+    <dependencies>
+        <!-- Nice POM bundle available per SDK on Sonatype thanks to Flex-Mojos -->
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>flex-framework</artifactId>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.osflash.signals</groupId>
+            <artifactId>as3-signals</artifactId>
+            <type>swc</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.as3commons</groupId>
+            <artifactId>as3commons-reflect</artifactId>
+            <version>1.6.0</version>
+            <scope>compile</scope>
+            <type>swc</type>
+        </dependency>
+
+        <!-- additional testing libraries -->
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-as3-only</artifactId>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.osflash.signals</groupId>
+            <artifactId>as3-signals-utilities-async</artifactId>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+        <!--  asmock is a mocking framework used for the testing in flexunit. -->
+        <dependency>
+            <groupId>com.adobe.flexunit</groupId>
+            <artifactId>flexunit</artifactId>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+        <!--  asmock is a mocking framework used for the testing in flexunit. -->
+        <dependency>
+            <groupId>asmock</groupId>
+            <artifactId>asmock</artifactId>
+            <type>swc</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>asmock</groupId>
+            <artifactId>asmock-flexunit4.1</artifactId>
+            <type>swc</type>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>as3-commons</id>
+            <url>http://projects.yoolab.org/maven/content/repositories/releases/org/as3commons</url>
+        </repository>
+    </repositories>
+
+	<profiles>
+		<profile>
+			<id>xvfbtest</id>
+			<activation>
+				<property>
+					<name>xvfbtest</name>
+				</property>
+			</activation>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>selenium-maven-plugin</artifactId>
+						<version>1.1</version>
+						<executions>
+							<execution>
+								<id>xvfbstart</id>
+								<phase>validate</phase>
+								<goals>
+									<goal>xvfb</goal>
+								</goals>
+								<configuration>
+									<reuse>true</reuse>
+									<display>:99</display>
+									<background>true</background>
+									<xauthEnabled>false</xauthEnabled>
+									<options>
+										<option>-ac</option>
+									</options>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

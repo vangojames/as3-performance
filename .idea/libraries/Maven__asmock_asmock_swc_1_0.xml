@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: asmock:asmock:swc:1.0" type="flex">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/asmock/asmock/1.0/asmock-1.0.swc!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/asmock/asmock/1.0/asmock-1.0-asdoc.zip!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/asmock/asmock/1.0/asmock-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

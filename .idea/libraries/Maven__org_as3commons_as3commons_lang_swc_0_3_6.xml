@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.as3commons:as3commons-lang:swc:0.3.6" type="flex">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/as3commons/as3commons-lang/0.3.6/as3commons-lang-0.3.6.swc!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/as3commons/as3commons-lang/0.3.6/as3commons-lang-0.3.6-asdoc.zip!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/as3commons/as3commons-lang/0.3.6/as3commons-lang-0.3.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
