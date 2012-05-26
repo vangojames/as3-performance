@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>com.vango</groupId>
+        <artifactId>performance</artifactId>
+        <version>0.0.0.0-SNAPSHOT</version>
+    </parent>
+	<modelVersion>4.0.0</modelVersion>
+    <artifactId>performance-results-view</artifactId>
+	<packaging>swf</packaging>
+
+    <properties>
+        <application.name>ResultsView</application.name>
+        <keystore.file>${basedir}/cert.p12</keystore.file>
+        <keystore.password>password</keystore.password>
+    </properties>
+
+    <build>
+        <sourceDirectory>src/main/flex</sourceDirectory>
+        <testSourceDirectory>src/test/flex</testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.flexmojos</groupId>
+                <artifactId>flexmojos-maven-plugin</artifactId>
+                <configuration>
+                    <sourceFile>${application.name}.mxml</sourceFile>
+                    <keystore>${keystore.file}</keystore>
+                    <storepass>${keystore.password}</storepass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>sign-air</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.adobe.flex</groupId>
+                        <artifactId>compiler</artifactId>
+                        <version>${flex.framework.version}</version>
+                        <type>pom</type>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.adobe.flex.compiler</groupId>
+                        <artifactId>adt</artifactId>
+                        <version>${flex.framework.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- Nice POM bundle available per SDK on Sonatype thanks to Flex-Mojos -->
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>air-framework</artifactId>
+            <version>${flex.framework.version}</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.osflash.signals</groupId>
+            <artifactId>as3-signals</artifactId>
+            <type>swc</type>
+            <scope>compile</scope>
+        </dependency>
+        <!-- additional testing libraries -->
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-as3-only</artifactId>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.osflash.signals</groupId>
+            <artifactId>as3-signals-utilities-async</artifactId>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.flexunit</groupId>
+            <artifactId>flexunit</artifactId>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>asmock</groupId>
+            <artifactId>asmock</artifactId>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>asmock</groupId>
+            <artifactId>asmock-flexunit4.1</artifactId>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

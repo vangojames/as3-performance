@@ -4,10 +4,7 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <properties>
-        <flex.framework.version>4.1.0.16248</flex.framework.version>
-		<client.debug>true</client.debug>
-		<client.release>false</client.release>
-		<xml-resources.version>0.0.0.0-SNAPSHOT</xml-resources.version>
+        <flex.framework.version>4.5.1.21328</flex.framework.version>
     </properties>
 
 	<modelVersion>4.0.0</modelVersion>
@@ -15,6 +12,11 @@
     <groupId>com.vango</groupId>
 	<packaging>pom</packaging>
 	<version>0.0.0.0-SNAPSHOT</version>
+
+    <modules>
+        <module>performance-api</module>
+        <module>performance-results-view</module>
+    </modules>
 
     <dependencyManagement>
         <dependencies>
