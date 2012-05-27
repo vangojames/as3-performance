@@ -2,3 +2,5 @@
 /.idea
 *.iml
 /performance-api/target
+/performance-results-view/target
+/performance-results-view/target

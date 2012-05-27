@@ -13,8 +13,8 @@
 	<packaging>swf</packaging>
 
     <properties>
-        <application.name>ResultsView</application.name>
-        <keystore.file>${basedir}/cert.p12</keystore.file>
+        <application.name>ResultsMainComponent</application.name>
+        <keystore.file>${basedir}/src/main/resources/cert.p12</keystore.file>
         <keystore.password>password</keystore.password>
     </properties>
 
@@ -25,14 +25,18 @@
             <plugin>
                 <groupId>org.sonatype.flexmojos</groupId>
                 <artifactId>flexmojos-maven-plugin</artifactId>
+                <extensions>true</extensions>
                 <configuration>
+                    <swfVersion>11</swfVersion>
                     <sourceFile>${application.name}.mxml</sourceFile>
+                    <descriptorTemplate>${basedir}/src/main/flex/${application.name}-app.xml</descriptorTemplate>
                     <keystore>${keystore.file}</keystore>
                     <storepass>${keystore.password}</storepass>
                 </configuration>
                 <executions>
                     <execution>
                         <goals>
+                            <goal>generate</goal>
                             <goal>sign-air</goal>
                         </goals>
                     </execution>
