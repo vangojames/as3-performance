@@ -13,7 +13,7 @@
 	<packaging>swf</packaging>
 
     <properties>
-        <application.name>ResultsMainComponent</application.name>
+        <application.name>ResultsViewerMain</application.name>
         <keystore.file>${basedir}/src/main/resources/cert.p12</keystore.file>
         <keystore.password>password</keystore.password>
     </properties>
@@ -58,6 +58,13 @@
         </plugins>
     </build>
 
+    <repositories>
+        <repository>
+            <id>as3Commons</id>
+            <url>http://projects.yoolab.org/maven/content/repositories/releases/org/as3commons</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <!-- Nice POM bundle available per SDK on Sonatype thanks to Flex-Mojos -->
         <dependency>
@@ -69,6 +76,34 @@
         <dependency>
             <groupId>org.osflash.signals</groupId>
             <artifactId>as3-signals</artifactId>
+            <type>swc</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.osflash.splod</groupId>
+            <artifactId>as3-splod</artifactId>
+            <version>0.5</version>
+            <type>swc</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.osflash.logger</groupId>
+            <artifactId>as3-logger</artifactId>
+            <version>0.4</version>
+            <type>swc</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.robotlegs</groupId>
+            <artifactId>robotlegs-framework</artifactId>
+            <version>1.5.2</version>
+            <type>swc</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.robotlegs</groupId>
+            <artifactId>robotlegs-signals-extensions</artifactId>
+            <version>0.1</version>
             <type>swc</type>
             <scope>compile</scope>
         </dependency>

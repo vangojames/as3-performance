@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<local:ResultsViewer
+        xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns:local="*"
+        xmlns:display="com.vango.testing.performance.viewer.controls.display.*"
+        xmlns:s="library://ns.adobe.com/flex/spark"
+        addedToStage="onAddedToStage(event)">
+    <display:HeadingPanelComponent/>
+</local:ResultsViewer>

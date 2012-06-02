@@ -30,7 +30,7 @@
             <dependency>
                 <groupId>org.osflash.signals</groupId>
                 <artifactId>as3-signals</artifactId>
-                <version>0.8</version>
+                <version>0.9-BETA</version>
                 <type>swc</type>
                 <scope>compile</scope>
             </dependency>
@@ -45,7 +45,7 @@
             <dependency>
                 <groupId>org.osflash.signals</groupId>
                 <artifactId>as3-signals-utilities-async</artifactId>
-                <version>0.8</version>
+                <version>0.9-BETA</version>
                 <type>swc</type>
                 <scope>test</scope>
             </dependency>
@@ -103,55 +103,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
-	<profiles>
-        <profile>
-            <id>rel</id>
-            <activation>
-                <property>
-                    <name>deployParentOnly</name>
-                </property>
-            </activation>
-        </profile>
-		<profile>
-			<id>default</id>
-            <activation>
-				<activeByDefault>true</activeByDefault>
-				<property>
-                    <name>buildAll</name>
-				</property>
-            </activation>
-			<modules>
-				<module>performance-api</module>
-			</modules>
-		</profile>
-		<profile>
-			<id>debug</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-				<property>
-                    <name>debug</name>
-				</property>
-			</activation>
-			<properties>
-				<client.debug>true</client.debug>
-				<client.release>false</client.release>
-			</properties>
-		</profile>
-		<profile>
-			<id>release</id>
-            <activation>
-				<property>
-                    <name>release</name>
-				</property>
-            </activation>
-			<properties>
-				<client.debug>false</client.debug>
-				<client.release>true</client.release>
-			</properties>
-		</profile>
-    </profiles>
-	
-	
-
 </project>

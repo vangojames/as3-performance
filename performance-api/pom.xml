@@ -83,43 +83,4 @@
             <url>http://projects.yoolab.org/maven/content/repositories/releases/org/as3commons</url>
         </repository>
     </repositories>
-
-	<profiles>
-		<profile>
-			<id>xvfbtest</id>
-			<activation>
-				<property>
-					<name>xvfbtest</name>
-				</property>
-			</activation>
-
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>selenium-maven-plugin</artifactId>
-						<version>1.1</version>
-						<executions>
-							<execution>
-								<id>xvfbstart</id>
-								<phase>validate</phase>
-								<goals>
-									<goal>xvfb</goal>
-								</goals>
-								<configuration>
-									<reuse>true</reuse>
-									<display>:99</display>
-									<background>true</background>
-									<xauthEnabled>false</xauthEnabled>
-									<options>
-										<option>-ac</option>
-									</options>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 </project>

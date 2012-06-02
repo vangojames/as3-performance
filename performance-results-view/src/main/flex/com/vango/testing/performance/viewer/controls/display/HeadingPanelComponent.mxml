@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<display:HeadingPanel xmlns:fx="http://ns.adobe.com/mxml/2009"
+                      xmlns:s="library://ns.adobe.com/flex/spark"
+                      xmlns:mx="library://ns.adobe.com/flex/mx"
+                      xmlns:display="com.vango.testing.performance.viewer.controls.display.*"
+                    width="100%">
+    <s:VGroup width="100%">
+        <s:Label text="Test Location"/>
+        <display:FileHistoryComponent browseWindowTitle="Browse for directory" ref="performanceTestSources"/>
+        <s:ButtonBar dataProvider="{controls}" change="onControlItemSelected(event)"/>
+    </s:VGroup>
+</display:HeadingPanel>
