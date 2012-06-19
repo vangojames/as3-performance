@@ -107,6 +107,13 @@
             <type>swc</type>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>ws.tink.flex</groupId>
+            <artifactId>tink-flex4-spark</artifactId>
+            <version>0.1</version>
+            <type>swc</type>
+            <scope>compile</scope>
+        </dependency>
         <!-- additional testing libraries -->
         <dependency>
             <groupId>org.hamcrest</groupId>

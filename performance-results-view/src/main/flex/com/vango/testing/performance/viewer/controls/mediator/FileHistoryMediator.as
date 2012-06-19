@@ -23,7 +23,7 @@ package com.vango.testing.performance.viewer.controls.mediator
     public class FileHistoryMediator extends Mediator
     {
         [Inject]
-        public var historyView:FileHistory;
+        public var historyView:FileSelector;
         [Inject]
         public var retrieveFileHistorySignal:RetrieveFileHistorySignal;
         [Inject]

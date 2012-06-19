@@ -3,6 +3,7 @@
  */
 package com.vango.testing.performance.viewer.controls.display
 {
+    import com.vango.testing.performance.viewer.controls.events.FileSelectedEvent;
     import com.vango.testing.performance.viewer.data.vo.FileEntry;
 
     import flash.events.MouseEvent;
@@ -13,12 +14,25 @@ package com.vango.testing.performance.viewer.controls.display
 
     import spark.components.Group;
 
-    public class FileHistory extends Group
+    [Event(name="select", type="com.vango.testing.performance.viewer.controls.events.FileSelectedEvent")]
+    public class FileSelector extends Group
     {
         [Bindable]
         public var history:ArrayCollection = new ArrayCollection();
         [Bindable]
-        public var selectedEntry:FileEntry = null
+        public function set selectedEntry(value:FileEntry):void
+        {
+            _selectedEntry = value;
+            if(_selectedEntry != null)
+            {
+                dispatchEvent(new FileSelectedEvent(FileSelectedEvent.SELECT, selectedEntry));
+            }
+        }
+        public function get selectedEntry():FileEntry
+        {
+            return _selectedEntry;
+        }
+        private var _selectedEntry:FileEntry = null
 
         public const onBrowseSignal:Signal = new Signal();
         public const onClearSignal:Signal = new Signal();

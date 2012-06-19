@@ -3,10 +3,7 @@
                       xmlns:s="library://ns.adobe.com/flex/spark"
                       xmlns:mx="library://ns.adobe.com/flex/mx"
                       xmlns:display="com.vango.testing.performance.viewer.controls.display.*"
-                    width="100%">
-    <s:VGroup width="100%">
-        <s:Label text="Test Location"/>
-        <display:FileHistoryComponent browseWindowTitle="Browse for directory" ref="performanceTestSources"/>
-        <s:ButtonBar dataProvider="{controls}" change="onControlItemSelected(event)"/>
-    </s:VGroup>
+                      xmlns:tink="library://ns.tink.ws/flex/spark"
+                      width="100%">
+    <s:ButtonBar dataProvider="{controls}" selectedIndex="0" width="100%" change="onControlItemSelected(event);"/>
 </display:HeadingPanel>

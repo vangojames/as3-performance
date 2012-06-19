@@ -9,6 +9,7 @@ package
     import com.vango.testing.performance.viewer.init.signals.InitialiseCompleteSignal;
     import com.vango.testing.performance.viewer.init.signals.InitialiseFailedSignal;
     import com.vango.testing.performance.viewer.io.InstallIO;
+    import com.vango.testing.performance.viewer.run.InstallRun;
 
     import flash.display.DisplayObjectContainer;
 
@@ -27,6 +28,7 @@ package
             commandMap.execute(InstallIO);
             commandMap.execute(InstallData);
             commandMap.execute(InstallControls);
+            commandMap.execute(InstallRun);
 
             // map app specific stuff
             injector.mapSingleton(InitialiseFailedSignal);

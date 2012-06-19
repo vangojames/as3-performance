@@ -3,35 +3,36 @@
  */
 package com.vango.testing.performance.viewer.controls.display
 {
-    import com.vango.testing.performance.viewer.controls.commands.ControlCommandId;
+    import com.vango.testing.performance.viewer.controls.commands.ControlID;
     import com.vango.testing.performance.viewer.controls.vo.ControlContext;
 
     import mx.collections.ArrayCollection;
     import mx.collections.IList;
-
-    import org.osflash.signals.Signal;
 
     import spark.components.Group;
     import spark.events.IndexChangeEvent;
 
     public class HeadingPanel extends Group
     {
-        public const onControlSelected:Signal = new Signal(ControlContext);
+        [Bindable]
+        public var selectedItem:ControlID;
 
         public var controls:IList = new ArrayCollection();
 
         public function HeadingPanel()
         {
             // create the relevant control contexts
-            createControlContext("Run Tests...", ControlCommandId.RUN_TESTS);
+            controls.addItem(createControlContext("Run", ControlID.RUN));
+            controls.addItem(createControlContext("Profile", ControlID.PROFILE));
+            controls.addItem(createControlContext("Compare", ControlID.COMPARE));
         }
 
-        private function createControlContext(label:String, commandName:String):void
+        private function createControlContext(label:String, command:ControlID):ControlContext
         {
             var controlContext:ControlContext = new ControlContext();
             controlContext.label = label;
-            controlContext.commandName = commandName;
-            controls.addItem(controlContext);
+            controlContext.command = command;
+            return controlContext;
         }
 
         protected function onControlItemSelected(event:IndexChangeEvent):void
@@ -39,7 +40,7 @@ package com.vango.testing.performance.viewer.controls.display
             if(event.newIndex >= 0)
             {
                 var context:ControlContext = controls[event.newIndex];
-                onControlSelected.dispatch(context);
+                selectedItem = context.command;
             }
         }
     }

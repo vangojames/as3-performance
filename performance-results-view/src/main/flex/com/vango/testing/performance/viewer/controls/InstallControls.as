@@ -3,16 +3,20 @@
  */
 package com.vango.testing.performance.viewer.controls
 {
-    import com.vango.testing.performance.viewer.controls.commands.ControlCommandId;
+    import com.vango.testing.performance.viewer.controls.commands.ControlID;
     import com.vango.testing.performance.viewer.controls.commands.ControlSelectedCommand;
     import com.vango.testing.performance.viewer.controls.commands.RunTestsCommand;
-    import com.vango.testing.performance.viewer.controls.display.FileHistory;
-    import com.vango.testing.performance.viewer.controls.display.FileHistoryComponent;
+    import com.vango.testing.performance.viewer.controls.display.FileSelector;
+    import com.vango.testing.performance.viewer.controls.display.FileSelectorComponent;
+    import com.vango.testing.performance.viewer.controls.display.FooterPanel;
+    import com.vango.testing.performance.viewer.controls.display.FooterPanelComponent;
+    import com.vango.testing.performance.viewer.controls.display.TestRunner;
+    import com.vango.testing.performance.viewer.controls.display.TestRunnerComponent;
     import com.vango.testing.performance.viewer.controls.mediator.FileHistoryMediator;
-    import com.vango.testing.performance.viewer.controls.display.HeadingPanel;
-    import com.vango.testing.performance.viewer.controls.display.HeadingPanelComponent;
-    import com.vango.testing.performance.viewer.controls.mediator.HeadingPanelMediator;
+    import com.vango.testing.performance.viewer.controls.mediator.FooterPanelMediator;
+    import com.vango.testing.performance.viewer.controls.mediator.TestRunnerMediator;
     import com.vango.testing.performance.viewer.controls.signals.ControlSelectedSignal;
+    import com.vango.testing.performance.viewer.controls.signals.UpdateStatusSignal;
 
     import org.robotlegs.mvcs.Command;
     import org.robotlegs.mvcs.SignalCommand;
@@ -22,13 +26,15 @@ package com.vango.testing.performance.viewer.controls
         override public function execute():void
         {
             // map services
-            injector.mapClass(Command, RunTestsCommand, ControlCommandId.RUN_TESTS);
+            injector.mapClass(Command, RunTestsCommand, ControlID.RUN.name);
 
             // map views
-            mediatorMap.mapView(HeadingPanelComponent, HeadingPanelMediator, HeadingPanel);
-            mediatorMap.mapView(FileHistoryComponent, FileHistoryMediator, FileHistory);
+            mediatorMap.mapView(FileSelectorComponent, FileHistoryMediator, FileSelector);
+            mediatorMap.mapView(TestRunnerComponent, TestRunnerMediator, TestRunner);
+            mediatorMap.mapView(FooterPanelComponent, FooterPanelMediator, FooterPanel);
 
             // map signals
+            injector.mapSingleton(UpdateStatusSignal);
             signalCommandMap.mapSignalClass(ControlSelectedSignal, ControlSelectedCommand);
         }
     }

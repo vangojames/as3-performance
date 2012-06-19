@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<display:RunView xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+                 xmlns:display="com.vango.testing.performance.viewer.run.display.*"
+                 xmlns:display2="com.vango.testing.performance.viewer.controls.display.*"
+                 xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="100%">
+    <display:states>
+        <s:State name="unverified"/>
+        <s:State name="verified"/>
+        <s:State name="running"/>
+    </display:states>
+
+    <s:VGroup width="100%" height="100%" paddingLeft="10" paddingRight="10" paddingTop="10" paddingBottom="10">
+        <display2:FileSelectorComponent id="fileSelector" browseWindowTitle="Select Test Directory" ref="testDirectory" select="onTestSelected(event)"/>
+        <mx:Tree id="fileTree" dataProvider="{testList}"/>
+        <s:Button label.verified="Execute Tests" label.running="Wait..."
+                  enabled.running="false" visible.unverified="false" visible.verified="true" click="runTests(event);"/>
+    </s:VGroup>
+</display:RunView>

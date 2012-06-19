@@ -16,7 +16,7 @@ package com.vango.testing.performance.viewer.controls.commands
         override public function execute():void
         {
             // execute the command associated with the control
-            var command:Command = injector.getInstance(Command, controlContext.commandName);
+            var command:Command = injector.getInstance(Command, controlContext.command.name);
             command.execute();
         }
     }

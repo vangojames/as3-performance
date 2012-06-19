@@ -3,7 +3,56 @@
         xmlns:fx="http://ns.adobe.com/mxml/2009"
         xmlns:local="*"
         xmlns:display="com.vango.testing.performance.viewer.controls.display.*"
-        xmlns:s="library://ns.adobe.com/flex/spark"
-        addedToStage="onAddedToStage(event)">
-    <display:HeadingPanelComponent/>
+        xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/mx"
+        xmlns:display2="com.vango.testing.performance.viewer.run.display.*"
+        addedToStage="onAddedToStage(event)" creationComplete="onComplete(event);">
+
+    <fx:Script>
+        <![CDATA[
+        import com.vango.testing.performance.viewer.controls.commands.ControlID;
+
+        import mx.events.FlexEvent;
+
+        private var _mappings:Dictionary;
+
+        function getItemFromSelection(selectedItem:ControlID):NavigatorContent
+        {
+            if (_mappings[selectedItem] == null)
+            {
+                throw new Error("Mapping does not exist for '" + selectedItem.name + "'");
+            }
+            return _mappings[selectedItem] as NavigatorContent;
+        }
+
+        function buildMapping():void
+        {
+            _mappings = new Dictionary();
+            _mappings[ControlID.RUN] = run;
+            _mappings[ControlID.PROFILE] = profile;
+            _mappings[ControlID.COMPARE] = compare;
+        }
+
+        function onComplete(event:FlexEvent):void
+        {
+            buildMapping();
+        }
+        ]]></fx:Script>
+
+    <local:layout>
+        <s:VerticalLayout/>
+    </local:layout>
+
+    <display:HeadingPanelComponent id="headingPanel"/>
+    <mx:ViewStack selectedChild="{getItemFromSelection(headingPanel.selectedItem)}" width="100%" height="100%">
+        <s:NavigatorContent id="run">
+            <display2:RunViewComponent />
+        </s:NavigatorContent>
+        <s:NavigatorContent id="profile">
+            <s:Label text="PROFILE"/>
+        </s:NavigatorContent>
+        <s:NavigatorContent id="compare">
+            <s:Label text="COMPARE"/>
+        </s:NavigatorContent>
+    </mx:ViewStack>
+    <display:FooterPanelComponent id="footerPanel" status="hello" width="100%"/>
 </local:ResultsViewer>
