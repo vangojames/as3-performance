@@ -4,11 +4,11 @@
 package com.vango.testing.performance.viewer.run.services
 {
     import com.vango.testing.performance.viewer.data.vo.FileEntry;
+    import com.vango.testing.performance.viewer.run.vo.FilteredTestFile;
+    import com.vango.testing.performance.viewer.run.vo.IFilteredFile;
     import com.vango.testing.performance.viewer.run.vo.VerificationResult;
 
     import flash.filesystem.File;
-
-    import mx.collections.ArrayCollection;
 
     public class TestVerificationService
     {
@@ -40,7 +40,7 @@ package com.vango.testing.performance.viewer.run.services
                 fileRetrievalService.retrieveAllFiles(dir, onListingRetrieved, performanceTestFilter);
             }
 
-            function onListingRetrieved(listing:ArrayCollection):void
+            function onListingRetrieved(listing:XML):void
             {
                 if(listing.length == 0)
                 {
@@ -59,12 +59,27 @@ package com.vango.testing.performance.viewer.run.services
             }
         }
 
-        private function performanceTestFilter(file:File):Boolean
+        private function performanceTestFilter(file:File):IFilteredFile
         {
-            if( file.extension != "as") return false;
-            if( file.name.substring(0, "Test".length) != "Test" &&
-                file.name.substring(file.name.length - "Test".length, file.name.length) != "Test") return false;
-            return true;
+            var result:FilteredTestFile = new FilteredTestFile();
+            const AS_EXT:String = "as";
+            if(file.extension != AS_EXT)
+            {
+                result.isValid = false;
+                return result;
+            }
+            result.isValid = true;
+            const AS_TEST_ID:String = "Test";
+            var name:String = file.name.split(".")[0];
+            var start:String = name.substr(0, AS_TEST_ID.length);
+            var end:String = name.substr(name.length - AS_TEST_ID.length);
+            var attributes:Object = {isTest:true};
+            result.attributes = attributes;
+            if(start != "Test" && end != "Test")
+            {
+                attributes.isTest = false;
+            }
+            return result;
         }
     }
 }

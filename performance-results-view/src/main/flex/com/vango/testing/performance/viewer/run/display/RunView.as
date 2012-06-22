@@ -9,9 +9,7 @@ package com.vango.testing.performance.viewer.run.display
     import com.vango.testing.performance.viewer.run.vo.VerificationResult;
 
     import flash.events.MouseEvent;
-    import flash.filesystem.File;
 
-    import mx.collections.ArrayCollection;
     import mx.collections.XMLListCollection;
     import mx.controls.Tree;
     import mx.managers.PopUpManager;
@@ -26,13 +24,14 @@ package com.vango.testing.performance.viewer.run.display
         public var testList:XMLListCollection = new XMLListCollection(null);
 
         public var fileSelector:FileSelector;
-        public var testTree:Tree;
+        public var fileTree:Tree;
         public var verificationResult:VerificationResult = null;
 
         public const verifyTestSignal:Signal = new Signal(FileEntry, Function);
 
         protected function onTestSelected(event:FileSelectedEvent):void
         {
+            fileTree.dataProvider = null;
             verifyTestSignal.dispatch(event.file, onTestVerified);
         }
 
@@ -61,21 +60,10 @@ package com.vango.testing.performance.viewer.run.display
             }
             else
             {
-                var f:XMLListCollection = generateFileList(new File(result.target.path), result.fileList);
+                var f:XMLListCollection = new XMLListCollection(result.fileList.file);
+                fileTree.dataProvider = f;
+                fileTree.expandChildrenOf(f, true);
             }
-        }
-
-        private function generateFileList(root:File, fileList:ArrayCollection):XMLListCollection
-        {
-            var subStringLength:int = root.nativePath.length;
-            var list:XMLList = new XMLList();
-            for each(var fileEntry:File in fileList)
-            {
-                // get hierarchy
-                var relativePath:String = fileEntry.nativePath.substring(subStringLength, fileEntry.nativePath.length);
-                trace(relativePath);
-            }
-            return new XMLListCollection(list);
         }
 
         /**

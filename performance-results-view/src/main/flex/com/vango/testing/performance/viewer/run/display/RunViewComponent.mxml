@@ -10,8 +10,8 @@
     </display:states>
 
     <s:VGroup width="100%" height="100%" paddingLeft="10" paddingRight="10" paddingTop="10" paddingBottom="10">
-        <display2:FileSelectorComponent id="fileSelector" browseWindowTitle="Select Test Directory" ref="testDirectory" select="onTestSelected(event)"/>
-        <mx:Tree id="fileTree" dataProvider="{testList}"/>
+        <display2:FileSelectorComponent id="fileSelector" browseWindowTitle="Select Test Directory" ref="testDirectory" select="onTestSelected(event)" width="100%"/>
+        <mx:Tree id="fileTree" dataProvider="{testList}" labelField="@name" width="100%"/>
         <s:Button label.verified="Execute Tests" label.running="Wait..."
                   enabled.running="false" visible.unverified="false" visible.verified="true" click="runTests(event);"/>
     </s:VGroup>

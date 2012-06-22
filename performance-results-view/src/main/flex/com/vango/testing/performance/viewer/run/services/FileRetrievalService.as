@@ -4,6 +4,7 @@
 package com.vango.testing.performance.viewer.run.services
 {
     import com.vango.testing.performance.viewer.controls.signals.UpdateStatusSignal;
+    import com.vango.testing.performance.viewer.run.vo.IFilteredFile;
 
     import flash.events.FileListEvent;
     import flash.filesystem.File;
@@ -23,11 +24,14 @@ package com.vango.testing.performance.viewer.run.services
         }
         private var _isProcessing:Boolean;
 
+        private var _searchRoot:File;
         private var _currentFile:File;
         private var _processingQueue:Vector.<File> = new Vector.<File>();
         private var _output:ArrayCollection;
         private var _filter:Function;
         private var _onComplete:Function;
+
+        private var _structure:XML;
 
         /**
          * Retrieves the complete list of files including the
@@ -47,8 +51,11 @@ package com.vango.testing.performance.viewer.run.services
             _processingQueue = new Vector.<File>();
 
             this._filter = filter;
+            this._searchRoot = root;
             this._output = new ArrayCollection();
             this._onComplete = onComplete;
+
+            _structure = <root/>;
 
             // process the root file
             processFile(root, _output, _filter);
@@ -87,7 +94,7 @@ package com.vango.testing.performance.viewer.run.services
             {
                 _isProcessing = false;
                 updateStatusSignal.dispatch("Processing complete");
-                _onComplete(_output);
+                _onComplete(_structure);
             }
             else
             {
@@ -121,17 +128,44 @@ package com.vango.testing.performance.viewer.run.services
         {
             if(root.isDirectory)
             {
+                trace(root.nativePath + " is a directory");
                 _processingQueue.push(root);
             }
             else
             {
-                if(filter == null || (filter != null && filter(root) == true))
+                var filterResult:IFilteredFile = filter == null ? null : filter(root);
+                if(!filterResult || filterResult.isValid)
                 {
                     output.addItem(root);
-                }
-                else if(filter == null)
-                {
-                    output.addItem(root);
+                    var rel:String = _searchRoot.getRelativePath(root);
+                    if(rel == null)
+                    {
+                        rel = root.nativePath.replace("\\", "/");
+                    }
+                    var files:Array = rel.split("/");
+                    var l:int = files.length;
+                    var currentNode:XML = _structure;
+                    for(var i:int = 0; i < l; i++)
+                    {
+                        var child:XMLList = currentNode.file.(@name == files[i]);
+                        var childNode:XML;
+                        if(child.length() > 0)
+                        {
+                            childNode = child[0];
+                        }
+                        else
+                        {
+                            childNode = <file name={files[i]}/>;
+                            currentNode.appendChild(childNode);
+                        }
+                        currentNode = childNode;
+                    }
+
+                    // add atrributes
+                    for(var attribute:String in filterResult.attributes)
+                    {
+                        currentNode.@[attribute] = filterResult.attributes[attribute];
+                    }
                 }
             }
         }
