@@ -7,6 +7,7 @@ package com.vango.testing.performance.viewer.run
     import com.vango.testing.performance.viewer.run.display.RunView;
     import com.vango.testing.performance.viewer.run.display.RunViewComponent;
     import com.vango.testing.performance.viewer.run.mediator.RunViewMediator;
+    import com.vango.testing.performance.viewer.run.services.AS3ParsingService;
     import com.vango.testing.performance.viewer.run.services.FileRetrievalService;
     import com.vango.testing.performance.viewer.run.services.TestVerificationService;
     import com.vango.testing.performance.viewer.run.signals.VerifyTestDirectorySignal;
@@ -19,6 +20,7 @@ package com.vango.testing.performance.viewer.run
         {
             injector.mapSingleton(TestVerificationService);
             injector.mapSingleton(FileRetrievalService);
+            injector.mapSingleton(AS3ParsingService);
 
             signalCommandMap.mapSignalClass(VerifyTestDirectorySignal, VerifyTestDirectoryCommand);
 

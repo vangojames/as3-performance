@@ -114,6 +114,13 @@
             <type>swc</type>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.sparkTree</groupId>
+            <artifactId>sparkTree</artifactId>
+            <version>4.5</version>
+            <type>swc</type>
+            <scope>compile</scope>
+        </dependency>
         <!-- additional testing libraries -->
         <dependency>
             <groupId>org.hamcrest</groupId>

@@ -10,8 +10,7 @@ package com.vango.testing.performance.viewer.run.display
 
     import flash.events.MouseEvent;
 
-    import mx.collections.XMLListCollection;
-    import mx.controls.Tree;
+    import mx.collections.ArrayCollection;
     import mx.managers.PopUpManager;
 
     import org.osflash.signals.Signal;
@@ -21,17 +20,20 @@ package com.vango.testing.performance.viewer.run.display
     public class RunView extends Group
     {
         [Bindable]
-        public var testList:XMLListCollection = new XMLListCollection(null);
+        public var sourceList:ArrayCollection = null;
+        [Bindable]
+        public var testList:ArrayCollection = null;
 
         public var fileSelector:FileSelector;
-        public var fileTree:Tree;
         public var verificationResult:VerificationResult = null;
 
         public const verifyTestSignal:Signal = new Signal(FileEntry, Function);
 
         protected function onTestSelected(event:FileSelectedEvent):void
         {
-            fileTree.dataProvider = null;
+            sourceList = null;
+            testList = null;
+            currentState = "running";
             verifyTestSignal.dispatch(event.file, onTestVerified);
         }
 
@@ -60,9 +62,8 @@ package com.vango.testing.performance.viewer.run.display
             }
             else
             {
-                var f:XMLListCollection = new XMLListCollection(result.fileList.file);
-                fileTree.dataProvider = f;
-                fileTree.expandChildrenOf(f, true);
+                sourceList = result.sourceTree.children;
+                testList = result.testList;
             }
         }
 

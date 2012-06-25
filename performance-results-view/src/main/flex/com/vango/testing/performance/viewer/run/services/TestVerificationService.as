@@ -4,16 +4,19 @@
 package com.vango.testing.performance.viewer.run.services
 {
     import com.vango.testing.performance.viewer.data.vo.FileEntry;
-    import com.vango.testing.performance.viewer.run.vo.FilteredTestFile;
-    import com.vango.testing.performance.viewer.run.vo.IFilteredFile;
+    import com.vango.testing.performance.viewer.run.vo.AS3TreeNode;
     import com.vango.testing.performance.viewer.run.vo.VerificationResult;
 
     import flash.filesystem.File;
 
+    import mx.collections.ArrayCollection;
+
     public class TestVerificationService
     {
         [Inject]
-        public var fileRetrievalService:FileRetrievalService
+        public var fileRetrievalService:FileRetrievalService;
+        [Inject]
+        public var parsingService:AS3ParsingService;
 
         public function verifyTestDirectory(fileEntry:FileEntry, callback:Function):void
         {
@@ -37,49 +40,34 @@ package com.vango.testing.performance.viewer.run.services
                     fileRetrievalService.stopProcessing();
                     trace("Stopped retrieval processing");
                 }
-                fileRetrievalService.retrieveAllFiles(dir, onListingRetrieved, performanceTestFilter);
+                fileRetrievalService.retrieveAllFiles(dir, onFilesRetrieved, asFileFilter);
             }
 
-            function onListingRetrieved(listing:XML):void
+            function onFilesRetrieved(files:Vector.<File>):void
             {
-                if(listing.length == 0)
-                {
-                    result.fileList = null;
-                    result.success = false;
-                    result.msg = "The path '" + fileEntry.path + "' does not contain any tests";
-                }
-                else
-                {
-                    result.fileList = listing;
-                    result.success = true;
-                    result.msg = "The path '" + fileEntry.path + "' contains " + listing.length + " files";
-                }
+                result.success = files.length > 0;
+                parsingService.parseFiles(dir, files, onFilesParsed);
+            }
 
+            function onFilesParsed(structure:AS3TreeNode, testFiles:ArrayCollection):void
+            {
+                result.sourceTree = structure;
+                result.testList = testFiles;
                 callback(result);
             }
         }
 
-        private function performanceTestFilter(file:File):IFilteredFile
+        private function asFileFilter(file:File):Boolean
         {
-            var result:FilteredTestFile = new FilteredTestFile();
             const AS_EXT:String = "as";
             if(file.extension != AS_EXT)
             {
-                result.isValid = false;
-                return result;
+                return false;
             }
-            result.isValid = true;
-            const AS_TEST_ID:String = "Test";
-            var name:String = file.name.split(".")[0];
-            var start:String = name.substr(0, AS_TEST_ID.length);
-            var end:String = name.substr(name.length - AS_TEST_ID.length);
-            var attributes:Object = {isTest:true};
-            result.attributes = attributes;
-            if(start != "Test" && end != "Test")
+            else
             {
-                attributes.isTest = false;
+                return true;
             }
-            return result;
         }
     }
 }

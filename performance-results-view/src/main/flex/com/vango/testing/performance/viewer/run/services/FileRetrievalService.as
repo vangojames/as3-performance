@@ -4,12 +4,10 @@
 package com.vango.testing.performance.viewer.run.services
 {
     import com.vango.testing.performance.viewer.controls.signals.UpdateStatusSignal;
-    import com.vango.testing.performance.viewer.run.vo.IFilteredFile;
 
     import flash.events.FileListEvent;
     import flash.filesystem.File;
-
-    import mx.collections.ArrayCollection;
+    import flash.utils.getTimer;
 
     import org.robotlegs.mvcs.Actor;
 
@@ -24,14 +22,16 @@ package com.vango.testing.performance.viewer.run.services
         }
         private var _isProcessing:Boolean;
 
+        private var _ignoredDirectoryNames:Vector.<String> = Vector.<String>([".svn", ".git"]);
         private var _searchRoot:File;
         private var _currentFile:File;
         private var _processingQueue:Vector.<File> = new Vector.<File>();
-        private var _output:ArrayCollection;
+        private var _output:Vector.<File>;
         private var _filter:Function;
         private var _onComplete:Function;
-
-        private var _structure:XML;
+        private var _processingStartTime:int;
+        private var _targetFrameRate:int = 24;
+        private var _threshold:int = 1000 / _targetFrameRate;
 
         /**
          * Retrieves the complete list of files including the
@@ -47,15 +47,14 @@ package com.vango.testing.performance.viewer.run.services
                 throw new Error("Already processing, call stopProcessing before retrieving files");
             }
 
+            _processingStartTime = getTimer();
             trace("Retrieving files from '" + root.nativePath + "'");
             _processingQueue = new Vector.<File>();
 
             this._filter = filter;
             this._searchRoot = root;
-            this._output = new ArrayCollection();
+            this._output = new Vector.<File>();
             this._onComplete = onComplete;
-
-            _structure = <root/>;
 
             // process the root file
             processFile(root, _output, _filter);
@@ -74,7 +73,8 @@ package com.vango.testing.performance.viewer.run.services
                 throw new Error("Files are not being processed");
             }
 
-            trace("Stopped retrieving files from '" + _currentFile.nativePath + "'");
+            var dt:int = getTimer() - _processingStartTime;
+            trace("Stopped retrieving files from '" + _currentFile.nativePath + "' after " + dt + "ms");
             _currentFile.removeEventListener(FileListEvent.DIRECTORY_LISTING, onDirectoriesRetrieved);
             _currentFile.cancel();
             _currentFile = null;
@@ -90,19 +90,41 @@ package com.vango.testing.performance.viewer.run.services
          */
         private function retrieveNextDirectoryListing():void
         {
-            if(_processingQueue.length == 0)
+            var isComplete:Boolean = _processingQueue.length == 0;
+            if(!isComplete)
+            {
+                // process as many synchronously before timer is exceeded
+                _isProcessing = true;
+
+                var startTime:int = getTimer();
+                while(getTimer() - startTime < _threshold && _processingQueue.length > 0)
+                {
+                    _currentFile = _processingQueue.pop();
+                    updateStatusSignal.dispatch("Processing directory '" + _currentFile.nativePath + "'");
+                    // get files synchronously and process them
+                    var files:Array = _currentFile.getDirectoryListing();
+                    processEntireDirectory(files);
+                }
+                // now check if there are any left to process and process the next one asynchronously
+                isComplete = _processingQueue.length == 0;
+                if(!isComplete)
+                {
+                    _currentFile = _processingQueue.pop();
+                    updateStatusSignal.dispatch("Processing directory '" + _currentFile.nativePath + "'");
+                    // run an async call
+                    _currentFile.addEventListener(FileListEvent.DIRECTORY_LISTING, onDirectoriesRetrieved);
+                    _currentFile.getDirectoryListingAsync();
+                }
+            }
+
+            // if the listings were all retrieved then this has completed
+            if(isComplete)
             {
                 _isProcessing = false;
                 updateStatusSignal.dispatch("Processing complete");
-                _onComplete(_structure);
-            }
-            else
-            {
-                _isProcessing = true;
-                _currentFile = _processingQueue.pop();
-                updateStatusSignal.dispatch("Processing directory '" + _currentFile.nativePath + "'");
-                _currentFile.addEventListener(FileListEvent.DIRECTORY_LISTING, onDirectoriesRetrieved);
-                _currentFile.getDirectoryListingAsync();
+                var dt:int = getTimer() - _processingStartTime;
+                trace("Processed " + _output.length + " files in " + dt + "ms");
+                _onComplete(_output);
             }
         }
 
@@ -113,59 +135,46 @@ package com.vango.testing.performance.viewer.run.services
         {
             _currentFile.removeEventListener(FileListEvent.DIRECTORY_LISTING, onDirectoriesRetrieved);
             _currentFile = null;
-            for each(var f:File in event.files)
+            // process the directory
+            processEntireDirectory(event.files);
+            // now process the next list of files
+            retrieveNextDirectoryListing();
+        }
+
+        /**
+         * Processes an entire directory of files
+         * @param fileList
+         */
+        private function processEntireDirectory(fileList:Array):void
+        {
+            for each(var f:File in fileList)
             {
                 processFile(f, _output, _filter);
             }
-            // now process the next
-            retrieveNextDirectoryListing();
         }
 
         /*
          * Processes a file to add to either the output or the processing queue
          */
-        private function processFile(root:File, output:ArrayCollection, filter:Function):void
+        private function processFile(root:File, output:Vector.<File>, filter:Function):void
         {
             if(root.isDirectory)
             {
-                trace(root.nativePath + " is a directory");
-                _processingQueue.push(root);
+                if(_ignoredDirectoryNames.indexOf(root.name) >= 0)
+                {
+                    updateStatusSignal.dispatch("Ignoring '" + root.name + "' directory at '" + root.nativePath + "'");
+                }
+                else
+                {
+                    _processingQueue.push(root);
+                }
             }
             else
             {
-                var filterResult:IFilteredFile = filter == null ? null : filter(root);
-                if(!filterResult || filterResult.isValid)
+                var filterResult:Boolean = filter == null ? true : filter(root);
+                if(filterResult == true)
                 {
-                    output.addItem(root);
-                    var rel:String = _searchRoot.getRelativePath(root);
-                    if(rel == null)
-                    {
-                        rel = root.nativePath.replace("\\", "/");
-                    }
-                    var files:Array = rel.split("/");
-                    var l:int = files.length;
-                    var currentNode:XML = _structure;
-                    for(var i:int = 0; i < l; i++)
-                    {
-                        var child:XMLList = currentNode.file.(@name == files[i]);
-                        var childNode:XML;
-                        if(child.length() > 0)
-                        {
-                            childNode = child[0];
-                        }
-                        else
-                        {
-                            childNode = <file name={files[i]}/>;
-                            currentNode.appendChild(childNode);
-                        }
-                        currentNode = childNode;
-                    }
-
-                    // add atrributes
-                    for(var attribute:String in filterResult.attributes)
-                    {
-                        currentNode.@[attribute] = filterResult.attributes[attribute];
-                    }
+                    output.push(root);
                 }
             }
         }

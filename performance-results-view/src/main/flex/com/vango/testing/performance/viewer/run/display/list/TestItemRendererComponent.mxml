@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+    xmlns:mx="library://ns.adobe.com/flex/mx">
+
+    <fx:Script><![CDATA[
+        import com.vango.testing.performance.viewer.run.vo.AS3File;
+        import com.vango.testing.performance.viewer.run.vo.AS3TreeNode;
+
+        [Bindable]
+        public var file:AS3File;
+
+        override public function set data(value:Object):void
+        {
+            super.data = value;
+            if(data)
+            {
+                file = AS3TreeNode(data).file;
+                checkBox.selected = file.isSelected;
+            }
+        }
+
+
+        ]]></fx:Script>
+
+    <s:HGroup verticalAlign="middle">
+        <s:CheckBox id="checkBox" selected="@{file.isSelected}"/>
+        <s:Label text="{label}"/>
+    </s:HGroup>
+</s:ItemRenderer>
