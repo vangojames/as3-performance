@@ -7,6 +7,7 @@ package com.vango.testing.performance.viewer.run.display.run
     import com.vango.testing.performance.viewer.controls.events.FileSelectedEvent;
     import com.vango.testing.performance.viewer.data.vo.FileEntry;
     import com.vango.testing.performance.viewer.run.display.popup.InvalidPathPopup;
+    import com.vango.testing.performance.viewer.run.vo.RunData;
     import com.vango.testing.performance.viewer.run.vo.VerificationResult;
 
     import flash.events.MouseEvent;
@@ -26,11 +27,17 @@ package com.vango.testing.performance.viewer.run.display.run
         public var testList:ArrayCollection = null;
         [Bindable]
         public var sourceList:ArrayCollection = null;
+        [Bindable]
+        public var externalSourcesList:ArrayCollection = null;
+        [Bindable]
+        public var externalSwcsList:ArrayCollection = null;
 
         public var fileSelector:FileSelector;
         public var verificationResult:VerificationResult = null;
 
         public const verifyTestSignal:Signal = new Signal(FileEntry);
+        public const addSourceSignal:Signal = new Signal();
+        public const addSwcSignal:Signal = new Signal();
 
         protected function onTestSelected(event:FileSelectedEvent):void
         {
@@ -64,12 +71,31 @@ package com.vango.testing.performance.viewer.run.display.run
                     }
                 }
             }
-            else
-            {
-                sourceTree = result.sourceTree.children;
-                testList = result.testList;
-                sourceList = result.sourceList;
-            }
+        }
+
+        public function onRunDataUpdated(runData:RunData):void
+        {
+            sourceTree = runData.sourceTree;
+            testList = runData.testList;
+            sourceList = runData.sourceList;
+            externalSourcesList = runData.externalSources;
+            externalSwcsList = runData.externalSwcs;
+        }
+
+        /**
+         * Adds a source for compilation
+         */
+        protected function addSource():void
+        {
+            addSourceSignal.dispatch();
+        }
+
+        /**
+         * Attempts to add a swc for compilation
+         */
+        protected function addSwc():void
+        {
+            addSwcSignal.dispatch();
         }
 
         /**

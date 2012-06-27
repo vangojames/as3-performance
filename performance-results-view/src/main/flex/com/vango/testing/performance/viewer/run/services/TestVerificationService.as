@@ -4,7 +4,9 @@
 package com.vango.testing.performance.viewer.run.services
 {
     import com.vango.testing.performance.viewer.data.vo.FileEntry;
+    import com.vango.testing.performance.viewer.run.proxies.TestRunProxy;
     import com.vango.testing.performance.viewer.run.signals.TestDirectoryVerifiedSignal;
+    import com.vango.testing.performance.viewer.run.vo.RunData;
     import com.vango.testing.performance.viewer.run.vo.VerificationResult;
     import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeFolder;
 
@@ -20,6 +22,8 @@ package com.vango.testing.performance.viewer.run.services
         public var fileRetrievalService:FileRetrievalService;
         [Inject]
         public var parsingService:AS3ParsingService;
+        [Inject]
+        public var testProxy:TestRunProxy;
 
         private var result:VerificationResult;
         private var currentDirectory:File;
@@ -58,9 +62,13 @@ package com.vango.testing.performance.viewer.run.services
 
         private function onFilesParsed(structure:AS3TreeFolder, testFiles:ArrayCollection, sourceFiles:ArrayCollection):void
         {
-            result.sourceTree = structure;
-            result.testList = testFiles;
-            result.sourceList = sourceFiles;
+            var runData:RunData = new RunData();
+            runData.sourceTree = structure.children;
+            runData.testList = testFiles;
+            runData.sourceList = sourceFiles;
+            runData.externalSources = new ArrayCollection();
+            runData.externalSwcs = new ArrayCollection();
+            testProxy.runData = runData;
             testDirectoryVerifiedSignal.dispatch(result);
         }
 

@@ -3,7 +3,8 @@
  */
 package com.vango.testing.performance.viewer.run
 {
-    import com.vango.testing.performance.viewer.run.commands.TestDirectoryVerifiedCommand;
+    import com.vango.testing.performance.viewer.run.commands.IncludeSourceCommand;
+    import com.vango.testing.performance.viewer.run.commands.IncludeSwcCommand;
     import com.vango.testing.performance.viewer.run.commands.VerifyTestDirectoryCommand;
     import com.vango.testing.performance.viewer.run.display.run.RunView;
     import com.vango.testing.performance.viewer.run.display.run.RunViewComponent;
@@ -12,6 +13,9 @@ package com.vango.testing.performance.viewer.run
     import com.vango.testing.performance.viewer.run.services.AS3ParsingService;
     import com.vango.testing.performance.viewer.run.services.FileRetrievalService;
     import com.vango.testing.performance.viewer.run.services.TestVerificationService;
+    import com.vango.testing.performance.viewer.run.signals.IncludeSourceSignal;
+    import com.vango.testing.performance.viewer.run.signals.IncludeSwcSignal;
+    import com.vango.testing.performance.viewer.run.signals.RunDataUpdatedSignal;
     import com.vango.testing.performance.viewer.run.signals.TestDirectoryVerifiedSignal;
     import com.vango.testing.performance.viewer.run.signals.VerifyTestDirectorySignal;
 
@@ -28,7 +32,11 @@ package com.vango.testing.performance.viewer.run
             injector.mapSingleton(TestRunProxy);
 
             signalCommandMap.mapSignalClass(VerifyTestDirectorySignal, VerifyTestDirectoryCommand);
-            signalCommandMap.mapSignalClass(TestDirectoryVerifiedSignal, TestDirectoryVerifiedCommand);
+            signalCommandMap.mapSignalClass(IncludeSourceSignal, IncludeSourceCommand);
+            signalCommandMap.mapSignalClass(IncludeSwcSignal, IncludeSwcCommand);
+
+            injector.mapSingleton(TestDirectoryVerifiedSignal);
+            injector.mapSingleton(RunDataUpdatedSignal);
 
             mediatorMap.mapView(RunViewComponent, RunViewMediator, RunView);
         }

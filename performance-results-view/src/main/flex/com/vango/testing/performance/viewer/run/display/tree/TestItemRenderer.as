@@ -86,6 +86,14 @@ package com.vango.testing.performance.viewer.run.display.tree
                         if(itemData is AS3TreeLeaf)
                         {
                             this.chk.visible = true;
+                            if(itemData is AS3TreeTest)
+                            {
+                                label.textColor = 0x006600;
+                            }
+                            else
+                            {
+                                label.textColor = 0x000066;
+                            }
                         }
                         else
                         {
@@ -119,46 +127,46 @@ package com.vango.testing.performance.viewer.run.display.tree
 
         private function buildContextMenu():void
         {
-            var contextMenu:CommandContextMenu = new CommandContextMenu();
+            var customContextMenu:CommandContextMenu = new CommandContextMenu();
             if(data is AS3TreeLeaf)
             {
-                if(data is AS3TreeSource)
+                if(data is AS3TreeTest)
                 {
-                    contextMenu.addCommandMenuItem("Include test", new ContextMenuCommand(updateItemSelection, true, isTest));
-                    contextMenu.addCommandMenuItem("Exclude test", new ContextMenuCommand(updateItemSelection, false, isTest));
+                    customContextMenu.addCommandMenuItem("Include test", new ContextMenuCommand(updateItemSelection, true, isTest));
+                    customContextMenu.addCommandMenuItem("Exclude test", new ContextMenuCommand(updateItemSelection, false, isTest));
                 }
                 else
                 {
-                    contextMenu.addCommandMenuItem("Include source", new ContextMenuCommand(updateItemSelection, true, isSource));
-                    contextMenu.addCommandMenuItem("Exclude source", new ContextMenuCommand(updateItemSelection, false, isSource));
+                    customContextMenu.addCommandMenuItem("Include source", new ContextMenuCommand(updateItemSelection, true, isSource));
+                    customContextMenu.addCommandMenuItem("Exclude source", new ContextMenuCommand(updateItemSelection, false, isSource));
                 }
             }
             else
             {
-                var testMenu:CommandContextMenu = new CommandContextMenu();
-                var sourceMenu:CommandContextMenu = new CommandContextMenu();
-                contextMenu.addSubmenu(testMenu, "Tests");
-                contextMenu.addSubmenu(sourceMenu, "Sources");
-
                 var folder:AS3TreeFolder = data as AS3TreeFolder;
+
                 if(folder.containsTest && folder.containsSource)
                 {
-                    contextMenu.addCommandMenuItem("Include all", new ContextMenuCommand(updateChildItemSelections, true, null));
-                    contextMenu.addCommandMenuItem("Exclude all", new ContextMenuCommand(updateChildItemSelections, false, null));
+                    customContextMenu.addCommandMenuItem("Include all", new ContextMenuCommand(updateChildItemSelections, true, null));
+                    customContextMenu.addCommandMenuItem("Exclude all", new ContextMenuCommand(updateChildItemSelections, false, null));
                 }
                 if(folder.containsTest)
                 {
+                    var testMenu:CommandContextMenu = new CommandContextMenu();
+                    customContextMenu.addSubmenu(testMenu, "Tests");
                     testMenu.addCommandMenuItem("Include all", new ContextMenuCommand(updateChildItemSelections, true, isTest));
                     testMenu.addCommandMenuItem("Exclude all", new ContextMenuCommand(updateChildItemSelections, false, isTest));
                 }
                 if(folder.containsSource)
                 {
+                    var sourceMenu:CommandContextMenu = new CommandContextMenu();
+                    customContextMenu.addSubmenu(sourceMenu, "Sources");
                     sourceMenu.addCommandMenuItem("Include all", new ContextMenuCommand(updateChildItemSelections, true, isSource));
                     sourceMenu.addCommandMenuItem("Exclude all", new ContextMenuCommand(updateChildItemSelections, false, isSource));
                 }
             }
 
-            this.contextMenu = contextMenu;
+            this.contextMenu = customContextMenu;
         }
 
         /**
