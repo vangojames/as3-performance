@@ -1,11 +1,12 @@
 /**
  *
  */
-package com.vango.testing.performance.viewer.run.display
+package com.vango.testing.performance.viewer.run.display.run
 {
     import com.vango.testing.performance.viewer.controls.display.FileSelector;
     import com.vango.testing.performance.viewer.controls.events.FileSelectedEvent;
     import com.vango.testing.performance.viewer.data.vo.FileEntry;
+    import com.vango.testing.performance.viewer.run.display.popup.InvalidPathPopup;
     import com.vango.testing.performance.viewer.run.vo.VerificationResult;
 
     import flash.events.MouseEvent;
@@ -20,24 +21,27 @@ package com.vango.testing.performance.viewer.run.display
     public class RunView extends Group
     {
         [Bindable]
-        public var sourceList:ArrayCollection = null;
+        public var sourceTree:ArrayCollection = null;
         [Bindable]
         public var testList:ArrayCollection = null;
+        [Bindable]
+        public var sourceList:ArrayCollection = null;
 
         public var fileSelector:FileSelector;
         public var verificationResult:VerificationResult = null;
 
-        public const verifyTestSignal:Signal = new Signal(FileEntry, Function);
+        public const verifyTestSignal:Signal = new Signal(FileEntry);
 
         protected function onTestSelected(event:FileSelectedEvent):void
         {
-            sourceList = null;
+            sourceTree = null;
             testList = null;
+            sourceList = null;
             currentState = "running";
-            verifyTestSignal.dispatch(event.file, onTestVerified);
+            verifyTestSignal.dispatch(event.file);
         }
 
-        private function onTestVerified(result:VerificationResult):void
+        public function onTestVerified(result:VerificationResult):void
         {
             this.verificationResult = result;
             currentState = result.success ? "verified" : "unverified";
@@ -62,8 +66,9 @@ package com.vango.testing.performance.viewer.run.display
             }
             else
             {
-                sourceList = result.sourceTree.children;
+                sourceTree = result.sourceTree.children;
                 testList = result.testList;
+                sourceList = result.sourceList;
             }
         }
 

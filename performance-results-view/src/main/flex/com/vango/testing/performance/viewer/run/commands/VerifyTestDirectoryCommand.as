@@ -14,12 +14,10 @@ package com.vango.testing.performance.viewer.run.commands
         public var testVerificationService:TestVerificationService;
         [Inject]
         public var fileEntry:FileEntry;
-        [Inject]
-        public var callback:Function;
 
         override public function execute():void
         {
-            testVerificationService.verifyTestDirectory(fileEntry, callback);
+            testVerificationService.verifyTestDirectory(fileEntry);
         }
     }
 }

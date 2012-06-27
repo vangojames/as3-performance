@@ -4,8 +4,10 @@
 package com.vango.testing.performance.viewer.run.services
 {
     import com.vango.testing.performance.viewer.controls.signals.UpdateStatusSignal;
-    import com.vango.testing.performance.viewer.run.vo.AS3File;
-    import com.vango.testing.performance.viewer.run.vo.AS3TreeNode;
+    import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeFolder;
+    import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeLeaf;
+    import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeSource;
+    import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeTest;
 
     import flash.events.Event;
     import flash.events.IOErrorEvent;
@@ -30,9 +32,9 @@ package com.vango.testing.performance.viewer.run.services
         private var _fileStream:FileStream = new FileStream();
         private var _searchRoot:File;
         private var _processingQueue:Vector.<File>;
-        private var _sourceRoots:AS3TreeNode;
+        private var _sourceRoots:AS3TreeFolder;
         private var _testFiles:ArrayCollection;
-        private var _parsedFiles:Vector.<AS3File>;
+        private var _sourceFiles:ArrayCollection;
         private var _currentFile:File;
         private var _onComplete:Function;
         private var _parsingStartTime:int;
@@ -68,9 +70,9 @@ package com.vango.testing.performance.viewer.run.services
                 assertIsFile(file);
                 _processingQueue.push(file);
             }
-            _sourceRoots = new AS3TreeNode("", "", new ArrayCollection(), null);
-            _parsedFiles = new Vector.<AS3File>();
+            _sourceRoots = new AS3TreeFolder("", searchRoot, new ArrayCollection());
             _testFiles = new ArrayCollection();
+            _sourceFiles = new ArrayCollection();
             // begin parsing
             parseNext();
         }
@@ -92,9 +94,9 @@ package com.vango.testing.performance.viewer.run.services
             _currentFile = null;
             _processingQueue = null;
             _onComplete = null;
-            _parsedFiles = null;
             _isParsing = false;
             _testFiles = null;
+            _sourceFiles = null;
         }
 
         /**
@@ -144,8 +146,9 @@ package com.vango.testing.performance.viewer.run.services
                 _isParsing = false;
                 updateStatusSignal.dispatch("");
                 var dt:int = getTimer() - _parsingStartTime;
-                trace("Parsed " + _parsedFiles.length + " files in " + dt + "ms and found " + _testFiles.length + " test files");
-                _onComplete(_sourceRoots, _testFiles);
+                var parseCount:int = _testFiles.length + _sourceFiles.length
+                trace("Parsed " + parseCount + " files in " + dt + "ms and found " + _testFiles.length + " test files");
+                _onComplete(_sourceRoots, _testFiles, _sourceFiles);
             }
         }
 
@@ -154,79 +157,102 @@ package com.vango.testing.performance.viewer.run.services
          */
         private function parseFile(location:File, fileContents:String):void
         {
-            var file:AS3File = new AS3File();
-            file.location = location;
-            file.name = location.name;
-            file.isTest = fileIsTestFile(location);
-            file.packageName = getFilePackage(fileContents);
-            var packageDirectory:String = getPackageDirectory(file.packageName);
+            // configure a leaf node for the file
+            var leafNode:AS3TreeLeaf;
+            leafNode = fileIsTestFile(location) ? new AS3TreeTest() : new AS3TreeSource() ;
+            leafNode.nativeLocation = location;
+            leafNode.name = location.name;
+            leafNode.packageName = getFilePackage(fileContents);
+            // now extract the package directory and calculate the root for the file
+            var packageDirectory:String = getPackageDirectory(leafNode.packageName);
             var sourceRoot:File = getSourceRoot(location, packageDirectory);
+            // if the file exists then continue parsing and add
             if(sourceRoot.exists)
             {
-                file.sourceRoot = sourceRoot;
-
-                var rootStructure:AS3TreeNode;
-                var relativeRootPath:String = _searchRoot.getRelativePath(file.sourceRoot);
+                // set the source root on the leaf node
+                leafNode.sourceRoot = sourceRoot;
+                // now get the root folder node for the leaf and add to it
+                var rootFolderNode:AS3TreeFolder;
+                var relativeRootPath:String = _searchRoot.getRelativePath(leafNode.sourceRoot);
                 if(relativeRootPath == null)
                 {
-                    relativeRootPath = file.sourceRoot.name;
+                    relativeRootPath = leafNode.sourceRoot.name;
                 }
-
+                // if no node exists then create a new one and add it to the source root
                 if(!_sourceRoots.contains(relativeRootPath))
                 {
-                    rootStructure = new AS3TreeNode(relativeRootPath, file.sourceRoot.nativePath, new ArrayCollection(), file);
-                    _sourceRoots.addNode(rootStructure);
+                    rootFolderNode = new AS3TreeFolder(relativeRootPath, leafNode.sourceRoot, new ArrayCollection());
+                    _sourceRoots.addNode(rootFolderNode);
                 }
+                // otherwise get the existing one
                 else
                 {
-                    rootStructure = _sourceRoots.getNode(relativeRootPath);
+                    rootFolderNode = AS3TreeFolder(_sourceRoots.getNode(relativeRootPath));
                 }
-                includePathInSourceRoot(rootStructure, packageDirectory, file);
-                // add to the parsed files list
-                _parsedFiles.push(file);
+                includePathInSourceRoot(rootFolderNode, packageDirectory, leafNode);
             }
+            // otherwise do not add as it cannot be resolved for compilation
             else
             {
                 trace("WARNING : Package could not be resolved so it will be ignored @ '" + location.nativePath + "'");
             }
         }
 
-        private function includePathInSourceRoot(root:AS3TreeNode, packageDirectory:String, file:AS3File):void
+        /**
+         * Runs through and includes the as3 tree leaf root path in the as3 tree folder
+         * @param folderNode The folder to add to
+         * @param packageDirectory The package directory to add
+         * @param leafNode The file to add
+         */
+        private function includePathInSourceRoot(folderNode:AS3TreeFolder, packageDirectory:String, leafNode:AS3TreeLeaf):void
         {
-            if(file.isTest)
+            var nodeIsTest:Boolean = leafNode is AS3TreeTest;
+            // set the flag on the folder node
+            if(nodeIsTest)
             {
-                root.containsTest = true;
+                folderNode.containsTest = true;
             }
-
+            else
+            {
+                folderNode.containsSource = true;
+            }
             var packageFolders:Array = packageDirectory.split("\\");
             var l:int = packageFolders.length;
-            var currentNode:AS3TreeNode = root;
+            var currentNode:AS3TreeFolder = folderNode;
             for(var i:int = 0; i < l; i++)
             {
                 var src:String = packageFolders[i];
-                var srcNode:AS3TreeNode;
+                var srcNode:AS3TreeFolder;
                 if(src != "")
                 {
                     if(!currentNode.contains(src))
                     {
-                        srcNode = new AS3TreeNode(src, currentNode.nativePath + "\\" + src, new ArrayCollection(), file);
+                        srcNode = new AS3TreeFolder(src, new File(currentNode.nativePath + "\\" + src), new ArrayCollection());
                         currentNode.addNode(srcNode);
                     }
-                    currentNode = currentNode.getNode(src);
-                    if(file.isTest)
+                    currentNode = AS3TreeFolder(currentNode.getNode(src));
+                    if(nodeIsTest)
                     {
                         currentNode.containsTest = true;
                     }
+                    else
+                    {
+                        currentNode.containsSource = true;
+                    }
                 }
             }
-            var fileNode:AS3TreeNode = new AS3TreeNode(file.name, currentNode.nativePath + "\\" + file.name, null, file);
-            fileNode.isTest = file.isTest;
-            if(file.isTest)
+
+            //currentNode.nativePath + "\\" + leafNode.name
+            leafNode.relativeName = packageDirectory + "\\" + leafNode.name;
+            if(nodeIsTest)
             {
-                fileNode.relativeName = packageDirectory + "\\" + file.name;
-                _testFiles.addItem(fileNode);
+                _testFiles.addItem(leafNode);
             }
-            currentNode.addNode(fileNode);
+            else
+            {
+                _sourceFiles.addItem(leafNode);
+            }
+            currentNode.addNode(leafNode);
         }
 
         /**

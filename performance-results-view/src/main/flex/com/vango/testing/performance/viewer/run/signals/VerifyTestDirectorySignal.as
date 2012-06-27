@@ -11,7 +11,7 @@ package com.vango.testing.performance.viewer.run.signals
     {
         public function VerifyTestDirectorySignal()
         {
-            super(FileEntry, Function);
+            super(FileEntry);
         }
     }
 }

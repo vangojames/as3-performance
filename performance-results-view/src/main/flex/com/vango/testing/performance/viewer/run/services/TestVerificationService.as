@@ -4,8 +4,9 @@
 package com.vango.testing.performance.viewer.run.services
 {
     import com.vango.testing.performance.viewer.data.vo.FileEntry;
-    import com.vango.testing.performance.viewer.run.vo.AS3TreeNode;
+    import com.vango.testing.performance.viewer.run.signals.TestDirectoryVerifiedSignal;
     import com.vango.testing.performance.viewer.run.vo.VerificationResult;
+    import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeFolder;
 
     import flash.filesystem.File;
 
@@ -14,21 +15,26 @@ package com.vango.testing.performance.viewer.run.services
     public class TestVerificationService
     {
         [Inject]
+        public var testDirectoryVerifiedSignal:TestDirectoryVerifiedSignal;
+        [Inject]
         public var fileRetrievalService:FileRetrievalService;
         [Inject]
         public var parsingService:AS3ParsingService;
 
-        public function verifyTestDirectory(fileEntry:FileEntry, callback:Function):void
+        private var result:VerificationResult;
+        private var currentDirectory:File;
+
+        public function verifyTestDirectory(fileEntry:FileEntry):void
         {
-            var result:VerificationResult = new VerificationResult();
+            result = new VerificationResult();
             result.target = fileEntry;
-            var dir:File = new File(fileEntry.path);
-            if(!dir.exists)
+            currentDirectory = new File(fileEntry.path);
+            if(!currentDirectory.exists)
             {
                 result.success = false;
                 result.msg = "The path '" + fileEntry.path + "' could not be resolved";
             }
-            else if(!dir.isDirectory)
+            else if(!currentDirectory.isDirectory)
             {
                 result.success = false;
                 result.msg = "The path '" + fileEntry.path + "' is not a directory";
@@ -40,21 +46,22 @@ package com.vango.testing.performance.viewer.run.services
                     fileRetrievalService.stopProcessing();
                     trace("Stopped retrieval processing");
                 }
-                fileRetrievalService.retrieveAllFiles(dir, onFilesRetrieved, asFileFilter);
+                fileRetrievalService.retrieveAllFiles(currentDirectory, onFilesRetrieved, asFileFilter);
             }
+        }
 
-            function onFilesRetrieved(files:Vector.<File>):void
-            {
-                result.success = files.length > 0;
-                parsingService.parseFiles(dir, files, onFilesParsed);
-            }
+        private function onFilesRetrieved(files:Vector.<File>):void
+        {
+            result.success = files.length > 0;
+            parsingService.parseFiles(currentDirectory, files, onFilesParsed);
+        }
 
-            function onFilesParsed(structure:AS3TreeNode, testFiles:ArrayCollection):void
-            {
-                result.sourceTree = structure;
-                result.testList = testFiles;
-                callback(result);
-            }
+        private function onFilesParsed(structure:AS3TreeFolder, testFiles:ArrayCollection, sourceFiles:ArrayCollection):void
+        {
+            result.sourceTree = structure;
+            result.testList = testFiles;
+            result.sourceList = sourceFiles;
+            testDirectoryVerifiedSignal.dispatch(result);
         }
 
         private function asFileFilter(file:File):Boolean

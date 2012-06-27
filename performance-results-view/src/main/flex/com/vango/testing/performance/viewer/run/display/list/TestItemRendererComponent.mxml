@@ -3,27 +3,23 @@
     xmlns:mx="library://ns.adobe.com/flex/mx">
 
     <fx:Script><![CDATA[
-        import com.vango.testing.performance.viewer.run.vo.AS3File;
-        import com.vango.testing.performance.viewer.run.vo.AS3TreeNode;
+        import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeLeaf;
 
-        [Bindable]
-        public var file:AS3File;
+        private var leaf:AS3TreeLeaf;
 
         override public function set data(value:Object):void
         {
             super.data = value;
-            if(data)
+            if (data)
             {
-                file = AS3TreeNode(data).file;
-                checkBox.selected = file.isSelected;
+                leaf = AS3TreeLeaf(data);
+                checkBox.selected = leaf.isSelected;
             }
         }
-
-
         ]]></fx:Script>
 
     <s:HGroup verticalAlign="middle">
-        <s:CheckBox id="checkBox" selected="@{file.isSelected}"/>
+        <s:CheckBox id="checkBox" selected="@{leaf.isSelected}"/>
         <s:Label text="{label}"/>
     </s:HGroup>
 </s:ItemRenderer>

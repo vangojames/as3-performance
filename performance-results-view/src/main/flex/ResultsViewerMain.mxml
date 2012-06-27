@@ -4,8 +4,10 @@
         xmlns:local="*"
         xmlns:display="com.vango.testing.performance.viewer.controls.display.*"
         xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/mx"
-        xmlns:display2="com.vango.testing.performance.viewer.run.display.*"
-        addedToStage="onAddedToStage(event)" creationComplete="onComplete(event);">
+        xmlns:run="com.vango.testing.performance.viewer.run.display.run.*"
+        addedToStage="onAddedToStage(event)" creationComplete="onComplete(event);"
+        width="1024"
+        height="768">
 
     <fx:Script>
         <![CDATA[
@@ -45,7 +47,7 @@
     <display:HeadingPanelComponent id="headingPanel"/>
     <mx:ViewStack selectedChild="{getItemFromSelection(headingPanel.selectedItem)}" width="100%" height="100%">
         <s:NavigatorContent id="run">
-            <display2:RunViewComponent />
+            <run:RunViewComponent/>
         </s:NavigatorContent>
         <s:NavigatorContent id="profile">
             <s:Label text="PROFILE"/>

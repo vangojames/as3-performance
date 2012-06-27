@@ -1,31 +1,26 @@
 /**
  *
  */
-package com.vango.testing.performance.viewer.run.vo
+package com.vango.testing.performance.viewer.run.vo.tree
 {
+    import flash.filesystem.File;
     import flash.utils.Dictionary;
 
     import mx.collections.ArrayCollection;
 
-    public class AS3TreeNode
+    public class AS3TreeFolder extends AS3TreeNode
     {
-        public var name:String;
-        public var nativePath:String;
-        public var parent:AS3TreeNode;
         public var children:ArrayCollection;
-        public var isTest:Boolean;
         public var containsTest:Boolean;
-        public var relativeName:String;
-        public var file:AS3File;
+        public var containsSource:Boolean;
 
         private var _nodes:Dictionary = new Dictionary();
 
-        public function AS3TreeNode(name:String, nativePath:String, children:ArrayCollection, file:AS3File = null)
+        public function AS3TreeFolder(name:String, location:File, children:ArrayCollection)
         {
             this.name = name;
-            this.nativePath = nativePath;
+            this.nativeLocation = location;
             this.children = children;
-            this.file = file;
         }
 
         public function addNode(node:AS3TreeNode):void

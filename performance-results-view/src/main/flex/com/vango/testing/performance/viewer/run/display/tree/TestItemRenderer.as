@@ -1,28 +1,22 @@
 package com.vango.testing.performance.viewer.run.display.tree
 {
-    import com.vango.testing.performance.viewer.run.vo.AS3File;
-    import com.vango.testing.performance.viewer.run.vo.AS3TreeNode;
+    import com.vango.testing.performance.viewer.run.display.context.CommandContextMenu;
+    import com.vango.testing.performance.viewer.run.vo.context.ContextMenuCommand;
+    import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeFolder;
+    import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeLeaf;
+    import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeNode;
+    import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeSource;
+    import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeTest;
 
     import flash.events.MouseEvent;
 
     import mx.binding.utils.BindingUtils;
     import mx.controls.CheckBox;
+    import mx.controls.Tree;
     import mx.controls.treeClasses.*;
 
     public class TestItemRenderer extends TreeItemRenderer
     {
-        public var chk:CheckBox;
-        public var itemData:AS3TreeNode;
-
-        [Bindable]
-        public var file:AS3File;
-
-        public function TestItemRenderer()
-        {
-            super();
-            mouseEnabled = false;
-        }
-
         override public function set data(value:Object):void
         {
             if (value != null)
@@ -31,25 +25,39 @@ package com.vango.testing.performance.viewer.run.display.tree
 
                 this.itemData = AS3TreeNode(value);
 
-                if(itemData.isTest)
+                if(itemData is AS3TreeLeaf)
                 {
+                    var leaf:AS3TreeLeaf = itemData as AS3TreeLeaf;
                     chk.visible = true;
-                    chk.selected = itemData.file.isSelected;
-                    BindingUtils.bindProperty(itemData.file, "isSelected", chk, "selected", false, true);
-                    BindingUtils.bindProperty(chk, "selected", itemData.file, "isSelected", false, true);
+                    chk.selected = leaf.isSelected;
+                    BindingUtils.bindProperty(leaf, "isSelected", chk, "selected", false, true);
+                    BindingUtils.bindProperty(chk, "selected", leaf, "isSelected", false, true);
                 }
                 else
                 {
+                    var folder:AS3TreeFolder = itemData as AS3TreeFolder;
+                    contextMenu = null;
                     chk.visible = false;
                 }
+
+                buildContextMenu();
             }
+        }
+
+        public var chk:CheckBox;
+        public var itemData:AS3TreeNode;
+
+        public function TestItemRenderer()
+        {
+            super();
+            mouseEnabled = false;
+            addEventListener("contextMenu", onContextMenuOpen);
         }
 
         override protected function createChildren():void
         {
             super.createChildren();
             chk = new CheckBox();
-            chk.addEventListener(MouseEvent.CLICK, handleChkClick);
             addChild(chk);
         }
 
@@ -73,9 +81,16 @@ package com.vango.testing.performance.viewer.run.display.tree
                     //You HAVE to have the else case to set visible to true
                     //even though you'd think the default would be visible
                     //it's an issue with itemrenderers...
-                    if(itemData && itemData.isTest)
+                    if(itemData)
                     {
-                        this.chk.visible = true;
+                        if(itemData is AS3TreeLeaf)
+                        {
+                            this.chk.visible = true;
+                        }
+                        else
+                        {
+                            this.chk.visible = false;
+                        }
                     }
                     else
                     {
@@ -93,9 +108,129 @@ package com.vango.testing.performance.viewer.run.display.tree
             }
         }
 
-        private function handleChkClick(evt:MouseEvent):void
+        private function onContextMenuOpen(event:MouseEvent):void
         {
-            itemData.file.isSelected = chk.selected;
+            // select the item
+            if(listData)
+            {
+                (listData.owner as Tree).selectedItem = data;
+            }
+        }
+
+        private function buildContextMenu():void
+        {
+            var contextMenu:CommandContextMenu = new CommandContextMenu();
+            if(data is AS3TreeLeaf)
+            {
+                if(data is AS3TreeSource)
+                {
+                    contextMenu.addCommandMenuItem("Include test", new ContextMenuCommand(updateItemSelection, true, isTest));
+                    contextMenu.addCommandMenuItem("Exclude test", new ContextMenuCommand(updateItemSelection, false, isTest));
+                }
+                else
+                {
+                    contextMenu.addCommandMenuItem("Include source", new ContextMenuCommand(updateItemSelection, true, isSource));
+                    contextMenu.addCommandMenuItem("Exclude source", new ContextMenuCommand(updateItemSelection, false, isSource));
+                }
+            }
+            else
+            {
+                var testMenu:CommandContextMenu = new CommandContextMenu();
+                var sourceMenu:CommandContextMenu = new CommandContextMenu();
+                contextMenu.addSubmenu(testMenu, "Tests");
+                contextMenu.addSubmenu(sourceMenu, "Sources");
+
+                var folder:AS3TreeFolder = data as AS3TreeFolder;
+                if(folder.containsTest && folder.containsSource)
+                {
+                    contextMenu.addCommandMenuItem("Include all", new ContextMenuCommand(updateChildItemSelections, true, null));
+                    contextMenu.addCommandMenuItem("Exclude all", new ContextMenuCommand(updateChildItemSelections, false, null));
+                }
+                if(folder.containsTest)
+                {
+                    testMenu.addCommandMenuItem("Include all", new ContextMenuCommand(updateChildItemSelections, true, isTest));
+                    testMenu.addCommandMenuItem("Exclude all", new ContextMenuCommand(updateChildItemSelections, false, isTest));
+                }
+                if(folder.containsSource)
+                {
+                    sourceMenu.addCommandMenuItem("Include all", new ContextMenuCommand(updateChildItemSelections, true, isSource));
+                    sourceMenu.addCommandMenuItem("Exclude all", new ContextMenuCommand(updateChildItemSelections, false, isSource));
+                }
+            }
+
+            this.contextMenu = contextMenu;
+        }
+
+        /**
+         * Selects the item
+         */
+        private function updateItemSelection(isSelected:Boolean, filter:Function):void
+        {
+            if(itemData)
+            {
+                var leaf:AS3TreeLeaf = itemData as AS3TreeLeaf;
+                if(filter != null)
+                {
+                    if(filter(itemData))
+                    {
+                        leaf.isSelected = isSelected;
+                    }
+                }
+                else
+                {
+                    leaf.isSelected = isSelected;
+                }
+            }
+        }
+
+        /**
+         * Selects the item
+         */
+        private function updateChildItemSelections(isSelected:Boolean, filter:Function):void
+        {
+            if(itemData)
+            {
+                setChildSelections(itemData, isSelected, filter);
+            }
+        }
+
+        private function setChildSelections(itemData:AS3TreeNode, isSelected:Boolean, filter:Function):void
+        {
+            if(itemData is AS3TreeFolder)
+            {
+                var folder:AS3TreeFolder = itemData as AS3TreeFolder;
+                var l:int = folder.children.length;
+                for(var i:int = 0; i < l; i++)
+                {
+                    var child:AS3TreeNode = folder.children.getItemAt(i) as AS3TreeNode;
+                    setChildSelections(child, isSelected, filter);
+                }
+            }
+            else
+            {
+                var leaf:AS3TreeLeaf = itemData as AS3TreeLeaf;
+                if(filter != null)
+                {
+                    if(filter(itemData))
+                    {
+                        leaf.isSelected = isSelected;
+                    }
+                }
+                else
+                {
+                    leaf.isSelected = isSelected;
+                }
+            }
+        }
+
+        private function isTest(node:AS3TreeLeaf):Boolean
+        {
+            return node is AS3TreeTest;
+        }
+
+        private function isSource(node:AS3TreeLeaf):Boolean
+        {
+            return node is AS3TreeSource;
         }
     }
 }
