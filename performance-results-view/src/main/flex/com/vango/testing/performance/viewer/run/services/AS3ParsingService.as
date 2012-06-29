@@ -162,6 +162,7 @@ package com.vango.testing.performance.viewer.run.services
             leafNode = fileIsTestFile(location) ? new AS3TreeTest() : new AS3TreeSource() ;
             leafNode.nativeLocation = location;
             leafNode.name = location.name;
+            leafNode.className = location.name.substring(0,location.name.length - location.extension.length - 1);
             leafNode.packageName = getFilePackage(fileContents);
             // now extract the package directory and calculate the root for the file
             var packageDirectory:String = getPackageDirectory(leafNode.packageName);
@@ -335,6 +336,10 @@ package com.vango.testing.performance.viewer.run.services
          */
         private function onFileOpened(event:Event):void
         {
+            if(!isParsing)
+            {
+                return;
+            }
             // now parse the current file in the stream
             parseCurrentFile();
             // now parse the next file in the list

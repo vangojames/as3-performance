@@ -11,6 +11,7 @@ package com.vango.testing.performance.viewer.run.mediator
     import com.vango.testing.performance.viewer.run.signals.IncludeSourceSignal;
     import com.vango.testing.performance.viewer.run.signals.IncludeSwcSignal;
     import com.vango.testing.performance.viewer.run.signals.RunDataUpdatedSignal;
+    import com.vango.testing.performance.viewer.run.signals.RunTestsSignal;
     import com.vango.testing.performance.viewer.run.signals.TestDirectoryVerifiedSignal;
     import com.vango.testing.performance.viewer.run.signals.VerifyTestDirectorySignal;
 
@@ -37,6 +38,8 @@ package com.vango.testing.performance.viewer.run.mediator
         public var includeSourceSignal:IncludeSourceSignal;
         [Inject]
         public var includeSwcSignal:IncludeSwcSignal;
+        [Inject]
+        public var runTestsSignal:RunTestsSignal;
 
         override public function onRegister():void
         {
@@ -47,6 +50,7 @@ package com.vango.testing.performance.viewer.run.mediator
                     [new DirectoryBrowsingConfig(File.documentsDirectory, "Select source location", onSourceSelected)];
             runView.addSwcSignal.add(browseForFileSignal.dispatch).params =
                     [new FileBrowsingConfig(File.documentsDirectory, "Select swc location", [new FileFilter("swc", "*.swc")], onSwcSelected)];
+            runView.runTestSignal.add(runTestsSignal.dispatch);
             super.onRegister();
         }
 
@@ -57,6 +61,7 @@ package com.vango.testing.performance.viewer.run.mediator
             runDataUpdatedSignal.remove(runView.onRunDataUpdated);
             runView.addSourceSignal.remove(browseForDirectorySignal.dispatch);
             runView.addSwcSignal.remove(browseForFileSignal.dispatch);
+            runView.runTestSignal.remove(runTestsSignal.dispatch);
             super.onRemove();
         }
 

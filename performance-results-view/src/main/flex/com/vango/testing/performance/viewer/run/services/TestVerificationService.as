@@ -30,6 +30,18 @@ package com.vango.testing.performance.viewer.run.services
 
         public function verifyTestDirectory(fileEntry:FileEntry):void
         {
+            // stop any current processing
+            if(fileRetrievalService.isProcessing)
+            {
+                fileRetrievalService.stopProcessing();
+                trace("Stopped retrieval processing");
+            }
+            if(parsingService.isParsing)
+            {
+                parsingService.stopParsing();
+                trace("Stopped file parsing");
+            }
+
             result = new VerificationResult();
             result.target = fileEntry;
             currentDirectory = new File(fileEntry.path);
@@ -45,11 +57,6 @@ package com.vango.testing.performance.viewer.run.services
             }
             else
             {
-                if(fileRetrievalService.isProcessing)
-                {
-                    fileRetrievalService.stopProcessing();
-                    trace("Stopped retrieval processing");
-                }
                 fileRetrievalService.retrieveAllFiles(currentDirectory, onFilesRetrieved, asFileFilter);
             }
         }

@@ -11,5 +11,10 @@ package com.vango.testing.performance.viewer.run.vo.tree
         public var isSelected:Boolean = true;
         public var sourceRoot:File;
         public var packageName:String;
+        public var className:String;
+        public function get fullyQualifiedClassName():String
+        {
+            return packageName + "." + className;
+        }
     }
 }

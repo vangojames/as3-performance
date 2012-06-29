@@ -25,6 +25,10 @@ package com.vango.testing.performance.viewer.controls.display
             _selectedEntry = value;
             if(_selectedEntry != null)
             {
+                // update the access time as it has now been selected again
+                _selectedEntry.accessTime = (new Date()).time;
+                _selectedEntry.update();
+                // dispatch event
                 dispatchEvent(new FileSelectedEvent(FileSelectedEvent.SELECT, selectedEntry));
             }
         }

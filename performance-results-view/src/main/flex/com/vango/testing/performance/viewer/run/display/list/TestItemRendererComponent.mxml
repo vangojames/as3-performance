@@ -5,7 +5,8 @@
     <fx:Script><![CDATA[
         import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeLeaf;
 
-        private var leaf:AS3TreeLeaf;
+        [Bindable]
+        public var leaf:AS3TreeLeaf;
 
         override public function set data(value:Object):void
         {

@@ -38,6 +38,7 @@ package com.vango.testing.performance.viewer.run.display.run
         public const verifyTestSignal:Signal = new Signal(FileEntry);
         public const addSourceSignal:Signal = new Signal();
         public const addSwcSignal:Signal = new Signal();
+        public const runTestSignal:Signal = new Signal();
 
         protected function onTestSelected(event:FileSelectedEvent):void
         {
@@ -106,6 +107,7 @@ package com.vango.testing.performance.viewer.run.display.run
             if(verificationResult != null && verificationResult.success)
             {
                 currentState = "running"
+                runTestSignal.dispatch();
             }
             else
             {

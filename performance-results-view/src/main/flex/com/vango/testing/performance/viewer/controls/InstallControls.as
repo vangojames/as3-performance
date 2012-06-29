@@ -3,9 +3,7 @@
  */
 package com.vango.testing.performance.viewer.controls
 {
-    import com.vango.testing.performance.viewer.controls.commands.ControlID;
     import com.vango.testing.performance.viewer.controls.commands.ControlSelectedCommand;
-    import com.vango.testing.performance.viewer.controls.commands.RunTestsCommand;
     import com.vango.testing.performance.viewer.controls.display.FileSelector;
     import com.vango.testing.performance.viewer.controls.display.FileSelectorComponent;
     import com.vango.testing.performance.viewer.controls.display.FooterPanel;
@@ -18,16 +16,12 @@ package com.vango.testing.performance.viewer.controls
     import com.vango.testing.performance.viewer.controls.signals.ControlSelectedSignal;
     import com.vango.testing.performance.viewer.controls.signals.UpdateStatusSignal;
 
-    import org.robotlegs.mvcs.Command;
     import org.robotlegs.mvcs.SignalCommand;
 
     public class InstallControls extends SignalCommand
     {
         override public function execute():void
         {
-            // map services
-            injector.mapClass(Command, RunTestsCommand, ControlID.RUN.name);
-
             // map views
             mediatorMap.mapView(FileSelectorComponent, FileHistoryMediator, FileSelector);
             mediatorMap.mapView(TestRunnerComponent, TestRunnerMediator, TestRunner);
