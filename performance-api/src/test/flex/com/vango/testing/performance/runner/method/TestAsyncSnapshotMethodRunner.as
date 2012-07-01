@@ -47,7 +47,7 @@ package com.vango.testing.performance.runner.method
                     _config.parse(method);
                 }
             }
-            _runner = new AsyncSnapshotMethodRunner();
+            _runner = new AsyncSnapshotMethodRunner(null);
         }
 
         [After]

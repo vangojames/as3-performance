@@ -7,6 +7,7 @@ package com.vango.testing.performance.runner
     import com.vango.testing.performance.meta.performance_meta;
 
     import flash.utils.Dictionary;
+    import flash.utils.getQualifiedClassName;
 
     use namespace performance_meta;
 
@@ -81,6 +82,11 @@ package com.vango.testing.performance.runner
             {
                 return _phaseMethods[phase];
             }
+        }
+
+        public function toString():String
+        {
+            return "RunConfiguration{_testClass=" + getQualifiedClassName(_testClass) + ",_beforeMethods=" + _beforeMethods.length + ",_testMethods=" + _testMethods.length + ",_afterMethods=" + _afterMethods.length + "}";
         }
 
         /**

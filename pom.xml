@@ -51,6 +51,13 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
+                <groupId>org.as3commons</groupId>
+                <artifactId>as3commons-reflect</artifactId>
+                <version>1.6.0</version>
+                <scope>compile</scope>
+                <type>swc</type>
+            </dependency>
+            <dependency>
                 <groupId>com.adobe.flexunit</groupId>
                 <artifactId>flexunit</artifactId>
                 <version>4.1.0-RC1.61</version>

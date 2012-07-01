@@ -42,7 +42,7 @@ package com.vango.testing.performance.runner.method
                     _config.parse(method);
                 }
             }
-            _runner = new SnapshotMethodRunner();
+            _runner = new SnapshotMethodRunner(null);
         }
 
         [After]

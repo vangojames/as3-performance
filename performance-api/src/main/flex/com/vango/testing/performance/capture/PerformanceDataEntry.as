@@ -12,7 +12,7 @@ package com.vango.testing.performance.capture
         public var time:int;
         public var memory:int;
 
-        public function PerformanceDataEntry(time:int, memory:int)
+        public function PerformanceDataEntry(time:int = 0, memory:int = 0)
         {
             this.time = time;
             this.memory = memory;

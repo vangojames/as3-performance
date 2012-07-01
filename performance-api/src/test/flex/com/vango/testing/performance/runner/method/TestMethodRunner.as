@@ -35,7 +35,7 @@ package com.vango.testing.performance.runner.method
                     _config.parse(method);
                 }
             }
-            _runner = new MethodRunner();
+            _runner = new MethodRunner(null);
         }
 
         [Test]

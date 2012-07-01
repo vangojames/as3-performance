@@ -15,32 +15,27 @@ package com.vango.testing.performance.capture
 
     public class PerformanceTestSet
     {
+        /**
+         * The name of the test set
+         */
         public var name:String;
 
         /**
          * All entries in the test
          */
-        public function get entries():Dictionary
-        {
-            return _entries;
-        }
-        private var _entries:Dictionary = new Dictionary();
+        public var entries:Dictionary = new Dictionary();
 
         /**
          * The different test headings
          */
-        public function get headings():Array
-        {
-            return _headings;
-        }
-        private var _headings:Array = [];
+        public var headings:Array = [];
 
         /**
          * Constructor
          *
          * @param name The name of the set of results
          */
-        public function PerformanceTestSet(name:String)
+        public function PerformanceTestSet(name:String = "")
         {
             this.name = name;
         }
@@ -54,13 +49,13 @@ package com.vango.testing.performance.capture
         {
             var m:int = memory < 0 ? System.totalMemory : memory;
             var t:int = time < 0 ? getTimer() : time;
-            if (_entries[testSet] == null)
+            if (entries[testSet] == null)
             {
-                _entries[testSet] = [];
-                _headings.push(testSet);
+                entries[testSet] = [];
+                headings.push(testSet);
             }
             var snapshotData:PerformanceDataEntry = new PerformanceDataEntry(t, m);
-            _entries[testSet].push(snapshotData);
+            entries[testSet].push(snapshotData);
             return snapshotData;
         }
 
@@ -72,7 +67,7 @@ package com.vango.testing.performance.capture
          */
         public function retrieveSnapshotsByKey(key:String):Array
         {
-            return _entries[key];
+            return entries[key];
         }
 
         /**
@@ -83,10 +78,10 @@ package com.vango.testing.performance.capture
          */
         public function removeSnapshotsByKey(key:String):Boolean
         {
-            if (_entries[key])
+            if (entries[key])
             {
-                delete _entries[key];
-                _headings.splice(_headings.indexOf(key), 1);
+                delete entries[key];
+                headings.splice(headings.indexOf(key), 1);
                 return true;
             }
             return false;
@@ -97,8 +92,8 @@ package com.vango.testing.performance.capture
          */
         public function removeAll():void
         {
-            _entries = new Dictionary();
-            _headings = [];
+            entries = new Dictionary();
+            headings = [];
         }
 
         /**
@@ -108,7 +103,7 @@ package com.vango.testing.performance.capture
         public function createPerformanceCSV(includeHeader:Boolean):String
         {
             var csv:CSV = new CSV(includeHeader, extractPerformanceEntry);
-            return csv.generate(_entries, _headings);
+            return csv.generate(entries, headings);
 
             // used to extract memory data from each value in the array
             function extractPerformanceEntry(data:PerformanceDataEntry):String
@@ -124,7 +119,7 @@ package com.vango.testing.performance.capture
         public function createMemoryCSV(includeHeader:Boolean):String
         {
             var csv:CSV = new CSV(includeHeader, extractMemoryEntry);
-            return csv.generate(_entries, _headings);
+            return csv.generate(entries, headings);
 
             // used to extract memoy data from each value in the array
             function extractMemoryEntry(data:PerformanceDataEntry):String

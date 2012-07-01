@@ -3,8 +3,6 @@
  */
 package com.vango.testing.performance.viewer.run.vo
 {
-    import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeFolder;
-
     import mx.collections.ArrayCollection;
 
     public class RunData

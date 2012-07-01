@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.vango.testing.performance.viewer.run.services
+package com.vango.testing.performance.viewer.run.services.retrieval
 {
     import com.vango.testing.performance.viewer.controls.signals.UpdateStatusSignal;
     import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeFolder;
@@ -159,7 +159,7 @@ package com.vango.testing.performance.viewer.run.services
         {
             // configure a leaf node for the file
             var leafNode:AS3TreeLeaf;
-            leafNode = fileIsTestFile(location) ? new AS3TreeTest() : new AS3TreeSource() ;
+            leafNode = fileIsTestFile(fileContents) ? new AS3TreeTest() : new AS3TreeSource() ;
             leafNode.nativeLocation = location;
             leafNode.name = location.name;
             leafNode.className = location.name.substring(0,location.name.length - location.extension.length - 1);
@@ -261,20 +261,9 @@ package com.vango.testing.performance.viewer.run.services
          * @param file The file to check
          * @return True if it is a test
          */
-        private function fileIsTestFile(file:File):Boolean
+        private function fileIsTestFile(fileContents:String):Boolean
         {
-            const AS_TEST_ID:String = "Test";
-            var name:String = file.name.split(".")[0];
-            var start:String = name.substr(0, AS_TEST_ID.length);
-            var end:String = name.substr(name.length - AS_TEST_ID.length);
-            if(start != "Test" && end != "Test")
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return fileContents.search(/\[Test]\s+?public\s+function/g) >= 0;
         }
 
         /**

@@ -13,6 +13,7 @@ package com.vango.testing.performance.runner.test
     import com.vango.testing.performance.runner.method.MethodRunnerMap;
     import com.vango.testing.performance.runner.method.SnapshotMethodRunner;
 
+    import flash.events.UncaughtErrorEvents;
     import flash.system.ApplicationDomain;
     import flash.utils.getQualifiedClassName;
 
@@ -21,13 +22,13 @@ package com.vango.testing.performance.runner.test
     public class PerformanceTestRunner
     {
         /**
-         * Dispatched on test completion
+         * Dispatched on test completion (also dispatches the number of test methods that were tested);
          */
         public function get onComplete():Signal
         {
             return _onComplete;
         }
-        private var _onComplete:Signal = new Signal();
+        private var _onComplete:Signal = new Signal(int, PerformanceTestSet, TestSetSummary);
 
         /**
          * Dispatched on test failure
@@ -41,6 +42,12 @@ package com.vango.testing.performance.runner.test
         private var _testParser:PerformanceTestParser = new PerformanceTestParser();
         private var _currentConfiguration:RunConfiguration;
         private var _testThread:TestingThread = new TestingThread();
+        private var _uncaughtErrors:UncaughtErrorEvents;
+
+        public function PerformanceTestRunner(uncaughtErrors:UncaughtErrorEvents = null)
+        {
+            _uncaughtErrors = uncaughtErrors;
+        }
 
         /**
          * Runs all the test on test object
@@ -54,8 +61,16 @@ package com.vango.testing.performance.runner.test
             }
             // parse the test into a run configuration
             _currentConfiguration = _testParser.parse(clazz, ApplicationDomain.currentDomain);
-            // execute the test
-            execute(name, _currentConfiguration, count);
+            if(_currentConfiguration.testMethods.length == 0)
+            {
+                trace("WARNING : no tests were found");
+                _onComplete.dispatch(0);
+            }
+            else
+            {
+                // execute the test
+                execute(name, _currentConfiguration, count);
+            }
         }
 
         /**
@@ -65,7 +80,7 @@ package com.vango.testing.performance.runner.test
          */
         private function execute(name:String, runConfig:RunConfiguration, count:int):void
         {
-            var runnerMap:MethodRunnerMap = new MethodRunnerMap();
+            var runnerMap:MethodRunnerMap = new MethodRunnerMap(_uncaughtErrors);
             runnerMap.map(MethodConfiguration, MethodRunner);
             runnerMap.map(SnapshotMethodConfiguration, SnapshotMethodRunner);
             var threadContext:ThreadContext = new ThreadContext(count, 10, onThreadComplete, onThreadFailed, runnerMap);
@@ -88,7 +103,7 @@ package com.vango.testing.performance.runner.test
         {
             var summary:TestSetSummary = new TestSetSummary();
             summary.summarise(testSet);
-            _onComplete.dispatch();
+            _onComplete.dispatch(_currentConfiguration.testMethods.length, testSet, summary);
         }
     }
 }

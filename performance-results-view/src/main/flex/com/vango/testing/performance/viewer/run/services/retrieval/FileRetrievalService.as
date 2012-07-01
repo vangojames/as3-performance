@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.vango.testing.performance.viewer.run.services
+package com.vango.testing.performance.viewer.run.services.retrieval
 {
     import com.vango.testing.performance.viewer.controls.signals.UpdateStatusSignal;
 

@@ -5,6 +5,7 @@ package com.vango.testing.performance.runner.method
 {
     import com.vango.testing.performance.meta.configurations.IMethodConfiguration;
 
+    import flash.events.UncaughtErrorEvents;
     import flash.utils.Dictionary;
     import flash.utils.getQualifiedClassName;
 
@@ -16,6 +17,13 @@ package com.vango.testing.performance.runner.method
 
         private static const CONFIG_INTERFACE:String = getQualifiedClassName(IMethodConfiguration).replace("::", ".");
         private static const RUNNER_INTERFACE:String = getQualifiedClassName(IMethodRunner).replace("::", ".");
+
+        private var _uncaughtErrors:UncaughtErrorEvents;
+
+        public function MethodRunnerMap(uncaughtErrors:UncaughtErrorEvents)
+        {
+            _uncaughtErrors = uncaughtErrors;
+        }
 
         /**
          * Maps a run configuration type to a method runner type
@@ -61,7 +69,7 @@ package com.vango.testing.performance.runner.method
         public function getMethodRunner(configuration:Class):IMethodRunner
         {
             var clazz:Class = _runnerMap[configuration] as Class;
-            return new clazz() as IMethodRunner;
+            return new clazz(_uncaughtErrors) as IMethodRunner;
         }
     }
 }

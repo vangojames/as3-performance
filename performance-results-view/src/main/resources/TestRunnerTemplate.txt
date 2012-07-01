@@ -1,0 +1,102 @@
+package
+{
+    import flash.display.Sprite;
+    import flash.display.Stage;
+
+    import flash.utils.getDefinitionByName;
+    import flash.utils.getQualifiedClassName;
+    import flash.utils.describeType;
+
+    import flash.text.TextField;
+    import flash.events.Event;
+
+    import com.vango.testing.performance.capture.PerformanceTestSet;
+    import com.vango.testing.performance.reporting.analysis.TestSetSummary;
+    import com.vango.testing.performance.runner.test.HarnessedPerformanceTestRunner;
+
+    public class ${template.className} extends Sprite
+    {
+        public var _compiledTests:${template.compiledTests} = new ${template.compiledTests}();
+        private var _console:TextField;
+        private var _runner:HarnessedPerformanceTestRunner;
+
+        private var _queuedTests:Vector.<Class>;
+
+        public function ${template.className}()
+        {
+            if(stage)
+            {
+                onAddedToStage(null);
+            }
+            else
+            {
+                addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+            }
+        }
+
+        private function onAddedToStage(event:Event):void
+        {
+            _console = new TextField();
+            _console.width = stage.stageWidth;
+            _console.height = stage.stageHeight;
+            addChild(_console);
+
+            _queuedTests = new Vector.<Class>();
+            print("Included tests :");
+            var description:XML = describeType(_compiledTests);
+            for each(var variable:XML in description.variable)
+            {
+                // variable.@name + " : " + variable.@type + "\n";
+                var definition:Class = getDefinitionByName(variable.@type) as Class;
+                _queuedTests.push(definition);
+                print("* " + variable.@type);
+            }
+
+            print("Running tests");
+
+            _runner = new HarnessedPerformanceTestRunner("${template.connection}", stage.loaderInfo.uncaughtErrorEvents);
+            _runner.onComplete.add(onTestComplete);
+            _runner.onFail.add(onTestFail);
+
+            runNext();
+        }
+
+        private function runNext():void
+        {
+            if(_queuedTests.length)
+            {
+                var test:Class = _queuedTests.pop();
+                print("Running " + getQualifiedClassName(test));
+                _runner.run(test);
+            }
+            else
+            {
+                print("All tests are complete");
+                _runner.allComplete();
+            }
+        }
+
+        private function onTestComplete(testCount:int, testSet:PerformanceTestSet, summary:TestSetSummary):void
+        {
+            if(testCount == 0)
+            {
+                print("No tests found");
+            }
+            else
+            {
+                print("Test complete");
+            }
+            runNext();
+        }
+
+        private function onTestFail():void
+        {
+            print("ERROR - Test failed");
+        }
+
+        private function print(...arguments):void
+        {
+            _console.appendText("-   " + arguments.join(",") + "\n");
+        }
+    }
+}

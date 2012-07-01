@@ -43,7 +43,7 @@ package com.vango.testing.performance.runner.test
             _testingThread.onTestCreated = new Signal();
             _onCompleteSignal = new Signal();
             _onFailSignal = new Signal();
-            var map:MethodRunnerMap = new MethodRunnerMap();
+            var map:MethodRunnerMap = new MethodRunnerMap(null);
             map.map(MethodConfiguration, MethodRunner);
             map.map(SnapshotMethodConfiguration, SnapshotMethodRunner);
             _context = new ThreadContext(0, 30, _onCompleteSignal.dispatch, _onFailSignal.dispatch, map);

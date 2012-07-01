@@ -16,12 +16,55 @@
         <application.name>ResultsViewerMain</application.name>
         <keystore.file>${basedir}/src/main/resources/cert.p12</keystore.file>
         <keystore.password>password</keystore.password>
+        <resource.swc.directory>src/main/resources/requiredSwcs</resource.swc.directory>
     </properties>
 
     <build>
         <sourceDirectory>src/main/flex</sourceDirectory>
         <testSourceDirectory>src/test/flex</testSourceDirectory>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <inherited>false</inherited>
+
+                <executions>
+                    <!-- Fetch and unpack assets and resources -->
+                    <execution>
+                        <id>unpack-external-resources</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.vango</groupId>
+                                    <artifactId>performance-api</artifactId>
+                                    <version>${project.version}</version>
+                                    <type>swc</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${resource.swc.directory}</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.osflash.signals</groupId>
+                                    <artifactId>as3-signals</artifactId>
+                                    <type>swc</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${resource.swc.directory}</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.as3commons</groupId>
+                                    <artifactId>as3commons-reflect</artifactId>
+                                    <type>swc</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${resource.swc.directory}</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.sonatype.flexmojos</groupId>
                 <artifactId>flexmojos-maven-plugin</artifactId>
@@ -90,6 +133,13 @@
             <groupId>org.osflash.logger</groupId>
             <artifactId>as3-logger</artifactId>
             <version>0.4</version>
+            <type>swc</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>performance-api</artifactId>
+            <version>${project.version}</version>
             <type>swc</type>
             <scope>compile</scope>
         </dependency>

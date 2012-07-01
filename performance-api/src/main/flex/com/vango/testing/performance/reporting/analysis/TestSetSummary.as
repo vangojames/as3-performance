@@ -13,7 +13,7 @@ package com.vango.testing.performance.reporting.analysis
         public var meanTotalTime:Number;
         public var meanTotalMemory:Number;
 
-        private var _summaryData:Dictionary = new Dictionary();
+        public var summaryData:Dictionary = new Dictionary();
 
         /**
          * Summarises test daya for the specified test set
@@ -31,7 +31,7 @@ package com.vango.testing.performance.reporting.analysis
                 var fieldSummary:TestFieldSummary = new TestFieldSummary(testName);
                 var testEntries:Array = (testSet.entries[testName] as Array);
                 fieldSummary.summarise(testEntries);
-                _summaryData[testName] = fieldSummary;
+                summaryData[testName] = fieldSummary;
 
                 meanTotalTime += fieldSummary.meanTime;
                 meanTotalMemory += fieldSummary.meanMemory;

@@ -7,7 +7,7 @@ package com.vango.testing.performance.viewer.run.mediator
     import com.vango.testing.performance.viewer.io.signals.BrowseForFileSignal;
     import com.vango.testing.performance.viewer.io.vo.DirectoryBrowsingConfig;
     import com.vango.testing.performance.viewer.io.vo.FileBrowsingConfig;
-    import com.vango.testing.performance.viewer.run.display.run.RunView;
+    import com.vango.testing.performance.viewer.run.display.run.SetupView;
     import com.vango.testing.performance.viewer.run.signals.IncludeSourceSignal;
     import com.vango.testing.performance.viewer.run.signals.IncludeSwcSignal;
     import com.vango.testing.performance.viewer.run.signals.RunDataUpdatedSignal;
@@ -20,10 +20,10 @@ package com.vango.testing.performance.viewer.run.mediator
 
     import org.robotlegs.mvcs.Mediator;
 
-    public class RunViewMediator extends Mediator
+    public class SetupViewMediator extends Mediator
     {
         [Inject]
-        public var runView:RunView;
+        public var setupView:SetupView;
         [Inject]
         public var verifyTestSignal:VerifyTestDirectorySignal;
         [Inject]
@@ -43,25 +43,25 @@ package com.vango.testing.performance.viewer.run.mediator
 
         override public function onRegister():void
         {
-            runView.verifyTestSignal.add(verifyTestSignal.dispatch);
-            testDirectoryVerifiedSignal.add(runView.onTestVerified);
-            runDataUpdatedSignal.add(runView.onRunDataUpdated);
-            runView.addSourceSignal.add(browseForDirectorySignal.dispatch).params =
+            setupView.verifyTestSignal.add(verifyTestSignal.dispatch);
+            testDirectoryVerifiedSignal.add(setupView.onTestVerified);
+            runDataUpdatedSignal.add(setupView.onRunDataUpdated);
+            setupView.addSourceSignal.add(browseForDirectorySignal.dispatch).params =
                     [new DirectoryBrowsingConfig(File.documentsDirectory, "Select source location", onSourceSelected)];
-            runView.addSwcSignal.add(browseForFileSignal.dispatch).params =
+            setupView.addSwcSignal.add(browseForFileSignal.dispatch).params =
                     [new FileBrowsingConfig(File.documentsDirectory, "Select swc location", [new FileFilter("swc", "*.swc")], onSwcSelected)];
-            runView.runTestSignal.add(runTestsSignal.dispatch);
+            setupView.runTestSignal.add(runTestsSignal.dispatch);
             super.onRegister();
         }
 
         override public function onRemove():void
         {
-            runView.verifyTestSignal.remove(verifyTestSignal.dispatch);
-            testDirectoryVerifiedSignal.remove(runView.onTestVerified);
-            runDataUpdatedSignal.remove(runView.onRunDataUpdated);
-            runView.addSourceSignal.remove(browseForDirectorySignal.dispatch);
-            runView.addSwcSignal.remove(browseForFileSignal.dispatch);
-            runView.runTestSignal.remove(runTestsSignal.dispatch);
+            setupView.verifyTestSignal.remove(verifyTestSignal.dispatch);
+            testDirectoryVerifiedSignal.remove(setupView.onTestVerified);
+            runDataUpdatedSignal.remove(setupView.onRunDataUpdated);
+            setupView.addSourceSignal.remove(browseForDirectorySignal.dispatch);
+            setupView.addSwcSignal.remove(browseForFileSignal.dispatch);
+            setupView.runTestSignal.remove(runTestsSignal.dispatch);
             super.onRemove();
         }
 

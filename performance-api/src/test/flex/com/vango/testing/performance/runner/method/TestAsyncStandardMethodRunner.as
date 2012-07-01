@@ -35,7 +35,7 @@ package com.vango.testing.performance.runner.method
                     _config.parse(method);
                 }
             }
-            _runner = new AsyncMethodRunner();
+            _runner = new AsyncMethodRunner(null);
         }
 
         [Test(async)]

@@ -15,21 +15,21 @@ package com.vango.testing.performance.runner.method
         [Test(expects=ArgumentError)]
         public function whenMapped_givenWrongConfigType_anErrorIsThrown():void
         {
-            var map:MethodRunnerMap = new MethodRunnerMap();
+            var map:MethodRunnerMap = new MethodRunnerMap(null);
             map.map(Sprite, MethodRunner);
         }
 
         [Test(expects=ArgumentError)]
         public function whenMapped_givenWrongRunnerType_anErrorIsThrown():void
         {
-            var map:MethodRunnerMap = new MethodRunnerMap();
+            var map:MethodRunnerMap = new MethodRunnerMap(null);
             map.map(MethodConfiguration, Sprite);
         }
 
         [Test]
         public function whenMapped_givenCorrectType_mappingIsMaintained():void
         {
-            var map:MethodRunnerMap = new MethodRunnerMap();
+            var map:MethodRunnerMap = new MethodRunnerMap(null);
             map.map(MethodConfiguration, MethodRunner);
             var runner:IMethodRunner = map.getMethodRunner(MethodConfiguration);
             assertThat(runner, instanceOf(MethodRunner));
@@ -40,7 +40,7 @@ package com.vango.testing.performance.runner.method
         {
             try
             {
-                var map:MethodRunnerMap = new MethodRunnerMap();
+                var map:MethodRunnerMap = new MethodRunnerMap(null);
                 map.map(MethodConfiguration, MethodRunner);
                 map.unmap(MethodConfiguration);
             }

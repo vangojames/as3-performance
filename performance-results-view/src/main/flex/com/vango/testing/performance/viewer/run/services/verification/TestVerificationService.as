@@ -1,10 +1,12 @@
 /**
  *
  */
-package com.vango.testing.performance.viewer.run.services
+package com.vango.testing.performance.viewer.run.services.verification
 {
     import com.vango.testing.performance.viewer.data.vo.FileEntry;
     import com.vango.testing.performance.viewer.run.proxies.TestRunProxy;
+    import com.vango.testing.performance.viewer.run.services.retrieval.AS3ParsingService;
+    import com.vango.testing.performance.viewer.run.services.retrieval.FileRetrievalService;
     import com.vango.testing.performance.viewer.run.signals.TestDirectoryVerifiedSignal;
     import com.vango.testing.performance.viewer.run.vo.RunData;
     import com.vango.testing.performance.viewer.run.vo.VerificationResult;

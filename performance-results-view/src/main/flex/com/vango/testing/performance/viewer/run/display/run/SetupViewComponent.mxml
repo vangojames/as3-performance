@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<display:SetupView xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+                   xmlns:mx="library://ns.adobe.com/flex/mx"
+                   xmlns:display="com.vango.testing.performance.viewer.run.display.run.*"
+                   xmlns:display2="com.vango.testing.performance.viewer.controls.display.*">
+    <display:states>
+        <s:State name="unverified"/>
+        <s:State name="verified"/>
+        <s:State name="running"/>
+    </display:states>
+
+    <display:layout>
+        <s:VerticalLayout paddingLeft="10" paddingRight="10" paddingTop="10" paddingBottom="10"/>
+    </display:layout>
+
+    <s:Label text="Test Root" fontWeight="bold" fontSize="14"/>
+    <display2:FileSelectorComponent id="fileSelector" browseWindowTitle="Select Test Directory" ref="testDirectory"
+                                    select="onTestSelected(event)" width="100%"/>
+    <s:VGroup visible.running="false" visible.unverified="false" visible.verified="true" width="100%" height="100%"
+              paddingTop="10">
+        <mx:VDividedBox width="100%" height="100%">
+            <mx:HDividedBox width="100%" height="100%">
+                <s:VGroup width="50%" height="100%">
+                    <s:Label text="Source Tree" fontWeight="bold" fontSize="14"/>
+                    <mx:Tree id="sourceTreeRenderer" dataProvider="{sourceTree}" labelField="name" width="100%" height="100%"
+                             itemRenderer="{treeRendererFactory}" useRollOver="false" change="{onTreeItemSelected(event)}"/>
+                </s:VGroup>
+                <s:VGroup width="50%" height="100%">
+                    <s:Label text="Included Sources" fontWeight="bold" fontSize="14"/>
+                    <s:List id="sourceSelector" width="100%" height="100%" dataProvider="{sourceList}"
+                            labelField="relativeName" itemRenderer="{listRendererFactory}"
+                            change="{onSourceListItemSelected(event)}"/>
+                    <s:Label text="Selected Tests" fontWeight="bold" fontSize="14"/>
+                    <s:List id="testSelector" width="100%" height="100%" dataProvider="{testList}"
+                            labelField="relativeName" itemRenderer="{listRendererFactory}"
+                            change="{onTestListItemSelected(event)}"/>
+                </s:VGroup>
+            </mx:HDividedBox>
+            <s:VGroup width="100%" height="100%">
+                <s:Label text="External Sources" fontWeight="bold" fontSize="14"/>
+                <s:Button id="addExternalSourceButton" label="Add source" click="{addSourceClick(event);}"/>
+                <s:List width="100%" height="100%" dataProvider="{externalSourcesList}" itemRenderer="{sourceListRendererFactory}"/>
+                <s:Button id="addExternalSwcButton" label="Add swc" click="{addSourceClick(event);}"/>
+                <s:List width="100%" height="100%" dataProvider="{externalSwcsList}"
+                        itemRenderer="{sourceListRendererFactory}"/>
+            </s:VGroup>
+        </mx:VDividedBox>
+        <s:Button label.verified="Execute Tests" label.running="Wait..."
+                  enabled.running="false" visible.unverified="false" visible.verified="true" click="runTests(event);"/>
+    </s:VGroup>
+
+    <fx:Script><![CDATA[
+        import com.vango.testing.performance.viewer.run.display.list.SourceListItemRendererFactory;
+        import com.vango.testing.performance.viewer.run.display.list.TestListItemRendererFactory;
+        import com.vango.testing.performance.viewer.run.display.tree.TestTreeItemRendererFactory;
+        import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeNode;
+        import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeSource;
+        import com.vango.testing.performance.viewer.run.vo.tree.AS3TreeTest;
+
+        import mx.events.ListEvent;
+
+        import spark.events.IndexChangeEvent;
+
+        private var treeRendererFactory:TestTreeItemRendererFactory = new TestTreeItemRendererFactory();
+        private var listRendererFactory:TestListItemRendererFactory = new TestListItemRendererFactory();
+        private var sourceListRendererFactory:SourceListItemRendererFactory = new SourceListItemRendererFactory();
+
+        /**
+         * Handles a list item being selected
+         */
+        private function onTestListItemSelected(event:IndexChangeEvent):void
+        {
+            sourceSelector.selectedItem = null;
+            expandParents(testSelector.selectedItem);
+            sourceTreeRenderer.selectedItem = testSelector.selectedItem;
+            var idx:int = sourceTreeRenderer.getItemIndex(testSelector.selectedItem);
+            sourceTreeRenderer.scrollToIndex(idx);
+        }
+
+        /**
+         * Handles a list item being selected
+         */
+        private function onSourceListItemSelected(event:IndexChangeEvent):void
+        {
+            testSelector.selectedItem = null;
+            expandParents(sourceSelector.selectedItem);
+            sourceTreeRenderer.selectedItem = sourceSelector.selectedItem;
+            var idx:int = sourceTreeRenderer.getItemIndex(sourceSelector.selectedItem);
+            sourceTreeRenderer.scrollToIndex(idx);
+        }
+
+        private function onTreeItemSelected(event:ListEvent):void
+        {
+            if (sourceTreeRenderer.selectedItem is AS3TreeTest)
+            {
+                testSelector.selectedItem = sourceTreeRenderer.selectedItem;
+                testSelector.ensureIndexIsVisible(testSelector.dataProvider.getItemIndex(testSelector.selectedItem));
+            }
+            else if (sourceTreeRenderer.selectedItem is AS3TreeSource)
+            {
+                sourceSelector.selectedItem = sourceTreeRenderer.selectedItem;
+                sourceSelector.ensureIndexIsVisible(sourceSelector.dataProvider.getItemIndex(sourceSelector.selectedItem));
+            }
+        }
+
+        /**
+         * Expands all the elements of a tree item
+         */
+        private function expandParents(node:AS3TreeNode):void
+        {
+            if (node)
+            {
+                if (!sourceTreeRenderer.isItemOpen(node))
+                {
+                    sourceTreeRenderer.expandItem(node, true);
+                }
+                expandParents(node.parent);
+            }
+        }
+
+        private function addSourceClick(event:MouseEvent):void
+        {
+            switch (event.currentTarget)
+            {
+                case addExternalSourceButton:
+                    addSource();
+                    break;
+                case addExternalSwcButton:
+                    addSwc();
+                    break;
+            }
+        }
+        ]]></fx:Script>
+</display:SetupView>

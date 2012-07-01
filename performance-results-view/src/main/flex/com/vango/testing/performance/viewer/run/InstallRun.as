@@ -7,15 +7,16 @@ package com.vango.testing.performance.viewer.run
     import com.vango.testing.performance.viewer.run.commands.IncludeSwcCommand;
     import com.vango.testing.performance.viewer.run.commands.RunTestsCommand;
     import com.vango.testing.performance.viewer.run.commands.VerifyTestDirectoryCommand;
-    import com.vango.testing.performance.viewer.run.display.run.RunView;
-    import com.vango.testing.performance.viewer.run.display.run.RunViewComponent;
-    import com.vango.testing.performance.viewer.run.mediator.RunViewMediator;
+    import com.vango.testing.performance.viewer.run.display.run.SetupView;
+    import com.vango.testing.performance.viewer.run.display.run.SetupViewComponent;
+    import com.vango.testing.performance.viewer.run.mediator.SetupViewMediator;
     import com.vango.testing.performance.viewer.run.proxies.TestRunProxy;
-    import com.vango.testing.performance.viewer.run.services.AS3CompilerService;
-    import com.vango.testing.performance.viewer.run.services.AS3ParsingService;
-    import com.vango.testing.performance.viewer.run.services.FileRetrievalService;
-    import com.vango.testing.performance.viewer.run.services.TestVerificationService;
+    import com.vango.testing.performance.viewer.run.services.compilation.AS3CompilerService;
+    import com.vango.testing.performance.viewer.run.services.retrieval.AS3ParsingService;
+    import com.vango.testing.performance.viewer.run.services.retrieval.FileRetrievalService;
+    import com.vango.testing.performance.viewer.run.services.running.AS3RunningService;
     import com.vango.testing.performance.viewer.run.services.template.TestTemplateService;
+    import com.vango.testing.performance.viewer.run.services.verification.TestVerificationService;
     import com.vango.testing.performance.viewer.run.signals.IncludeSourceSignal;
     import com.vango.testing.performance.viewer.run.signals.IncludeSwcSignal;
     import com.vango.testing.performance.viewer.run.signals.RunDataUpdatedSignal;
@@ -34,6 +35,7 @@ package com.vango.testing.performance.viewer.run
             injector.mapSingleton(AS3ParsingService);
             injector.mapSingleton(AS3CompilerService);
             injector.mapSingleton(TestTemplateService);
+            injector.mapSingleton(AS3RunningService);
 
             injector.mapSingleton(TestRunProxy);
 
@@ -45,7 +47,7 @@ package com.vango.testing.performance.viewer.run
             injector.mapSingleton(TestDirectoryVerifiedSignal);
             injector.mapSingleton(RunDataUpdatedSignal);
 
-            mediatorMap.mapView(RunViewComponent, RunViewMediator, RunView);
+            mediatorMap.mapView(SetupViewComponent, SetupViewMediator, SetupView);
         }
     }
 }

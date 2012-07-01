@@ -56,5 +56,4 @@
             <s:Label text="COMPARE"/>
         </s:NavigatorContent>
     </mx:ViewStack>
-    <display:FooterPanelComponent id="footerPanel" status="hello" width="100%"/>
 </local:ResultsViewer>
